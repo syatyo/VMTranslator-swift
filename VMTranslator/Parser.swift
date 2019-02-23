@@ -88,4 +88,15 @@ struct Parser {
         return vmCommand!
     }
     
+    var arg1: String {
+        precondition(commandType != .return)
+        
+        let components = currentCommand.components(separatedBy: " ")
+        if commandType == .arithmetic {
+            return components[0]
+        } else {
+            return components[1]
+        }
+    }
+    
 }
