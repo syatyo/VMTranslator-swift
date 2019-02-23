@@ -1,0 +1,24 @@
+// arithmetic
+add
+sub
+neg
+eq
+gt
+lt
+and
+or
+not
+
+// memory access
+push constant 0
+pop local 0
+        
+// program flow
+label LOOP
+goto LOOP
+if-goto END
+        
+// function call
+function testFunction 2
+call testFunction 3
+return
