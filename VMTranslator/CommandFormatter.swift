@@ -15,7 +15,9 @@ final class CommandFormatter {
     private var lines: [String]
     
     init(source: String) {
-        self.lines = source.components(separatedBy: "\n")
+        self.lines = source
+            .replacingOccurrences(of: "\r", with: "")
+            .components(separatedBy: "\n")
     }
     
     func removeComments() {
@@ -39,5 +41,6 @@ final class CommandFormatter {
                 return line
             }
         }
+        
     }
 }
