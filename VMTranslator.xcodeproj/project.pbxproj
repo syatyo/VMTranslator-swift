@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		188E18A022216E69006602D0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E189F22216E69006602D0 /* main.swift */; };
 		188E18AD22216FFA006602D0 /* VMTranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18AC22216FFA006602D0 /* VMTranslatorTests.swift */; };
+		188E18B822217453006602D0 /* CommandFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18B722217453006602D0 /* CommandFormatter.swift */; };
+		188E18BA2221748C006602D0 /* CommandFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18B92221748C006602D0 /* CommandFormatterTests.swift */; };
+		188E18BB2221749D006602D0 /* CommandFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18B722217453006602D0 /* CommandFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +32,8 @@
 		188E18AA22216FFA006602D0 /* VMTranslatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VMTranslatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		188E18AC22216FFA006602D0 /* VMTranslatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMTranslatorTests.swift; sourceTree = "<group>"; };
 		188E18AE22216FFA006602D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		188E18B722217453006602D0 /* CommandFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandFormatter.swift; sourceTree = "<group>"; };
+		188E18B92221748C006602D0 /* CommandFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandFormatterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				188E189F22216E69006602D0 /* main.swift */,
+				188E18B722217453006602D0 /* CommandFormatter.swift */,
 			);
 			path = VMTranslator;
 			sourceTree = "<group>";
@@ -79,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				188E18AC22216FFA006602D0 /* VMTranslatorTests.swift */,
+				188E18B92221748C006602D0 /* CommandFormatterTests.swift */,
 				188E18AE22216FFA006602D0 /* Info.plist */,
 			);
 			path = VMTranslatorTests;
@@ -172,6 +179,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				188E18B822217453006602D0 /* CommandFormatter.swift in Sources */,
 				188E18A022216E69006602D0 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,7 +188,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				188E18BA2221748C006602D0 /* CommandFormatterTests.swift in Sources */,
 				188E18AD22216FFA006602D0 /* VMTranslatorTests.swift in Sources */,
+				188E18BB2221749D006602D0 /* CommandFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
