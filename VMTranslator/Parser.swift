@@ -99,4 +99,16 @@ struct Parser {
         }
     }
     
+    var arg2: Int {
+        precondition(
+            commandType == .push ||
+            commandType == .pop ||
+            commandType == .function ||
+            commandType == .call
+        )
+        
+        let components = currentCommand.components(separatedBy: " ")
+        return Int(components[2])!
+    }
+
 }
