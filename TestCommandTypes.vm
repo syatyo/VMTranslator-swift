@@ -10,15 +10,15 @@ or
 not
 
 // memory access
-push segment index
-pop segment index
+push constant 0
+pop local 0
         
 // program flow
-label symbol
-goto symbol
-if-goto symbol
+label LOOP
+goto LOOP
+if-goto END
         
 // function call
-function functionName nLocals
-call functionName nArgs
+function testFunction 2
+call testFunction 3
 return
