@@ -32,6 +32,10 @@ final class CommandFormatter {
         }
         
     }
+    
+    func removeWhiteSpaces() {
+        lines = lines.map { $0.trimmingCharacters(in: .whitespaces) }
+    }
         
     func removeEmptyLine() {
         lines = lines.compactMap { line in
