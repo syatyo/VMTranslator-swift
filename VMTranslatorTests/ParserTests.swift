@@ -27,7 +27,7 @@ class ParserTests: XCTestCase {
     }
     
     func testCommandTypes() {
-        let path = testCommandTypesPath
+        let path = testCommandsPath
         var parser = Parser(vmFilePath: path)
         
         XCTAssertEqual(parser.commandType, .arithmetic)
