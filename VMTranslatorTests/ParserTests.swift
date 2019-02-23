@@ -67,4 +67,45 @@ class ParserTests: XCTestCase {
         parser.advance()
         XCTAssertEqual(parser.commandType, .return)
     }
+    
+    func testArg1() {
+        let path = testCommandsPath
+        var parser = Parser(vmFilePath: path)
+        
+        XCTAssertEqual(parser.arg1, "add")
+        parser.advance()
+        XCTAssertEqual(parser.arg1, "sub")
+        parser.advance()
+        XCTAssertEqual(parser.arg1, "neg")
+        parser.advance()
+        XCTAssertEqual(parser.arg1, "eq")
+        parser.advance()
+        XCTAssertEqual(parser.arg1, "gt")
+        parser.advance()
+        XCTAssertEqual(parser.arg1, "lt")
+        parser.advance()
+        XCTAssertEqual(parser.arg1, "and")
+        parser.advance()
+        XCTAssertEqual(parser.arg1, "or")
+        parser.advance()
+        XCTAssertEqual(parser.arg1, "not")
+        
+        parser.advance()
+        XCTAssertEqual(parser.arg1, "constant")
+        parser.advance()
+        XCTAssertEqual(parser.arg1, "local")
+        
+        parser.advance()
+        XCTAssertEqual(parser.arg1, "LOOP")
+        parser.advance()
+        XCTAssertEqual(parser.arg1, "LOOP")
+        parser.advance()
+        XCTAssertEqual(parser.arg1, "END")
+        
+        parser.advance()
+        XCTAssertEqual(parser.arg1, "testFunction")
+        parser.advance()
+        XCTAssertEqual(parser.arg1, "testFunction")
+
+    }
 }
