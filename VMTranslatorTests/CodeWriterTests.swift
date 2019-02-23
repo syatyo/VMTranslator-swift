@@ -8,7 +8,7 @@
 
 import XCTest
 
-class CodeWriter: XCTestCase {
+class CodeWriterTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -20,7 +20,7 @@ class CodeWriter: XCTestCase {
     
     func testSetFileName() {
         let outputDirPath = "/Users/user/Documents/GitHub/VMTranslator-swift/"
-        let codeWriter = CodeWriter(outputDirPath: outputDirPath)
+        var codeWriter = CodeWriter(outputDirPath: outputDirPath)
         codeWriter.setFileName("test.asm")
         XCTAssertEqual(codeWriter.outputFilePath, "/Users/user/Documents/GitHub/VMTranslator-swift/test.asm")
     }

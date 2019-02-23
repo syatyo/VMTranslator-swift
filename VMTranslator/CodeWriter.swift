@@ -7,3 +7,22 @@
 //
 
 import Foundation
+
+struct CodeWriter {
+    let outputDirPath: String
+    private var fileName: String?
+    
+    init(outputDirPath: String) {
+        self.outputDirPath = outputDirPath
+    }
+    
+    mutating func setFileName(_ fileName: String) {
+        self.fileName = fileName
+    }
+    
+    var outputFilePath: String? {
+        guard let fileName = self.fileName else { return nil }
+        return outputDirPath + fileName
+    }
+    
+}
