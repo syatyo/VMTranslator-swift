@@ -25,4 +25,14 @@ class CodeWriterTests: XCTestCase {
         XCTAssertEqual(codeWriter.outputFilePath, "/Users/user/Documents/GitHub/VMTranslator-swift/test.asm")
     }
     
+    func testClose() {
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("testClose.asm")
+        try! codeWriter.close()
+        
+        let isFileSaved = FileManager.default.fileExists(atPath: testOutputDirPath + "testClose.asm")
+        XCTAssertTrue(isFileSaved)
+        try! FileManager.default.removeItem(atPath: testOutputDirPath + "testClose.asm")
+    }
+
 }
