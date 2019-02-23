@@ -1,0 +1,24 @@
+// arithmetic
+add
+sub
+neg
+eq
+gt
+lt
+and
+or
+not
+
+// memory access
+push segment index
+pop segment index
+        
+// program flow
+label symbol
+goto symbol
+if-goto symbol
+        
+// function call
+function functionName nLocals
+call functionName nArgs
+return

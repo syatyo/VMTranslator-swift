@@ -19,11 +19,52 @@ class ParserTests: XCTestCase {
     }
 
     func testParserInit() {
-        let path = testFilePath // from Secret.swift
+        let path = simpleAddPath // from Secret.swift
         let parser = Parser(vmFilePath: path)
         XCTAssertEqual(parser.commands[0], "push constant 7")
         XCTAssertEqual(parser.commands[1], "push constant 8")
         XCTAssertEqual(parser.commands[2], "add")
     }
+    
+    func testCommandTypes() {
+        let path = testCommandTypesPath
+        var parser = Parser(vmFilePath: path)
+        
+        XCTAssertEqual(parser.commandType, .arithmetic)
+        parser.advance()
+        XCTAssertEqual(parser.commandType, .arithmetic)
+        parser.advance()
+        XCTAssertEqual(parser.commandType, .arithmetic)
+        parser.advance()
+        XCTAssertEqual(parser.commandType, .arithmetic)
+        parser.advance()
+        XCTAssertEqual(parser.commandType, .arithmetic)
+        parser.advance()
+        XCTAssertEqual(parser.commandType, .arithmetic)
+        parser.advance()
+        XCTAssertEqual(parser.commandType, .arithmetic)
+        parser.advance()
+        XCTAssertEqual(parser.commandType, .arithmetic)
+        parser.advance()
+        XCTAssertEqual(parser.commandType, .arithmetic)
+        
+        parser.advance()
+        XCTAssertEqual(parser.commandType, .push)
+        parser.advance()
+        XCTAssertEqual(parser.commandType, .pop)
 
+        parser.advance()
+        XCTAssertEqual(parser.commandType, .label)
+        parser.advance()
+        XCTAssertEqual(parser.commandType, .goto)
+        parser.advance()
+        XCTAssertEqual(parser.commandType, .if)
+        
+        parser.advance()
+        XCTAssertEqual(parser.commandType, .function)
+        parser.advance()
+        XCTAssertEqual(parser.commandType, .call)
+        parser.advance()
+        XCTAssertEqual(parser.commandType, .return)
+    }
 }
