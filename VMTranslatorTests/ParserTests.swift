@@ -108,4 +108,37 @@ class ParserTests: XCTestCase {
         XCTAssertEqual(parser.arg1, "testFunction")
 
     }
+    
+    func testArg2() {
+        let path = testCommandsPath
+        var parser = Parser(vmFilePath: path)
+        
+        // no second argment.
+        parser.advance()
+        parser.advance()
+        parser.advance()
+        parser.advance()
+        parser.advance()
+        parser.advance()
+        parser.advance()
+        parser.advance()
+        
+        parser.advance()
+        XCTAssertEqual(parser.arg2, 0)
+        parser.advance()
+        XCTAssertEqual(parser.arg2, 0)
+        
+        // no second argment.
+        parser.advance()
+        parser.advance()
+        parser.advance()
+        
+        parser.advance()
+        XCTAssertEqual(parser.arg2, 2)
+        parser.advance()
+        XCTAssertEqual(parser.arg2, 3)
+        
+    }
+
+    
 }
