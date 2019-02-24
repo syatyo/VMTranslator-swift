@@ -34,5 +34,24 @@ class CodeWriterTests: XCTestCase {
         XCTAssertTrue(isFileSaved)
         try! FileManager.default.removeItem(atPath: testOutputDirPath + "testClose.asm")
     }
-
+    
+    func testWritePush() {
+        let testCommand1 = "push constant 8"
+        let testCommand2 = "push constant 7"
+        
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("test.asm")
+        codeWriter.writePushPop(.push, segment: .constant, index: 8)
+        codeWriter.writePushPop(.push, segment: .constant, index: 7)
+        
+        let expectation = """
+        @256
+        A = 8
+        @257
+        A = 7
+        """
+        
+        XCTAssertEqual(codeWriter.assembly, expectation)
+    }
+    
 }
