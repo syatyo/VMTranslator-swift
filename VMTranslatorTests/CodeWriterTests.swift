@@ -36,19 +36,20 @@ class CodeWriterTests: XCTestCase {
     }
     
     func testWritePush() {
-        let testCommand1 = "push constant 8"
-        let testCommand2 = "push constant 7"
         
         var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
         codeWriter.setFileName("test.asm")
-        codeWriter.writePushPop(.push, segment: .constant, index: 8)
-        codeWriter.writePushPop(.push, segment: .constant, index: 7)
+        codeWriter.writePushPop(.push, segmentType: .constant, index: 8)
         
+        // We don't have to initialize segment memories. In this section, test script setup them.
         let expectation = """
-        @256
-        A = 8
-        @257
-        A = 7
+        @8
+        D=A
+        @SP
+        A=M
+        M=D
+        @SP
+        M=M+1
         """
         
         XCTAssertEqual(codeWriter.assembly, expectation)
