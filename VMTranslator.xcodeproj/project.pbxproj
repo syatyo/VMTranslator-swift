@@ -26,6 +26,7 @@
 		188E18CF22226A2C006602D0 /* SubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18CE22226A2C006602D0 /* SubTests.swift */; };
 		188E18D122226A4F006602D0 /* Sub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D022226A4F006602D0 /* Sub.swift */; };
 		188E18D222226A81006602D0 /* Sub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D022226A4F006602D0 /* Sub.swift */; };
+		188E18D422226AF8006602D0 /* StackPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D322226AF8006602D0 /* StackPointer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,6 +58,7 @@
 		188E18CB222254D7006602D0 /* AddTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTests.swift; sourceTree = "<group>"; };
 		188E18CE22226A2C006602D0 /* SubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTests.swift; sourceTree = "<group>"; };
 		188E18D022226A4F006602D0 /* Sub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sub.swift; sourceTree = "<group>"; };
+		188E18D322226AF8006602D0 /* StackPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackPointer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				188E18B722217453006602D0 /* CommandFormatter.swift */,
 				188E18C122219786006602D0 /* CodeWriter.swift */,
 				188E18BC2221790E006602D0 /* Secret.swift */,
+				188E18D322226AF8006602D0 /* StackPointer.swift */,
 				188E18C822225464006602D0 /* Arithmetic */,
 			);
 			path = VMTranslator;
@@ -223,6 +226,7 @@
 				188E18BD2221790E006602D0 /* Secret.swift in Sources */,
 				188E18B32221705D006602D0 /* Parser.swift in Sources */,
 				188E18CA222254C3006602D0 /* Add.swift in Sources */,
+				188E18D422226AF8006602D0 /* StackPointer.swift in Sources */,
 				188E18A022216E69006602D0 /* main.swift in Sources */,
 				188E18D122226A4F006602D0 /* Sub.swift in Sources */,
 				188E18C222219786006602D0 /* CodeWriter.swift in Sources */,
