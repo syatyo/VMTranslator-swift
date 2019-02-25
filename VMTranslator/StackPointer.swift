@@ -13,27 +13,25 @@ struct StackPointer {
     static let instruction = "@SP"
     
     func increment() -> String {
-        var lines: [String] = [StackPointer.instruction]
-        lines.append("M=M+1")
-        return lines.joined(separator: "\n")
+        return build(from: ["M=M+1"])
     }
     
     func decrement() -> String {
-        var lines: [String] = [StackPointer.instruction]
-        lines.append("M=M-1")
-        return lines.joined(separator: "\n")
+        return build(from: ["M=M-1"])
     }
     
-    func pointFirstArgument() -> String {
-        var lines: [String] = [StackPointer.instruction]
-        lines.append("A=M-1")
-        return lines.joined(separator: "\n")
+    func makeARegisterPointFirstArgument() -> String {
+        return build(from: ["A=M-1"])
     }
     
-    func pointSecondArgument() -> String {
+    func makeARegisterPointSecondArgument() -> String {
+        return build(from: ["A=M-1",
+                            "A=A-1"])
+    }
+    
+    private func build(from commands: [String]) -> String {
         var lines: [String] = [StackPointer.instruction]
-        lines.append("A=M-1")
-        lines.append("A=A-1")
+        lines.append(contentsOf: commands)
         return lines.joined(separator: "\n")
     }
     

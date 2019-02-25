@@ -28,6 +28,8 @@
 		188E18D222226A81006602D0 /* Sub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D022226A4F006602D0 /* Sub.swift */; };
 		188E18D422226AF8006602D0 /* StackPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D322226AF8006602D0 /* StackPointer.swift */; };
 		188E18D8222403DA006602D0 /* Negative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D7222403DA006602D0 /* Negative.swift */; };
+		188E18DE22240EBB006602D0 /* StackPointerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18DD22240EBB006602D0 /* StackPointerTests.swift */; };
+		188E18DF22240ECB006602D0 /* StackPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D322226AF8006602D0 /* StackPointer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +63,7 @@
 		188E18D022226A4F006602D0 /* Sub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sub.swift; sourceTree = "<group>"; };
 		188E18D322226AF8006602D0 /* StackPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackPointer.swift; sourceTree = "<group>"; };
 		188E18D7222403DA006602D0 /* Negative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Negative.swift; sourceTree = "<group>"; };
+		188E18DD22240EBB006602D0 /* StackPointerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackPointerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,7 @@
 				188E18BF2221976C006602D0 /* CodeWriterTests.swift */,
 				188E18CB222254D7006602D0 /* AddTests.swift */,
 				188E18CE22226A2C006602D0 /* SubTests.swift */,
+				188E18DD22240EBB006602D0 /* StackPointerTests.swift */,
 				188E18B92221748C006602D0 /* CommandFormatterTests.swift */,
 				188E18AE22216FFA006602D0 /* Info.plist */,
 			);
@@ -243,8 +247,10 @@
 			files = (
 				188E18C02221976C006602D0 /* CodeWriterTests.swift in Sources */,
 				188E18C522219B63006602D0 /* CodeWriter.swift in Sources */,
+				188E18DF22240ECB006602D0 /* StackPointer.swift in Sources */,
 				188E18D222226A81006602D0 /* Sub.swift in Sources */,
 				188E18C422219B60006602D0 /* Secret.swift in Sources */,
+				188E18DE22240EBB006602D0 /* StackPointerTests.swift in Sources */,
 				188E18CF22226A2C006602D0 /* SubTests.swift in Sources */,
 				188E18CD2222561C006602D0 /* Add.swift in Sources */,
 				188E18BA2221748C006602D0 /* CommandFormatterTests.swift in Sources */,
