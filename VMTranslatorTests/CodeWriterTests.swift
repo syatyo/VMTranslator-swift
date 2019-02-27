@@ -34,5 +34,25 @@ class CodeWriterTests: XCTestCase {
         XCTAssertTrue(isFileSaved)
         try! FileManager.default.removeItem(atPath: testOutputDirPath + "testClose.asm")
     }
-
+    
+    func testWritePush() {
+        
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("test.asm")
+        codeWriter.writePushPop(.push, segmentType: .constant, index: 8)
+        
+        // We don't have to initialize segment memories. In this section, test script setup them.
+        let expectation = """
+        @8
+        D=A
+        @SP
+        A=M
+        M=D
+        @SP
+        M=M+1
+        """
+        
+        XCTAssertEqual(codeWriter.assembly, expectation)
+    }
+    
 }
