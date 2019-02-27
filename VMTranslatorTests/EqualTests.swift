@@ -19,9 +19,25 @@ class EqualTests: XCTestCase {
     }
 
     func testExecute() {
-        let equal = Equal()
+        var equal = Equal()
         let result1 = equal.execute()
         let expectation1 = """
+        @SP
+        AM=M-1
+        D=M
+        A=A-1
+        D=M-D
+        M=0
+        @END_EQ0
+        D;JNE
+        @SP
+        A=M-1
+        M=-1
+        (END_EQ0)
+        """
+        
+        let result2 = equal.execute()
+        let expectation2 = """
         @SP
         AM=M-1
         D=M
@@ -34,22 +50,6 @@ class EqualTests: XCTestCase {
         A=M-1
         M=-1
         (END_EQ1)
-        """
-        
-        let result2 = equal.execute()
-        let expectation2 = """
-        @SP
-        AM=M-1
-        D=M
-        A=A-1
-        D=M-D
-        M=0
-        @END_EQ2
-        D;JNE
-        @SP
-        A=M-1
-        M=-1
-        (END_EQ2)
         """
         
         XCTAssertEqual(result1, expectation1)
