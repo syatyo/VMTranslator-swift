@@ -52,6 +52,8 @@
 		188E18FD2226CED9006602D0 /* Or.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18FC2226CED9006602D0 /* Or.swift */; };
 		188E18FE2226CF23006602D0 /* Or.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18FC2226CED9006602D0 /* Or.swift */; };
 		188E19002226D02D006602D0 /* NotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18FF2226D02D006602D0 /* NotTests.swift */; };
+		188E19022226D0C5006602D0 /* Not.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19012226D0C5006602D0 /* Not.swift */; };
+		188E19032226D0E7006602D0 /* Not.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19012226D0C5006602D0 /* Not.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -100,6 +102,7 @@
 		188E18FA2226CCD3006602D0 /* OrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrTests.swift; sourceTree = "<group>"; };
 		188E18FC2226CED9006602D0 /* Or.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Or.swift; sourceTree = "<group>"; };
 		188E18FF2226D02D006602D0 /* NotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotTests.swift; sourceTree = "<group>"; };
+		188E19012226D0C5006602D0 /* Not.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Not.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +190,7 @@
 				188E18F22226BEE5006602D0 /* Less.swift */,
 				188E18F72226C9D9006602D0 /* And.swift */,
 				188E18FC2226CED9006602D0 /* Or.swift */,
+				188E19012226D0C5006602D0 /* Not.swift */,
 			);
 			path = Arithmetic;
 			sourceTree = "<group>";
@@ -294,6 +298,7 @@
 				188E18F32226BEE5006602D0 /* Less.swift in Sources */,
 				188E18DA22240BE1006602D0 /* Assembly.swift in Sources */,
 				188E18EB2226B495006602D0 /* Greater.swift in Sources */,
+				188E19022226D0C5006602D0 /* Not.swift in Sources */,
 				188E18C222219786006602D0 /* CodeWriter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				188E18C02221976C006602D0 /* CodeWriterTests.swift in Sources */,
+				188E19032226D0E7006602D0 /* Not.swift in Sources */,
 				188E18E022240ECE006602D0 /* Assembly.swift in Sources */,
 				188E18C522219B63006602D0 /* CodeWriter.swift in Sources */,
 				188E18DF22240ECB006602D0 /* StackPointer.swift in Sources */,
