@@ -43,6 +43,8 @@
 		188E18EE2226B532006602D0 /* ConditionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18ED2226B532006602D0 /* ConditionCommand.swift */; };
 		188E18EF2226B88C006602D0 /* ConditionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18ED2226B532006602D0 /* ConditionCommand.swift */; };
 		188E18F12226BA99006602D0 /* LessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18F02226BA99006602D0 /* LessTests.swift */; };
+		188E18F32226BEE5006602D0 /* Less.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18F22226BEE5006602D0 /* Less.swift */; };
+		188E18F42226BF2F006602D0 /* Less.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18F22226BEE5006602D0 /* Less.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -85,6 +87,7 @@
 		188E18EA2226B495006602D0 /* Greater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Greater.swift; sourceTree = "<group>"; };
 		188E18ED2226B532006602D0 /* ConditionCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionCommand.swift; sourceTree = "<group>"; };
 		188E18F02226BA99006602D0 /* LessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessTests.swift; sourceTree = "<group>"; };
+		188E18F22226BEE5006602D0 /* Less.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Less.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +169,7 @@
 				188E18D7222403DA006602D0 /* Negative.swift */,
 				188E18DB22240CCB006602D0 /* Equal.swift */,
 				188E18EA2226B495006602D0 /* Greater.swift */,
+				188E18F22226BEE5006602D0 /* Less.swift */,
 			);
 			path = Arithmetic;
 			sourceTree = "<group>";
@@ -268,6 +272,7 @@
 				188E18D422226AF8006602D0 /* StackPointer.swift in Sources */,
 				188E18A022216E69006602D0 /* main.swift in Sources */,
 				188E18D122226A4F006602D0 /* Sub.swift in Sources */,
+				188E18F32226BEE5006602D0 /* Less.swift in Sources */,
 				188E18DA22240BE1006602D0 /* Assembly.swift in Sources */,
 				188E18EB2226B495006602D0 /* Greater.swift in Sources */,
 				188E18C222219786006602D0 /* CodeWriter.swift in Sources */,
@@ -298,6 +303,7 @@
 				188E18CC222254D7006602D0 /* AddTests.swift in Sources */,
 				188E18C722219B68006602D0 /* Parser.swift in Sources */,
 				188E18E622241604006602D0 /* EqualTests.swift in Sources */,
+				188E18F42226BF2F006602D0 /* Less.swift in Sources */,
 				188E18AD22216FFA006602D0 /* VMTranslatorTests.swift in Sources */,
 				188E18B6222172D4006602D0 /* ParserTests.swift in Sources */,
 				188E18C622219B65006602D0 /* CommandFormatter.swift in Sources */,
