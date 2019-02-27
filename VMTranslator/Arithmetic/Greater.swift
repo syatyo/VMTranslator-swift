@@ -8,26 +8,12 @@
 
 import Foundation
 
-struct Greater {
+struct Greater: ConditionCommand {
+    var type: ConditionType { return .jgt }
     
-    private var symbolCounter = 0
-    
-    mutating func execute() -> String {
-        var lines: [String] = []
-        lines.append("@SP")
-        lines.append("AM=M-1")
-        lines.append("D=M")
-        lines.append("A=A-1")
-        lines.append("D=M-D")
-        lines.append("M=\(Assembly.false)")
-        lines.append("@END_GT\(symbolCounter)")
-        lines.append("D;JGT")
-        lines.append("@SP")
-        lines.append("A=M-1")
-        lines.append("M=\(Assembly.true)")
-        lines.append("(END_GT\(symbolCounter))")
+    private(set) var symbolCounter = 0
+    mutating func incrementSymbolCounter() {
         symbolCounter += 1
-        return lines.joined(separator: "\n")
     }
     
 }
