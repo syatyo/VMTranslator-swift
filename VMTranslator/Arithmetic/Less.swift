@@ -9,15 +9,11 @@
 import Foundation
 
 struct Less: ConditionCommand {
-    var type: ConditionType {
-        return .jlt
-    }
+    var type: ConditionType { return .jlt }
     
     private(set) var symbolCounter: Int = 0
-    
     mutating func incrementSymbolCounter() {
         symbolCounter += 1
     }
-    
     
 }
