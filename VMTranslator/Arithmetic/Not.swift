@@ -13,8 +13,8 @@ struct Not {
     func execute() -> String {
         var lines: [String] = []
         lines.append("@SP")
-        lines.append("A=M-1")
-        lines.append("M=!M")
+        lines.append(AssignCommand(destination: .a, computation: .mMinusOne).value)
+        lines.append(AssignCommand(destination: .m, computation: .notM).value)
         return lines.joined(separator: "\n")
     }
     

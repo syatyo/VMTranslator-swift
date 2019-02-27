@@ -13,10 +13,10 @@ struct Or {
     func execute() -> String {
         var lines: [String] = []
         lines.append("@SP")
-        lines.append("AM=M-1")
-        lines.append("D=M")
-        lines.append("A=A-1")
-        lines.append("M=D|M")
+        lines.append(AssignCommand(destination: .am, computation: .mMinusOne).value)
+        lines.append(AssignCommand(destination: .d, computation: .m).value)
+        lines.append(AssignCommand(destination: .a, computation: .aMinusOne).value)
+        lines.append(AssignCommand(destination: .m, computation: .dOrM).value)
         return lines.joined(separator: "\n")
     }
 
