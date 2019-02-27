@@ -16,7 +16,7 @@ struct Add {
         lines.append("AM=M-1")
         lines.append("D=M")
         lines.append("A=A-1")
-        lines.append("M=M+D")
+        lines.append("M=D+M")
         return lines.joined(separator: "\n")
     }
     
