@@ -23,7 +23,7 @@ class NegativeTests: XCTestCase {
         let expectation = """
         @SP
         A=M-1
-        M=!M
+        M=-M
         """
         XCTAssertEqual(result, expectation)
     }

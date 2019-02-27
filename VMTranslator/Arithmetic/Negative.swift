@@ -14,7 +14,7 @@ struct Negative {
         var lines: [String] = []
         lines.append("@SP")
         lines.append("A=M-1")
-        lines.append("M=!M")
+        lines.append("M=-M")
         return lines.joined(separator: "\n")
     }
 
