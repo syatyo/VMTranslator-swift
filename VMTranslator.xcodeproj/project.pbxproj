@@ -38,6 +38,8 @@
 		188E18E622241604006602D0 /* EqualTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18E522241604006602D0 /* EqualTests.swift */; };
 		188E18E72226B10A006602D0 /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18DB22240CCB006602D0 /* Equal.swift */; };
 		188E18E92226B3C0006602D0 /* GreaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18E82226B3C0006602D0 /* GreaterTests.swift */; };
+		188E18EB2226B495006602D0 /* Greater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18EA2226B495006602D0 /* Greater.swift */; };
+		188E18EC2226B4D0006602D0 /* Greater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18EA2226B495006602D0 /* Greater.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -77,6 +79,7 @@
 		188E18E2222412CC006602D0 /* NegativeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegativeTests.swift; sourceTree = "<group>"; };
 		188E18E522241604006602D0 /* EqualTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualTests.swift; sourceTree = "<group>"; };
 		188E18E82226B3C0006602D0 /* GreaterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreaterTests.swift; sourceTree = "<group>"; };
+		188E18EA2226B495006602D0 /* Greater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Greater.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,7 @@
 				188E18D022226A4F006602D0 /* Sub.swift */,
 				188E18D7222403DA006602D0 /* Negative.swift */,
 				188E18DB22240CCB006602D0 /* Equal.swift */,
+				188E18EA2226B495006602D0 /* Greater.swift */,
 			);
 			path = Arithmetic;
 			sourceTree = "<group>";
@@ -257,6 +261,7 @@
 				188E18A022216E69006602D0 /* main.swift in Sources */,
 				188E18D122226A4F006602D0 /* Sub.swift in Sources */,
 				188E18DA22240BE1006602D0 /* Assembly.swift in Sources */,
+				188E18EB2226B495006602D0 /* Greater.swift in Sources */,
 				188E18C222219786006602D0 /* CodeWriter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +277,7 @@
 				188E18E42224155F006602D0 /* Negative.swift in Sources */,
 				188E18E3222412CC006602D0 /* NegativeTests.swift in Sources */,
 				188E18D222226A81006602D0 /* Sub.swift in Sources */,
+				188E18EC2226B4D0006602D0 /* Greater.swift in Sources */,
 				188E18C422219B60006602D0 /* Secret.swift in Sources */,
 				188E18DE22240EBB006602D0 /* StackPointerTests.swift in Sources */,
 				188E18CF22226A2C006602D0 /* SubTests.swift in Sources */,
