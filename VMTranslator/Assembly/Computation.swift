@@ -38,6 +38,15 @@ enum Computation {
     case dOrA
     case dOrM
     
+    init(boolean: Boolean) {
+        switch boolean {
+        case .true:
+            self = .minusOne
+        case .false:
+            self = .zero
+        }
+    }
+    
     var value: String {
         switch self {
         case .zero:

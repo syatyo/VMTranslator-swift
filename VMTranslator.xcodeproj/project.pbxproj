@@ -28,11 +28,9 @@
 		188E18D222226A81006602D0 /* Sub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D022226A4F006602D0 /* Sub.swift */; };
 		188E18D422226AF8006602D0 /* StackPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D322226AF8006602D0 /* StackPointer.swift */; };
 		188E18D8222403DA006602D0 /* Negative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D7222403DA006602D0 /* Negative.swift */; };
-		188E18DA22240BE1006602D0 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D922240BE1006602D0 /* Assembly.swift */; };
 		188E18DC22240CCB006602D0 /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18DB22240CCB006602D0 /* Equal.swift */; };
 		188E18DE22240EBB006602D0 /* StackPointerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18DD22240EBB006602D0 /* StackPointerTests.swift */; };
 		188E18DF22240ECB006602D0 /* StackPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D322226AF8006602D0 /* StackPointer.swift */; };
-		188E18E022240ECE006602D0 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D922240BE1006602D0 /* Assembly.swift */; };
 		188E18E3222412CC006602D0 /* NegativeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18E2222412CC006602D0 /* NegativeTests.swift */; };
 		188E18E42224155F006602D0 /* Negative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D7222403DA006602D0 /* Negative.swift */; };
 		188E18E622241604006602D0 /* EqualTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18E522241604006602D0 /* EqualTests.swift */; };
@@ -62,6 +60,8 @@
 		188E190E2226DDB9006602D0 /* Computation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19092226D7D0006602D0 /* Computation.swift */; };
 		188E190F2226DDBB006602D0 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19072226D325006602D0 /* Destination.swift */; };
 		188E19102226DDBF006602D0 /* AssignCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19052226D2DC006602D0 /* AssignCommand.swift */; };
+		188E19122226E441006602D0 /* Boolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19112226E441006602D0 /* Boolean.swift */; };
+		188E19132226E48E006602D0 /* Boolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19112226E441006602D0 /* Boolean.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,7 +95,6 @@
 		188E18D022226A4F006602D0 /* Sub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sub.swift; sourceTree = "<group>"; };
 		188E18D322226AF8006602D0 /* StackPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackPointer.swift; sourceTree = "<group>"; };
 		188E18D7222403DA006602D0 /* Negative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Negative.swift; sourceTree = "<group>"; };
-		188E18D922240BE1006602D0 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		188E18DB22240CCB006602D0 /* Equal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equal.swift; sourceTree = "<group>"; };
 		188E18DD22240EBB006602D0 /* StackPointerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackPointerTests.swift; sourceTree = "<group>"; };
 		188E18E2222412CC006602D0 /* NegativeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegativeTests.swift; sourceTree = "<group>"; };
@@ -115,6 +114,7 @@
 		188E19072226D325006602D0 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		188E19092226D7D0006602D0 /* Computation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Computation.swift; sourceTree = "<group>"; };
 		188E190B2226DD24006602D0 /* Jump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jump.swift; sourceTree = "<group>"; };
+		188E19112226E441006602D0 /* Boolean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boolean.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +162,6 @@
 				188E18C122219786006602D0 /* CodeWriter.swift */,
 				188E18BC2221790E006602D0 /* Secret.swift */,
 				188E18D322226AF8006602D0 /* StackPointer.swift */,
-				188E18D922240BE1006602D0 /* Assembly.swift */,
 				188E18C822225464006602D0 /* Arithmetic */,
 				188E19042226D2BA006602D0 /* Assembly */,
 			);
@@ -215,6 +214,7 @@
 				188E19072226D325006602D0 /* Destination.swift */,
 				188E19092226D7D0006602D0 /* Computation.swift */,
 				188E190B2226DD24006602D0 /* Jump.swift */,
+				188E19112226E441006602D0 /* Boolean.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -308,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				188E18B822217453006602D0 /* CommandFormatter.swift in Sources */,
+				188E19122226E441006602D0 /* Boolean.swift in Sources */,
 				188E18EE2226B532006602D0 /* ConditionCommand.swift in Sources */,
 				188E18D8222403DA006602D0 /* Negative.swift in Sources */,
 				188E18F82226C9D9006602D0 /* And.swift in Sources */,
@@ -323,7 +324,6 @@
 				188E18D122226A4F006602D0 /* Sub.swift in Sources */,
 				188E18F32226BEE5006602D0 /* Less.swift in Sources */,
 				188E190A2226D7D0006602D0 /* Computation.swift in Sources */,
-				188E18DA22240BE1006602D0 /* Assembly.swift in Sources */,
 				188E18EB2226B495006602D0 /* Greater.swift in Sources */,
 				188E190C2226DD24006602D0 /* Jump.swift in Sources */,
 				188E19022226D0C5006602D0 /* Not.swift in Sources */,
@@ -338,7 +338,6 @@
 				188E19102226DDBF006602D0 /* AssignCommand.swift in Sources */,
 				188E18C02221976C006602D0 /* CodeWriterTests.swift in Sources */,
 				188E19032226D0E7006602D0 /* Not.swift in Sources */,
-				188E18E022240ECE006602D0 /* Assembly.swift in Sources */,
 				188E18C522219B63006602D0 /* CodeWriter.swift in Sources */,
 				188E18DF22240ECB006602D0 /* StackPointer.swift in Sources */,
 				188E19002226D02D006602D0 /* NotTests.swift in Sources */,
@@ -364,6 +363,7 @@
 				188E18C722219B68006602D0 /* Parser.swift in Sources */,
 				188E18E622241604006602D0 /* EqualTests.swift in Sources */,
 				188E18F42226BF2F006602D0 /* Less.swift in Sources */,
+				188E19132226E48E006602D0 /* Boolean.swift in Sources */,
 				188E18AD22216FFA006602D0 /* VMTranslatorTests.swift in Sources */,
 				188E18B6222172D4006602D0 /* ParserTests.swift in Sources */,
 				188E18C622219B65006602D0 /* CommandFormatter.swift in Sources */,
