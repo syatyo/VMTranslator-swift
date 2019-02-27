@@ -22,13 +22,10 @@ class AddTests: XCTestCase {
         let result = Add().execute()
         let expectation = """
         @SP
-        A=M-1
+        AM=M-1
         D=M
         A=A-1
-        D=D+M
-        M=D
-        @SP
-        M=M-1
+        M=M+D
         """
         XCTAssertEqual(result, expectation)
     }

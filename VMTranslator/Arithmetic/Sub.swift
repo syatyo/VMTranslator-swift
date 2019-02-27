@@ -13,13 +13,10 @@ struct Sub {
     func execute() -> String {
         var lines: [String] = []
         lines.append("@SP")
-        lines.append("A=M-1")
+        lines.append("AM=M-1")
         lines.append("D=M")
         lines.append("A=A-1")
-        lines.append("D=D-M")
-        lines.append("M=D")
-        lines.append("@SP")
-        lines.append("M=M-1")
+        lines.append("M=M-D")
         return lines.joined(separator: "\n")
     }
     
