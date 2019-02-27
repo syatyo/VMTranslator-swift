@@ -15,7 +15,6 @@ enum ConditionType: String {
     case jlt
     case jne
     case jle
-    case jmp
     
     var value: String {
         return rawValue.uppercased()
@@ -25,6 +24,23 @@ enum ConditionType: String {
         let jIndex = rawValue.firstIndex(of: "j")!
         let afterJIndex = rawValue.index(after: jIndex)
         return String(rawValue[afterJIndex...]).uppercased()
+    }
+    
+    var complement: ConditionType {
+        switch self {
+        case .jgt:
+            return .jle
+        case .jeq:
+            return .jne
+        case .jge:
+            return .jlt
+        case .jlt:
+            return .jge
+        case .jne:
+            return .jeq
+        case .jle:
+            return .jgt
+        }
     }
     
 }
@@ -45,7 +61,7 @@ extension ConditionCommand {
         lines.append("D=M-D")
         lines.append("M=\(Assembly.false)")
         lines.append("@END_\(type.symbolIdentifer)\(symbolCounter)")
-        lines.append("D;\(type.value)")
+        lines.append("D;\(type.complement.value)")
         lines.append("@SP")
         lines.append("A=M-1")
         lines.append("M=\(Assembly.true)")

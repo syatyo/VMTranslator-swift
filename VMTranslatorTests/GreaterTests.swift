@@ -29,7 +29,7 @@ class GreaterTests: XCTestCase {
         D=M-D
         M=0
         @END_GT0
-        D;JGT
+        D;JLE
         @SP
         A=M-1
         M=-1
@@ -45,7 +45,7 @@ class GreaterTests: XCTestCase {
         D=M-D
         M=0
         @END_GT1
-        D;JGT
+        D;JLE
         @SP
         A=M-1
         M=-1

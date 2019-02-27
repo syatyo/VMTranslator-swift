@@ -29,7 +29,7 @@ class EqualTests: XCTestCase {
         D=M-D
         M=0
         @END_EQ0
-        D;JEQ
+        D;JNE
         @SP
         A=M-1
         M=-1
@@ -45,7 +45,7 @@ class EqualTests: XCTestCase {
         D=M-D
         M=0
         @END_EQ1
-        D;JEQ
+        D;JNE
         @SP
         A=M-1
         M=-1
