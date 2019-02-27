@@ -54,6 +54,14 @@
 		188E19002226D02D006602D0 /* NotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18FF2226D02D006602D0 /* NotTests.swift */; };
 		188E19022226D0C5006602D0 /* Not.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19012226D0C5006602D0 /* Not.swift */; };
 		188E19032226D0E7006602D0 /* Not.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19012226D0C5006602D0 /* Not.swift */; };
+		188E19062226D2DC006602D0 /* AssignCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19052226D2DC006602D0 /* AssignCommand.swift */; };
+		188E19082226D325006602D0 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19072226D325006602D0 /* Destination.swift */; };
+		188E190A2226D7D0006602D0 /* Computation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19092226D7D0006602D0 /* Computation.swift */; };
+		188E190C2226DD24006602D0 /* Jump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E190B2226DD24006602D0 /* Jump.swift */; };
+		188E190D2226DDB6006602D0 /* Jump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E190B2226DD24006602D0 /* Jump.swift */; };
+		188E190E2226DDB9006602D0 /* Computation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19092226D7D0006602D0 /* Computation.swift */; };
+		188E190F2226DDBB006602D0 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19072226D325006602D0 /* Destination.swift */; };
+		188E19102226DDBF006602D0 /* AssignCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19052226D2DC006602D0 /* AssignCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -103,6 +111,10 @@
 		188E18FC2226CED9006602D0 /* Or.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Or.swift; sourceTree = "<group>"; };
 		188E18FF2226D02D006602D0 /* NotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotTests.swift; sourceTree = "<group>"; };
 		188E19012226D0C5006602D0 /* Not.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Not.swift; sourceTree = "<group>"; };
+		188E19052226D2DC006602D0 /* AssignCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignCommand.swift; sourceTree = "<group>"; };
+		188E19072226D325006602D0 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		188E19092226D7D0006602D0 /* Computation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Computation.swift; sourceTree = "<group>"; };
+		188E190B2226DD24006602D0 /* Jump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jump.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +164,7 @@
 				188E18D322226AF8006602D0 /* StackPointer.swift */,
 				188E18D922240BE1006602D0 /* Assembly.swift */,
 				188E18C822225464006602D0 /* Arithmetic */,
+				188E19042226D2BA006602D0 /* Assembly */,
 			);
 			path = VMTranslator;
 			sourceTree = "<group>";
@@ -193,6 +206,17 @@
 				188E19012226D0C5006602D0 /* Not.swift */,
 			);
 			path = Arithmetic;
+			sourceTree = "<group>";
+		};
+		188E19042226D2BA006602D0 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				188E19052226D2DC006602D0 /* AssignCommand.swift */,
+				188E19072226D325006602D0 /* Destination.swift */,
+				188E19092226D7D0006602D0 /* Computation.swift */,
+				188E190B2226DD24006602D0 /* Jump.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,15 +313,19 @@
 				188E18F82226C9D9006602D0 /* And.swift in Sources */,
 				188E18FD2226CED9006602D0 /* Or.swift in Sources */,
 				188E18DC22240CCB006602D0 /* Equal.swift in Sources */,
+				188E19062226D2DC006602D0 /* AssignCommand.swift in Sources */,
 				188E18BD2221790E006602D0 /* Secret.swift in Sources */,
+				188E19082226D325006602D0 /* Destination.swift in Sources */,
 				188E18B32221705D006602D0 /* Parser.swift in Sources */,
 				188E18CA222254C3006602D0 /* Add.swift in Sources */,
 				188E18D422226AF8006602D0 /* StackPointer.swift in Sources */,
 				188E18A022216E69006602D0 /* main.swift in Sources */,
 				188E18D122226A4F006602D0 /* Sub.swift in Sources */,
 				188E18F32226BEE5006602D0 /* Less.swift in Sources */,
+				188E190A2226D7D0006602D0 /* Computation.swift in Sources */,
 				188E18DA22240BE1006602D0 /* Assembly.swift in Sources */,
 				188E18EB2226B495006602D0 /* Greater.swift in Sources */,
+				188E190C2226DD24006602D0 /* Jump.swift in Sources */,
 				188E19022226D0C5006602D0 /* Not.swift in Sources */,
 				188E18C222219786006602D0 /* CodeWriter.swift in Sources */,
 			);
@@ -307,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				188E19102226DDBF006602D0 /* AssignCommand.swift in Sources */,
 				188E18C02221976C006602D0 /* CodeWriterTests.swift in Sources */,
 				188E19032226D0E7006602D0 /* Not.swift in Sources */,
 				188E18E022240ECE006602D0 /* Assembly.swift in Sources */,
@@ -323,6 +352,7 @@
 				188E18EC2226B4D0006602D0 /* Greater.swift in Sources */,
 				188E18C422219B60006602D0 /* Secret.swift in Sources */,
 				188E18DE22240EBB006602D0 /* StackPointerTests.swift in Sources */,
+				188E190D2226DDB6006602D0 /* Jump.swift in Sources */,
 				188E18CF22226A2C006602D0 /* SubTests.swift in Sources */,
 				188E18E92226B3C0006602D0 /* GreaterTests.swift in Sources */,
 				188E18FE2226CF23006602D0 /* Or.swift in Sources */,
@@ -337,6 +367,8 @@
 				188E18AD22216FFA006602D0 /* VMTranslatorTests.swift in Sources */,
 				188E18B6222172D4006602D0 /* ParserTests.swift in Sources */,
 				188E18C622219B65006602D0 /* CommandFormatter.swift in Sources */,
+				188E190E2226DDB9006602D0 /* Computation.swift in Sources */,
+				188E190F2226DDBB006602D0 /* Destination.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
