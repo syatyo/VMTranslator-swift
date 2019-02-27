@@ -49,6 +49,8 @@
 		188E18F82226C9D9006602D0 /* And.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18F72226C9D9006602D0 /* And.swift */; };
 		188E18F92226C9E0006602D0 /* And.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18F72226C9D9006602D0 /* And.swift */; };
 		188E18FB2226CCD3006602D0 /* OrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18FA2226CCD3006602D0 /* OrTests.swift */; };
+		188E18FD2226CED9006602D0 /* Or.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18FC2226CED9006602D0 /* Or.swift */; };
+		188E18FE2226CF23006602D0 /* Or.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18FC2226CED9006602D0 /* Or.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,6 +97,7 @@
 		188E18F52226C79A006602D0 /* AndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndTests.swift; sourceTree = "<group>"; };
 		188E18F72226C9D9006602D0 /* And.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = And.swift; sourceTree = "<group>"; };
 		188E18FA2226CCD3006602D0 /* OrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrTests.swift; sourceTree = "<group>"; };
+		188E18FC2226CED9006602D0 /* Or.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Or.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +183,7 @@
 				188E18EA2226B495006602D0 /* Greater.swift */,
 				188E18F22226BEE5006602D0 /* Less.swift */,
 				188E18F72226C9D9006602D0 /* And.swift */,
+				188E18FC2226CED9006602D0 /* Or.swift */,
 			);
 			path = Arithmetic;
 			sourceTree = "<group>";
@@ -276,6 +280,7 @@
 				188E18EE2226B532006602D0 /* ConditionCommand.swift in Sources */,
 				188E18D8222403DA006602D0 /* Negative.swift in Sources */,
 				188E18F82226C9D9006602D0 /* And.swift in Sources */,
+				188E18FD2226CED9006602D0 /* Or.swift in Sources */,
 				188E18DC22240CCB006602D0 /* Equal.swift in Sources */,
 				188E18BD2221790E006602D0 /* Secret.swift in Sources */,
 				188E18B32221705D006602D0 /* Parser.swift in Sources */,
@@ -310,6 +315,7 @@
 				188E18DE22240EBB006602D0 /* StackPointerTests.swift in Sources */,
 				188E18CF22226A2C006602D0 /* SubTests.swift in Sources */,
 				188E18E92226B3C0006602D0 /* GreaterTests.swift in Sources */,
+				188E18FE2226CF23006602D0 /* Or.swift in Sources */,
 				188E18CD2222561C006602D0 /* Add.swift in Sources */,
 				188E18EF2226B88C006602D0 /* ConditionCommand.swift in Sources */,
 				188E18BA2221748C006602D0 /* CommandFormatterTests.swift in Sources */,
