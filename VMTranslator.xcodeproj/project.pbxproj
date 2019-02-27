@@ -42,6 +42,7 @@
 		188E18EC2226B4D0006602D0 /* Greater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18EA2226B495006602D0 /* Greater.swift */; };
 		188E18EE2226B532006602D0 /* ConditionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18ED2226B532006602D0 /* ConditionCommand.swift */; };
 		188E18EF2226B88C006602D0 /* ConditionCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18ED2226B532006602D0 /* ConditionCommand.swift */; };
+		188E18F12226BA99006602D0 /* LessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18F02226BA99006602D0 /* LessTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -83,6 +84,7 @@
 		188E18E82226B3C0006602D0 /* GreaterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreaterTests.swift; sourceTree = "<group>"; };
 		188E18EA2226B495006602D0 /* Greater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Greater.swift; sourceTree = "<group>"; };
 		188E18ED2226B532006602D0 /* ConditionCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionCommand.swift; sourceTree = "<group>"; };
+		188E18F02226BA99006602D0 /* LessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				188E18E2222412CC006602D0 /* NegativeTests.swift */,
 				188E18E522241604006602D0 /* EqualTests.swift */,
 				188E18E82226B3C0006602D0 /* GreaterTests.swift */,
+				188E18F02226BA99006602D0 /* LessTests.swift */,
 				188E18DD22240EBB006602D0 /* StackPointerTests.swift */,
 				188E18B92221748C006602D0 /* CommandFormatterTests.swift */,
 				188E18AE22216FFA006602D0 /* Info.plist */,
@@ -281,6 +284,7 @@
 				188E18DF22240ECB006602D0 /* StackPointer.swift in Sources */,
 				188E18E42224155F006602D0 /* Negative.swift in Sources */,
 				188E18E3222412CC006602D0 /* NegativeTests.swift in Sources */,
+				188E18F12226BA99006602D0 /* LessTests.swift in Sources */,
 				188E18D222226A81006602D0 /* Sub.swift in Sources */,
 				188E18EC2226B4D0006602D0 /* Greater.swift in Sources */,
 				188E18C422219B60006602D0 /* Secret.swift in Sources */,
