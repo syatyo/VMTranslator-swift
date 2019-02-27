@@ -48,6 +48,7 @@
 		188E18F62226C79A006602D0 /* AndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18F52226C79A006602D0 /* AndTests.swift */; };
 		188E18F82226C9D9006602D0 /* And.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18F72226C9D9006602D0 /* And.swift */; };
 		188E18F92226C9E0006602D0 /* And.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18F72226C9D9006602D0 /* And.swift */; };
+		188E18FB2226CCD3006602D0 /* OrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18FA2226CCD3006602D0 /* OrTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -93,6 +94,7 @@
 		188E18F22226BEE5006602D0 /* Less.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Less.swift; sourceTree = "<group>"; };
 		188E18F52226C79A006602D0 /* AndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndTests.swift; sourceTree = "<group>"; };
 		188E18F72226C9D9006602D0 /* And.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = And.swift; sourceTree = "<group>"; };
+		188E18FA2226CCD3006602D0 /* OrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				188E18E82226B3C0006602D0 /* GreaterTests.swift */,
 				188E18F02226BA99006602D0 /* LessTests.swift */,
 				188E18F52226C79A006602D0 /* AndTests.swift */,
+				188E18FA2226CCD3006602D0 /* OrTests.swift */,
 				188E18DD22240EBB006602D0 /* StackPointerTests.swift */,
 				188E18B92221748C006602D0 /* CommandFormatterTests.swift */,
 				188E18AE22216FFA006602D0 /* Info.plist */,
@@ -301,6 +304,7 @@
 				188E18F92226C9E0006602D0 /* And.swift in Sources */,
 				188E18F12226BA99006602D0 /* LessTests.swift in Sources */,
 				188E18D222226A81006602D0 /* Sub.swift in Sources */,
+				188E18FB2226CCD3006602D0 /* OrTests.swift in Sources */,
 				188E18EC2226B4D0006602D0 /* Greater.swift in Sources */,
 				188E18C422219B60006602D0 /* Secret.swift in Sources */,
 				188E18DE22240EBB006602D0 /* StackPointerTests.swift in Sources */,
