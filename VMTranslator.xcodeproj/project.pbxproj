@@ -46,6 +46,8 @@
 		188E18F32226BEE5006602D0 /* Less.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18F22226BEE5006602D0 /* Less.swift */; };
 		188E18F42226BF2F006602D0 /* Less.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18F22226BEE5006602D0 /* Less.swift */; };
 		188E18F62226C79A006602D0 /* AndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18F52226C79A006602D0 /* AndTests.swift */; };
+		188E18F82226C9D9006602D0 /* And.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18F72226C9D9006602D0 /* And.swift */; };
+		188E18F92226C9E0006602D0 /* And.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18F72226C9D9006602D0 /* And.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,6 +92,7 @@
 		188E18F02226BA99006602D0 /* LessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessTests.swift; sourceTree = "<group>"; };
 		188E18F22226BEE5006602D0 /* Less.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Less.swift; sourceTree = "<group>"; };
 		188E18F52226C79A006602D0 /* AndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndTests.swift; sourceTree = "<group>"; };
+		188E18F72226C9D9006602D0 /* And.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = And.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +176,7 @@
 				188E18DB22240CCB006602D0 /* Equal.swift */,
 				188E18EA2226B495006602D0 /* Greater.swift */,
 				188E18F22226BEE5006602D0 /* Less.swift */,
+				188E18F72226C9D9006602D0 /* And.swift */,
 			);
 			path = Arithmetic;
 			sourceTree = "<group>";
@@ -268,6 +272,7 @@
 				188E18B822217453006602D0 /* CommandFormatter.swift in Sources */,
 				188E18EE2226B532006602D0 /* ConditionCommand.swift in Sources */,
 				188E18D8222403DA006602D0 /* Negative.swift in Sources */,
+				188E18F82226C9D9006602D0 /* And.swift in Sources */,
 				188E18DC22240CCB006602D0 /* Equal.swift in Sources */,
 				188E18BD2221790E006602D0 /* Secret.swift in Sources */,
 				188E18B32221705D006602D0 /* Parser.swift in Sources */,
@@ -293,6 +298,7 @@
 				188E18E42224155F006602D0 /* Negative.swift in Sources */,
 				188E18E3222412CC006602D0 /* NegativeTests.swift in Sources */,
 				188E18F62226C79A006602D0 /* AndTests.swift in Sources */,
+				188E18F92226C9E0006602D0 /* And.swift in Sources */,
 				188E18F12226BA99006602D0 /* LessTests.swift in Sources */,
 				188E18D222226A81006602D0 /* Sub.swift in Sources */,
 				188E18EC2226B4D0006602D0 /* Greater.swift in Sources */,
