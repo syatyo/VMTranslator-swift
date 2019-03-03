@@ -20,6 +20,8 @@ class EqualTests: XCTestCase {
 
     func testExecute() {
         var equal = Equal()
+        equal.inject(repository: Store())
+        
         let result1 = equal.execute()
         let expectation1 = """
         @SP
@@ -56,4 +58,17 @@ class EqualTests: XCTestCase {
         XCTAssertEqual(result2, expectation2)
     }
 
+}
+
+private final class Store: ConditionIndexRepository {
+    private var counter: Int = 0
+    
+    func getCurrentValue(for type: String) -> Int {
+        return counter
+    }
+    
+    func incrementIndex(for type: String) {
+        counter += 1
+    }
+    
 }

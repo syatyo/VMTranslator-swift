@@ -20,6 +20,8 @@ class GreaterTests: XCTestCase {
 
     func testExecute() {
         var greater = Greater()
+        greater.inject(repository: Store())
+        
         let result1 = greater.execute()
         let expectation1 = """
         @SP
@@ -56,4 +58,17 @@ class GreaterTests: XCTestCase {
         XCTAssertEqual(result2, expectation2)
     }
 
+}
+
+private final class Store: ConditionIndexRepository {
+    private var counter: Int = 0
+    
+    func getCurrentValue(for type: String) -> Int {
+        return counter
+    }
+    
+    func incrementIndex(for type: String) {
+        counter += 1
+    }
+    
 }

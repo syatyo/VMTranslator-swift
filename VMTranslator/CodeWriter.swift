@@ -79,11 +79,17 @@ struct CodeWriter {
         case "neg":
             assemblyCommands.append(Negative().execute())
         case "eq":
-            assemblyCommands.append(Equal().execute())
+            var equal = Equal()
+            equal.inject(repository: ConditionIndexStore.shared)
+            assemblyCommands.append(equal.execute())
         case "gt":
-            assemblyCommands.append(Greater().execute())
+            var greater = Greater()
+            greater.inject(repository: ConditionIndexStore.shared)
+            assemblyCommands.append(greater.execute())
         case "lt":
-            assemblyCommands.append(Less().execute())
+            var less = Less()
+            less.inject(repository: ConditionIndexStore.shared)
+            assemblyCommands.append(less.execute())
         case "and":
             assemblyCommands.append(And().execute())
         case "or":

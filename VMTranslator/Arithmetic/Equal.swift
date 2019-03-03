@@ -10,6 +10,9 @@ import Foundation
 
 struct Equal: Conditionable {
     var conditionType: ConditionType { return .jeq }
-    var repository: ConditionIndexRepository { return ConditionIndexStore.shared }
-    
+    private(set) var repository: ConditionIndexRepository!
+    mutating func inject(repository: ConditionIndexRepository) {
+        self.repository = repository
+    }
+
 }

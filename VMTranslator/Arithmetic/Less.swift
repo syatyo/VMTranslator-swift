@@ -10,7 +10,9 @@ import Foundation
 
 struct Less: Conditionable {
     var conditionType: ConditionType { return .jlt }
-    var repository: ConditionIndexRepository { return ConditionIndexStore.shared }
-    
+    private(set) var repository: ConditionIndexRepository!
+    mutating func inject(repository: ConditionIndexRepository) {
+        self.repository = repository
+    }
     
 }

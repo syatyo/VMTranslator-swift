@@ -46,7 +46,9 @@ enum ConditionType: String {
 }
 protocol Conditionable {
     var conditionType: ConditionType { get }
-    var repository: ConditionIndexRepository { get }
+    var repository: ConditionIndexRepository! { get }
+    
+    mutating func inject(repository: ConditionIndexRepository)
 }
 
 extension Conditionable {

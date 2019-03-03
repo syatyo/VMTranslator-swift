@@ -9,7 +9,11 @@
 import Foundation
 
 struct Greater: Conditionable {
-    var conditionType: ConditionType { return .jgt }
-    var repository: ConditionIndexRepository { return ConditionIndexStore.shared }
     
+    var conditionType: ConditionType { return .jgt }
+    private(set) var repository: ConditionIndexRepository!
+    mutating func inject(repository: ConditionIndexRepository) {
+        self.repository = repository
+    }
+
 }
