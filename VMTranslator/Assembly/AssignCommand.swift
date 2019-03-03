@@ -13,17 +13,18 @@ struct AssignCommand {
     let computation: Computation
 }
 
-extension AssignCommand {
+extension AssignCommand: AssemblyCommand {
     
-    var value: String {
+    var textRepresentation: String {
         return "\(destination.value)=\(computation.value)"
     }
+    
 }
 
 extension AssignCommand: CustomStringConvertible {
     
     var description: String {
-        return value
+        return textRepresentation
     }
     
 }

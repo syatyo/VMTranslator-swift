@@ -13,10 +13,10 @@ struct Sub {
     func execute() -> String {
         var lines: [String] = []
         lines.append("@SP")
-        lines.append(AssignCommand(destination: .am, computation: .mMinusOne).value)
-        lines.append(AssignCommand(destination: .d, computation: .m).value)
-        lines.append(AssignCommand(destination: .a, computation: .aMinusOne).value)
-        lines.append(AssignCommand(destination: .m, computation: .mMinusD).value)
+        lines.append(AssignCommand(destination: .am, computation: .mMinusOne).textRepresentation)
+        lines.append(AssignCommand(destination: .d, computation: .m).textRepresentation)
+        lines.append(AssignCommand(destination: .a, computation: .aMinusOne).textRepresentation)
+        lines.append(AssignCommand(destination: .m, computation: .mMinusD).textRepresentation)
         return lines.joined(separator: "\n")
     }
     
