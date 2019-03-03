@@ -215,4 +215,33 @@ class CodeWriterTests: XCTestCase {
         XCTAssertEqual(codeWriter.assembly, expectation)
     }
     
+    func testSimpleAdd() {
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("testSimpleAdd.asm")
+        codeWriter.writePushPop(.push, segmentType: .constant, index: 7)
+        codeWriter.writePushPop(.push, segmentType: .constant, index: 8)
+        codeWriter.writeArithmetic(command: "add")
+        
+        let expectation = """
+        @7
+        D=A
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        @8
+        D=A
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        @SP
+        AM=M-1
+        D=M
+        A=A-1
+        M=D+M
+        """
+        XCTAssertEqual(codeWriter.assembly, expectation)
+    }
+    
 }
