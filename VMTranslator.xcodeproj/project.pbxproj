@@ -71,6 +71,7 @@
 		188E1922222B828B006602D0 /* ATCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E191E222B8055006602D0 /* ATCommand.swift */; };
 		188E1923222B83E6006602D0 /* AssemblyCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E191C222B7F77006602D0 /* AssemblyCommand.swift */; };
 		188E1925222B8537006602D0 /* AssignCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1924222B8537006602D0 /* AssignCommandTests.swift */; };
+		188E1927222B8711006602D0 /* CommandBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1926222B8711006602D0 /* CommandBuilderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -130,6 +131,7 @@
 		188E191E222B8055006602D0 /* ATCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATCommand.swift; sourceTree = "<group>"; };
 		188E1920222B8287006602D0 /* ATCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATCommandTests.swift; sourceTree = "<group>"; };
 		188E1924222B8537006602D0 /* AssignCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignCommandTests.swift; sourceTree = "<group>"; };
+		188E1926222B8711006602D0 /* CommandBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandBuilderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 				188E18DD22240EBB006602D0 /* StackPointerTests.swift */,
 				188E1920222B8287006602D0 /* ATCommandTests.swift */,
 				188E1924222B8537006602D0 /* AssignCommandTests.swift */,
+				188E1926222B8711006602D0 /* CommandBuilderTests.swift */,
 				188E18B92221748C006602D0 /* CommandFormatterTests.swift */,
 				188E18AE22216FFA006602D0 /* Info.plist */,
 			);
@@ -367,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				188E1927222B8711006602D0 /* CommandBuilderTests.swift in Sources */,
 				188E19102226DDBF006602D0 /* AssignCommand.swift in Sources */,
 				188E18C02221976C006602D0 /* CodeWriterTests.swift in Sources */,
 				188E1922222B828B006602D0 /* ATCommand.swift in Sources */,
