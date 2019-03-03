@@ -11,14 +11,14 @@ import Foundation
 struct MemoryAccess {
     
     func push(segment: SegmentType, index: Int) -> String {
-        var lines: [String] = []
-        lines.append("@\(index)")
-        lines.append(AssignCommand(destination: .d, computation: .a).textRepresentation)
-        lines.append("@SP")
-        lines.append(AssignCommand(destination: .am, computation: .mPlusOne).textRepresentation)
-        lines.append(AssignCommand(destination: .a, computation: .aMinusOne).textRepresentation)
-        lines.append(AssignCommand(destination: .m, computation: .d).textRepresentation)
-        return lines.joined(separator: "\n")
+        var builder = CommandBuilder()
+        builder.add(ATCommand(constant: index))
+        builder.add(AssignCommand(destination: .d, computation: .a))
+        builder.add(ATCommand(difinedSymbol: .sp))
+        builder.add(AssignCommand(destination: .am, computation: .mPlusOne))
+        builder.add(AssignCommand(destination: .a, computation: .aMinusOne))
+        builder.add(AssignCommand(destination: .m, computation: .d))
+        return builder.build()
     }
     
 }
