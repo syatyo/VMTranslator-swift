@@ -53,20 +53,21 @@ protocol Conditionable {
 extension Conditionable {
     
     mutating func execute() -> String {
-        var lines: [String] = []
-        lines.append("@SP")
-        lines.append(AssignCommand(destination: .am, computation: .mMinusOne).textRepresentation)
-        lines.append(AssignCommand(destination: .d, computation: .m).textRepresentation)
-        lines.append(AssignCommand(destination: .a, computation: .aMinusOne).textRepresentation)
-        lines.append(AssignCommand(destination: .d, computation: .mMinusD).textRepresentation)
-        lines.append(AssignCommand(destination: .m, computation: Computation(boolean: .false)).textRepresentation)
-        lines.append("@END_\(type.symbolIdentifer)\(symbolCounter)")
-        lines.append("D;\(type.complement.value)")
-        lines.append("@SP")
-        lines.append(AssignCommand(destination: .a, computation: .mMinusOne).textRepresentation)
-        lines.append(AssignCommand(destination: .m, computation: Computation(boolean: .true)).textRepresentation)
-        lines.append("(END_\(type.symbolIdentifer)\(symbolCounter))")
+        let conditionLabel = "END_\(type.symbolIdentifer)\(symbolCounter)"
+        var builder = CommandBuilder()
+        builder.add(ATCommand(difinedSymbol: .sp))
+        builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
+        builder.add(AssignCommand(destination: .d, computation: .m))
+        builder.add(AssignCommand(destination: .a, computation: .aMinusOne))
+        builder.add(AssignCommand(destination: .d, computation: .mMinusD))
+        builder.add(AssignCommand(destination: .m, computation: Computation(boolean: .false)))
+        builder.add(ATCommand(label: conditionLabel))
+        builder.add(ConditionCommand(operand: .d, conditionType: type.complement))
+        builder.add(ATCommand(difinedSymbol: .sp))
+        builder.add(AssignCommand(destination: .a, computation: .mMinusOne))
+        builder.add(AssignCommand(destination: .m, computation: Computation(boolean: .true)))
+        builder.add(LabelCommand(label: conditionLabel))
         incrementSymbolCounter()
-        return lines.joined(separator: "\n")
+        return builder.build()
     }
 }

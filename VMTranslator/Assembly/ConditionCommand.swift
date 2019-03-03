@@ -17,13 +17,13 @@ struct ConditionCommand {
     }
     
     var operand: Operand
-    var jump: Jump
+    var conditionType: ConditionType
 }
 
 extension ConditionCommand: AssemblyCommand {
     
     var textRepresentation: String {
-        return "\(operand.rawValue);\(jump.rawValue.uppercased())"
+        return "\(operand.rawValue);\(conditionType.rawValue.uppercased())"
     }
     
 }

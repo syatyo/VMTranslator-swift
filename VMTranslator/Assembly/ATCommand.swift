@@ -29,6 +29,10 @@ struct ATCommand {
         self.value = constant.description
     }
     
+    init(label: String) {
+        self.value = label
+    }
+    
 }
 
 extension ATCommand: AssemblyCommand {

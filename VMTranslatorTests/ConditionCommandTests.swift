@@ -19,10 +19,10 @@ class ConditionCommandTests: XCTestCase {
     }
     
     func testConditionCommand() {
-        let dJump = ConditionCommand(operand: .d, jump: .jeq)
+        let dJump = ConditionCommand(operand: .d, conditionType: .jeq)
         XCTAssertEqual(dJump.textRepresentation, "D;JEQ")
         
-        let zeroJump = ConditionCommand(operand: .zero, jump: .jgt)
+        let zeroJump = ConditionCommand(operand: .zero, conditionType: .jgt)
         XCTAssertEqual(zeroJump.textRepresentation, "0;JGT")
     }
     
