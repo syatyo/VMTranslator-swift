@@ -11,7 +11,7 @@ import Foundation
 /// @value command in assembly. It assign given value to A register.
 struct ATCommand {
     
-    private var command: String
+    private var value: String
     
     enum DefinedSymbol: String {
         case sp
@@ -22,11 +22,11 @@ struct ATCommand {
     }
     
     init(difinedSymbol: DefinedSymbol) {
-        self.command = "@\(difinedSymbol.rawValue.uppercased())"
+        self.value = difinedSymbol.rawValue.uppercased()
     }
     
     init(constant: Int) {
-        self.command = "@\(constant)"
+        self.value = constant.description
     }
     
 }
@@ -34,7 +34,7 @@ struct ATCommand {
 extension ATCommand: AssemblyCommand {
     
     var textRepresentation: String {
-        return command
+        return "@\(value)"
     }
     
 }
