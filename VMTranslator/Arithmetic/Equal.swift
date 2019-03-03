@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Equal: ConditionCommand {
+struct Equal: Conditionable {
     var type: ConditionType { return .jeq }
     
     private(set) var symbolCounter: Int = 0

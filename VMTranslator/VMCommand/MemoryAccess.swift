@@ -13,11 +13,11 @@ struct MemoryAccess {
     func push(segment: SegmentType, index: Int) -> String {
         var lines: [String] = []
         lines.append("@\(index)")
-        lines.append(AssignCommand(destination: .d, computation: .a).value)
+        lines.append(AssignCommand(destination: .d, computation: .a).textRepresentation)
         lines.append("@SP")
-        lines.append(AssignCommand(destination: .am, computation: .mPlusOne).value)
-        lines.append(AssignCommand(destination: .a, computation: .aMinusOne).value)
-        lines.append(AssignCommand(destination: .m, computation: .d).value)
+        lines.append(AssignCommand(destination: .am, computation: .mPlusOne).textRepresentation)
+        lines.append(AssignCommand(destination: .a, computation: .aMinusOne).textRepresentation)
+        lines.append(AssignCommand(destination: .m, computation: .d).textRepresentation)
         return lines.joined(separator: "\n")
     }
     
