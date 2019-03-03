@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Less: ConditionCommand {
+struct Less: Conditionable {
     var type: ConditionType { return .jlt }
     
     private(set) var symbolCounter: Int = 0

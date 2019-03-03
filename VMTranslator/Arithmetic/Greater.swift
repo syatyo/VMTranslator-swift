@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Greater: ConditionCommand {
+struct Greater: Conditionable {
     var type: ConditionType { return .jgt }
     
     private(set) var symbolCounter = 0

@@ -44,13 +44,13 @@ enum ConditionType: String {
     }
     
 }
-protocol ConditionCommand {
+protocol Conditionable {
     var `type`: ConditionType { get }
     var symbolCounter: Int { get }
     mutating func incrementSymbolCounter()
 }
 
-extension ConditionCommand {
+extension Conditionable {
     
     mutating func execute() -> String {
         var lines: [String] = []
