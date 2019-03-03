@@ -9,11 +9,10 @@
 import Foundation
 
 struct Less: Conditionable {
-    var type: ConditionType { return .jlt }
-    
-    private(set) var symbolCounter: Int = 0
-    mutating func incrementSymbolCounter() {
-        symbolCounter += 1
+    var conditionType: ConditionType { return .jlt }
+    private(set) var repository: ConditionIndexRepository!
+    mutating func inject(repository: ConditionIndexRepository) {
+        self.repository = repository
     }
     
 }

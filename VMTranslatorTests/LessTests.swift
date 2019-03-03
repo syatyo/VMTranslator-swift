@@ -20,6 +20,8 @@ class LessTests: XCTestCase {
 
     func testExecute() {
         var less = Less()
+        less.inject(repository: Store())
+        
         let result1 = less.execute()
         let expectation1 = """
         @SP
@@ -56,4 +58,17 @@ class LessTests: XCTestCase {
         XCTAssertEqual(result2, expectation2)
     }
 
+}
+
+private final class Store: ConditionIndexRepository {
+    private var counter: Int = 0
+    
+    func getCurrentValue(for type: String) -> Int {
+        return counter
+    }
+    
+    func incrementIndex(for type: String) {
+        counter += 1
+    }
+    
 }

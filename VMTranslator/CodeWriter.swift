@@ -66,30 +66,39 @@ struct CodeWriter {
     mutating func writePushPop(_ commandType: MemoryAccessCommandType,
                                segmentType: SegmentType,
                                index: Int) {
-        
-        // 1. index step.
-        let atLiteralConstant = "@\(index)"
-        assemblyCommands.append(atLiteralConstant)
-        
-        let assignConstantToD = "D=A"
-        assemblyCommands.append(assignConstantToD)
-
-        // 2. push index to stack.
-        let symbol: Symbol = .sp
-        let instraction = symbol.aInstraction
-        assemblyCommands.append(instraction)
-
-        let assignSPtoAMemory = "A=M"
-        assemblyCommands.append(assignSPtoAMemory)
-
-        let assignDtoMemory = "M=D"
-        assemblyCommands.append(assignDtoMemory)
-
-        // 3. increament stack pointer.
-        assemblyCommands.append(instraction)
-
-        let incrementSP = "M=M+1"
-        assemblyCommands.append(incrementSP)
+        let ma = MemoryAccess()
+        assemblyCommands.append(ma.push(segment: .constant, index: index))
+    }
+    
+    mutating func writeArithmetic(command: String) {
+        switch command {
+        case "add":
+            assemblyCommands.append(Add().execute())
+        case "sub":
+            assemblyCommands.append(Sub().execute())
+        case "neg":
+            assemblyCommands.append(Negative().execute())
+        case "eq":
+            var equal = Equal()
+            equal.inject(repository: ConditionIndexStore.shared)
+            assemblyCommands.append(equal.execute())
+        case "gt":
+            var greater = Greater()
+            greater.inject(repository: ConditionIndexStore.shared)
+            assemblyCommands.append(greater.execute())
+        case "lt":
+            var less = Less()
+            less.inject(repository: ConditionIndexStore.shared)
+            assemblyCommands.append(less.execute())
+        case "and":
+            assemblyCommands.append(And().execute())
+        case "or":
+            assemblyCommands.append(Or().execute())
+        case "not":
+            assemblyCommands.append(Not().execute())
+        default:
+            fatalError("Unexpected command.")
+        }
     }
     
 }

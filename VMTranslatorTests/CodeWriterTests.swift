@@ -46,12 +46,201 @@ class CodeWriterTests: XCTestCase {
         @8
         D=A
         @SP
-        A=M
+        AM=M+1
+        A=A-1
         M=D
-        @SP
-        M=M+1
         """
         
+        XCTAssertEqual(codeWriter.assembly, expectation)
+    }
+    
+    func testWriteAdd() {
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("testAdd.asm")
+        codeWriter.writeArithmetic(command: "add")
+        
+        let expectation = """
+        @SP
+        AM=M-1
+        D=M
+        A=A-1
+        M=D+M
+        """
+        
+        XCTAssertEqual(codeWriter.assembly, expectation)
+    }
+    
+    func testWriteSub() {
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("testSub.asm")
+        codeWriter.writeArithmetic(command: "sub")
+        
+        let expectation = """
+        @SP
+        AM=M-1
+        D=M
+        A=A-1
+        M=M-D
+        """
+        
+        XCTAssertEqual(codeWriter.assembly, expectation)
+    }
+    
+    func testWriteNeg() {
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("testNeg.asm")
+        codeWriter.writeArithmetic(command: "neg")
+        
+        let expectation = """
+        @SP
+        A=M-1
+        M=-M
+        """
+        
+        XCTAssertEqual(codeWriter.assembly, expectation)
+    }
+    
+    func testWriteEq() {
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("testEq.asm")
+        codeWriter.writeArithmetic(command: "eq")
+        
+        let expectation = """
+        @SP
+        AM=M-1
+        D=M
+        A=A-1
+        D=M-D
+        M=0
+        @END_EQ0
+        D;JNE
+        @SP
+        A=M-1
+        M=-1
+        (END_EQ0)
+        """
+        
+        XCTAssertEqual(codeWriter.assembly, expectation)
+    }
+    
+    func testWriteGt() {
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("testGt.asm")
+        codeWriter.writeArithmetic(command: "gt")
+        
+        let expectation = """
+        @SP
+        AM=M-1
+        D=M
+        A=A-1
+        D=M-D
+        M=0
+        @END_GT0
+        D;JLE
+        @SP
+        A=M-1
+        M=-1
+        (END_GT0)
+        """
+        
+        XCTAssertEqual(codeWriter.assembly, expectation)
+    }
+    
+    func testWriteLt() {
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("testLt.asm")
+        codeWriter.writeArithmetic(command: "lt")
+        
+        let expectation = """
+        @SP
+        AM=M-1
+        D=M
+        A=A-1
+        D=M-D
+        M=0
+        @END_LT0
+        D;JGE
+        @SP
+        A=M-1
+        M=-1
+        (END_LT0)
+        """
+        
+        XCTAssertEqual(codeWriter.assembly, expectation)
+    }
+    
+    func testWriteAnd() {
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("testAnd.asm")
+        codeWriter.writeArithmetic(command: "and")
+        
+        let expectation = """
+        @SP
+        AM=M-1
+        D=M
+        A=A-1
+        M=D&M
+        """
+        
+        XCTAssertEqual(codeWriter.assembly, expectation)
+    }
+    
+    func testWriteOr() {
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("testOr.asm")
+        codeWriter.writeArithmetic(command: "or")
+        
+        let expectation = """
+        @SP
+        AM=M-1
+        D=M
+        A=A-1
+        M=D|M
+        """
+        
+        XCTAssertEqual(codeWriter.assembly, expectation)
+    }
+    
+    func testWriteNot() {
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("testNot.asm")
+        codeWriter.writeArithmetic(command: "not")
+        
+        let expectation = """
+        @SP
+        A=M-1
+        M=!M
+        """
+        
+        XCTAssertEqual(codeWriter.assembly, expectation)
+    }
+    
+    func testSimpleAdd() {
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("testSimpleAdd.asm")
+        codeWriter.writePushPop(.push, segmentType: .constant, index: 7)
+        codeWriter.writePushPop(.push, segmentType: .constant, index: 8)
+        codeWriter.writeArithmetic(command: "add")
+        
+        let expectation = """
+        @7
+        D=A
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        @8
+        D=A
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        @SP
+        AM=M-1
+        D=M
+        A=A-1
+        M=D+M
+        """
         XCTAssertEqual(codeWriter.assembly, expectation)
     }
     
