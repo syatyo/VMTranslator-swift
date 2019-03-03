@@ -19,3 +19,11 @@ extension AssignCommand {
         return "\(destination.value)=\(computation.value)"
     }
 }
+
+extension AssignCommand: CustomStringConvertible {
+    
+    var description: String {
+        return value
+    }
+    
+}
