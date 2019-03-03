@@ -19,7 +19,7 @@ class CommandBuilderTests: XCTestCase {
     }
 
     func testBuildCommands() {
-        let builder = CommandBuilder()
+        var builder = CommandBuilder()
         builder.add(ATCommand(difinedSymbol: .sp))
         builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
         builder.add(AssignCommand(destination: .d, computation: .m))
