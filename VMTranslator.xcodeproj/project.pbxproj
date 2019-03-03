@@ -26,11 +26,8 @@
 		188E18CF22226A2C006602D0 /* SubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18CE22226A2C006602D0 /* SubTests.swift */; };
 		188E18D122226A4F006602D0 /* Sub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D022226A4F006602D0 /* Sub.swift */; };
 		188E18D222226A81006602D0 /* Sub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D022226A4F006602D0 /* Sub.swift */; };
-		188E18D422226AF8006602D0 /* StackPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D322226AF8006602D0 /* StackPointer.swift */; };
 		188E18D8222403DA006602D0 /* Negative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D7222403DA006602D0 /* Negative.swift */; };
 		188E18DC22240CCB006602D0 /* Equal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18DB22240CCB006602D0 /* Equal.swift */; };
-		188E18DE22240EBB006602D0 /* StackPointerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18DD22240EBB006602D0 /* StackPointerTests.swift */; };
-		188E18DF22240ECB006602D0 /* StackPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D322226AF8006602D0 /* StackPointer.swift */; };
 		188E18E3222412CC006602D0 /* NegativeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18E2222412CC006602D0 /* NegativeTests.swift */; };
 		188E18E42224155F006602D0 /* Negative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18D7222403DA006602D0 /* Negative.swift */; };
 		188E18E622241604006602D0 /* EqualTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18E522241604006602D0 /* EqualTests.swift */; };
@@ -115,10 +112,8 @@
 		188E18CB222254D7006602D0 /* AddTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTests.swift; sourceTree = "<group>"; };
 		188E18CE22226A2C006602D0 /* SubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTests.swift; sourceTree = "<group>"; };
 		188E18D022226A4F006602D0 /* Sub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sub.swift; sourceTree = "<group>"; };
-		188E18D322226AF8006602D0 /* StackPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackPointer.swift; sourceTree = "<group>"; };
 		188E18D7222403DA006602D0 /* Negative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Negative.swift; sourceTree = "<group>"; };
 		188E18DB22240CCB006602D0 /* Equal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equal.swift; sourceTree = "<group>"; };
-		188E18DD22240EBB006602D0 /* StackPointerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackPointerTests.swift; sourceTree = "<group>"; };
 		188E18E2222412CC006602D0 /* NegativeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegativeTests.swift; sourceTree = "<group>"; };
 		188E18E522241604006602D0 /* EqualTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualTests.swift; sourceTree = "<group>"; };
 		188E18E82226B3C0006602D0 /* GreaterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreaterTests.swift; sourceTree = "<group>"; };
@@ -175,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				188E189E22216E69006602D0 /* VMTranslator */,
+				188E193B222BB90A006602D0 /* Assets */,
 				188E18AB22216FFA006602D0 /* VMTranslatorTests */,
 				188E189D22216E69006602D0 /* Products */,
 			);
@@ -196,9 +192,6 @@
 				188E18B22221705D006602D0 /* Parser.swift */,
 				188E18B722217453006602D0 /* CommandFormatter.swift */,
 				188E18C122219786006602D0 /* CodeWriter.swift */,
-				188E18BC2221790E006602D0 /* Secret.swift */,
-				188E18D322226AF8006602D0 /* StackPointer.swift */,
-				188E191C222B7F77006602D0 /* AssemblyCommand.swift */,
 				188E1928222B88ED006602D0 /* CommandBuilder.swift */,
 				188E1916222B75B7006602D0 /* VMCommand */,
 				188E18C822225464006602D0 /* Arithmetic */,
@@ -223,7 +216,6 @@
 				188E18FA2226CCD3006602D0 /* OrTests.swift */,
 				188E18FF2226D02D006602D0 /* NotTests.swift */,
 				188E1917222B78C7006602D0 /* PushTests.swift */,
-				188E18DD22240EBB006602D0 /* StackPointerTests.swift */,
 				188E1920222B8287006602D0 /* ATCommandTests.swift */,
 				188E1924222B8537006602D0 /* AssignCommandTests.swift */,
 				188E192B222B8D18006602D0 /* LabelCommandTests.swift */,
@@ -241,15 +233,7 @@
 				188E18ED2226B532006602D0 /* Conditionable.swift */,
 				188E1935222BA79B006602D0 /* ConditionIndexRepository.swift */,
 				188E1937222BA848006602D0 /* ConditionIndexStore.swift */,
-				188E18C9222254C3006602D0 /* Add.swift */,
-				188E18D022226A4F006602D0 /* Sub.swift */,
-				188E18D7222403DA006602D0 /* Negative.swift */,
-				188E18DB22240CCB006602D0 /* Equal.swift */,
-				188E18EA2226B495006602D0 /* Greater.swift */,
-				188E18F22226BEE5006602D0 /* Less.swift */,
-				188E18F72226C9D9006602D0 /* And.swift */,
-				188E18FC2226CED9006602D0 /* Or.swift */,
-				188E19012226D0C5006602D0 /* Not.swift */,
+				188E193E222BBA00006602D0 /* Component */,
 			);
 			path = Arithmetic;
 			sourceTree = "<group>";
@@ -257,14 +241,8 @@
 		188E19042226D2BA006602D0 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				188E19052226D2DC006602D0 /* AssignCommand.swift */,
-				188E191E222B8055006602D0 /* ATCommand.swift */,
-				188E192D222B8FA1006602D0 /* LabelCommand.swift */,
-				188E1932222B9371006602D0 /* ConditionCommand.swift */,
-				188E19072226D325006602D0 /* Destination.swift */,
-				188E19092226D7D0006602D0 /* Computation.swift */,
-				188E190B2226DD24006602D0 /* Jump.swift */,
-				188E19112226E441006602D0 /* Boolean.swift */,
+				188E193D222BB9D8006602D0 /* Command */,
+				188E193C222BB9A8006602D0 /* Component */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -275,6 +253,53 @@
 				188E1919222B7B97006602D0 /* MemoryAccess.swift */,
 			);
 			path = VMCommand;
+			sourceTree = "<group>";
+		};
+		188E193B222BB90A006602D0 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				188E18BC2221790E006602D0 /* Secret.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		188E193C222BB9A8006602D0 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				188E19072226D325006602D0 /* Destination.swift */,
+				188E19092226D7D0006602D0 /* Computation.swift */,
+				188E190B2226DD24006602D0 /* Jump.swift */,
+				188E19112226E441006602D0 /* Boolean.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		188E193D222BB9D8006602D0 /* Command */ = {
+			isa = PBXGroup;
+			children = (
+				188E191C222B7F77006602D0 /* AssemblyCommand.swift */,
+				188E19052226D2DC006602D0 /* AssignCommand.swift */,
+				188E191E222B8055006602D0 /* ATCommand.swift */,
+				188E192D222B8FA1006602D0 /* LabelCommand.swift */,
+				188E1932222B9371006602D0 /* ConditionCommand.swift */,
+			);
+			path = Command;
+			sourceTree = "<group>";
+		};
+		188E193E222BBA00006602D0 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				188E18C9222254C3006602D0 /* Add.swift */,
+				188E18D022226A4F006602D0 /* Sub.swift */,
+				188E18D7222403DA006602D0 /* Negative.swift */,
+				188E18DB22240CCB006602D0 /* Equal.swift */,
+				188E18EA2226B495006602D0 /* Greater.swift */,
+				188E18F22226BEE5006602D0 /* Less.swift */,
+				188E18F72226C9D9006602D0 /* And.swift */,
+				188E18FC2226CED9006602D0 /* Or.swift */,
+				188E19012226D0C5006602D0 /* Not.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,7 +408,6 @@
 				188E1938222BA848006602D0 /* ConditionIndexStore.swift in Sources */,
 				188E18CA222254C3006602D0 /* Add.swift in Sources */,
 				188E191F222B8055006602D0 /* ATCommand.swift in Sources */,
-				188E18D422226AF8006602D0 /* StackPointer.swift in Sources */,
 				188E18A022216E69006602D0 /* main.swift in Sources */,
 				188E18D122226A4F006602D0 /* Sub.swift in Sources */,
 				188E18F32226BEE5006602D0 /* Less.swift in Sources */,
@@ -407,7 +431,6 @@
 				188E1922222B828B006602D0 /* ATCommand.swift in Sources */,
 				188E19032226D0E7006602D0 /* Not.swift in Sources */,
 				188E18C522219B63006602D0 /* CodeWriter.swift in Sources */,
-				188E18DF22240ECB006602D0 /* StackPointer.swift in Sources */,
 				188E1934222B953C006602D0 /* ConditionCommand.swift in Sources */,
 				188E19002226D02D006602D0 /* NotTests.swift in Sources */,
 				188E18E42224155F006602D0 /* Negative.swift in Sources */,
@@ -423,7 +446,6 @@
 				188E18FB2226CCD3006602D0 /* OrTests.swift in Sources */,
 				188E18EC2226B4D0006602D0 /* Greater.swift in Sources */,
 				188E18C422219B60006602D0 /* Secret.swift in Sources */,
-				188E18DE22240EBB006602D0 /* StackPointerTests.swift in Sources */,
 				188E190D2226DDB6006602D0 /* Jump.swift in Sources */,
 				188E1931222B9135006602D0 /* ConditionCommandTests.swift in Sources */,
 				188E18CF22226A2C006602D0 /* SubTests.swift in Sources */,
