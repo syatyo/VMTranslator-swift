@@ -11,11 +11,11 @@ import Foundation
 struct Negative {
     
     func execute() -> String {
-        var lines: [String] = []
-        lines.append("@SP")
-        lines.append(AssignCommand(destination: .a, computation: .mMinusOne).textRepresentation)
-        lines.append(AssignCommand(destination: .m, computation: .minusM).textRepresentation)
-        return lines.joined(separator: "\n")
+        var builder = CommandBuilder()
+        builder.add(ATCommand(difinedSymbol: .sp))
+        builder.add(AssignCommand(destination: .a, computation: .mMinusOne))
+        builder.add(AssignCommand(destination: .m, computation: .minusM))
+        return builder.build()
     }
 
 }

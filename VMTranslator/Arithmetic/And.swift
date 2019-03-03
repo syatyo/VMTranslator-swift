@@ -11,13 +11,13 @@ import Foundation
 struct And {
     
     func execute() -> String {
-        var lines: [String] = []
-        lines.append("@SP")
-        lines.append(AssignCommand(destination: .am, computation: .mMinusOne).textRepresentation)
-        lines.append(AssignCommand(destination: .d, computation: .m).textRepresentation)
-        lines.append(AssignCommand(destination: .a, computation: .aMinusOne).textRepresentation)
-        lines.append(AssignCommand(destination: .m, computation: .dAndM).textRepresentation)
-        return lines.joined(separator: "\n")
+        var builder = CommandBuilder()
+        builder.add(ATCommand(difinedSymbol: .sp))
+        builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
+        builder.add(AssignCommand(destination: .d, computation: .m))
+        builder.add(AssignCommand(destination: .a, computation: .aMinusOne))
+        builder.add(AssignCommand(destination: .m, computation: .dAndM))
+        return builder.build()
     }
     
 }
