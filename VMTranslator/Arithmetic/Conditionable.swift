@@ -45,15 +45,16 @@ enum ConditionType: String {
     
 }
 protocol Conditionable {
-    var `type`: ConditionType { get }
-    var symbolCounter: Int { get }
-    mutating func incrementSymbolCounter()
+    var conditionType: ConditionType { get }
+    var repository: ConditionIndexRepository { get }
 }
 
 extension Conditionable {
     
-    mutating func execute() -> String {
-        let conditionLabel = "END_\(type.symbolIdentifer)\(symbolCounter)"
+    func execute() -> String {
+        let currentIndex = repository.getCurrentValue(for: String(describing: type(of: self)))
+        
+        let conditionLabel = "END_\(conditionType.symbolIdentifer)\(currentIndex)"
         var builder = CommandBuilder()
         builder.add(ATCommand(difinedSymbol: .sp))
         builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
@@ -62,12 +63,13 @@ extension Conditionable {
         builder.add(AssignCommand(destination: .d, computation: .mMinusD))
         builder.add(AssignCommand(destination: .m, computation: Computation(boolean: .false)))
         builder.add(ATCommand(label: conditionLabel))
-        builder.add(ConditionCommand(operand: .d, conditionType: type.complement))
+        builder.add(ConditionCommand(operand: .d, conditionType: conditionType.complement))
         builder.add(ATCommand(difinedSymbol: .sp))
         builder.add(AssignCommand(destination: .a, computation: .mMinusOne))
         builder.add(AssignCommand(destination: .m, computation: Computation(boolean: .true)))
         builder.add(LabelCommand(label: conditionLabel))
-        incrementSymbolCounter()
+        
+        repository.incrementIndex(for: String(describing: type(of: self)))
         return builder.build()
     }
 }

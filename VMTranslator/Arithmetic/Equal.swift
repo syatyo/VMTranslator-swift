@@ -9,11 +9,7 @@
 import Foundation
 
 struct Equal: Conditionable {
-    var type: ConditionType { return .jeq }
-    
-    private(set) var symbolCounter: Int = 0
-    mutating func incrementSymbolCounter() {
-        symbolCounter += 1
-    }
+    var conditionType: ConditionType { return .jeq }
+    var repository: ConditionIndexRepository { return ConditionIndexStore.shared }
     
 }

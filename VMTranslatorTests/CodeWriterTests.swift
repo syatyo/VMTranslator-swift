@@ -46,10 +46,25 @@ class CodeWriterTests: XCTestCase {
         @8
         D=A
         @SP
-        A=M
+        AM=M+1
+        A=A-1
         M=D
+        """
+        
+        XCTAssertEqual(codeWriter.assembly, expectation)
+    }
+    
+    func testWriteAdd() {
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("testAdd.asm")
+        codeWriter.writeArithmetic(command: "add")
+        
+        let expectation = """
         @SP
-        M=M+1
+        AM=M-1
+        D=M
+        A=A-1
+        M=D+M
         """
         
         XCTAssertEqual(codeWriter.assembly, expectation)

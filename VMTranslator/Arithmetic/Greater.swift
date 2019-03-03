@@ -9,11 +9,7 @@
 import Foundation
 
 struct Greater: Conditionable {
-    var type: ConditionType { return .jgt }
-    
-    private(set) var symbolCounter = 0
-    mutating func incrementSymbolCounter() {
-        symbolCounter += 1
-    }
+    var conditionType: ConditionType { return .jgt }
+    var repository: ConditionIndexRepository { return ConditionIndexStore.shared }
     
 }
