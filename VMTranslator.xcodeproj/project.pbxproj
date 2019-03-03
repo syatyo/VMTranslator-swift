@@ -74,6 +74,9 @@
 		188E1927222B8711006602D0 /* CommandBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1926222B8711006602D0 /* CommandBuilderTests.swift */; };
 		188E1929222B88ED006602D0 /* CommandBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1928222B88ED006602D0 /* CommandBuilder.swift */; };
 		188E192A222B89B8006602D0 /* CommandBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1928222B88ED006602D0 /* CommandBuilder.swift */; };
+		188E192C222B8D18006602D0 /* LabelCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E192B222B8D18006602D0 /* LabelCommandTests.swift */; };
+		188E192E222B8FA1006602D0 /* LabelCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E192D222B8FA1006602D0 /* LabelCommand.swift */; };
+		188E192F222B905F006602D0 /* LabelCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E192D222B8FA1006602D0 /* LabelCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -135,6 +138,8 @@
 		188E1924222B8537006602D0 /* AssignCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignCommandTests.swift; sourceTree = "<group>"; };
 		188E1926222B8711006602D0 /* CommandBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandBuilderTests.swift; sourceTree = "<group>"; };
 		188E1928222B88ED006602D0 /* CommandBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandBuilder.swift; sourceTree = "<group>"; };
+		188E192B222B8D18006602D0 /* LabelCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCommandTests.swift; sourceTree = "<group>"; };
+		188E192D222B8FA1006602D0 /* LabelCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +215,7 @@
 				188E18DD22240EBB006602D0 /* StackPointerTests.swift */,
 				188E1920222B8287006602D0 /* ATCommandTests.swift */,
 				188E1924222B8537006602D0 /* AssignCommandTests.swift */,
+				188E192B222B8D18006602D0 /* LabelCommandTests.swift */,
 				188E1926222B8711006602D0 /* CommandBuilderTests.swift */,
 				188E18B92221748C006602D0 /* CommandFormatterTests.swift */,
 				188E18AE22216FFA006602D0 /* Info.plist */,
@@ -239,6 +245,7 @@
 			children = (
 				188E19052226D2DC006602D0 /* AssignCommand.swift */,
 				188E191E222B8055006602D0 /* ATCommand.swift */,
+				188E192D222B8FA1006602D0 /* LabelCommand.swift */,
 				188E19072226D325006602D0 /* Destination.swift */,
 				188E19092226D7D0006602D0 /* Computation.swift */,
 				188E190B2226DD24006602D0 /* Jump.swift */,
@@ -351,6 +358,7 @@
 				188E18FD2226CED9006602D0 /* Or.swift in Sources */,
 				188E18DC22240CCB006602D0 /* Equal.swift in Sources */,
 				188E19062226D2DC006602D0 /* AssignCommand.swift in Sources */,
+				188E192E222B8FA1006602D0 /* LabelCommand.swift in Sources */,
 				188E18BD2221790E006602D0 /* Secret.swift in Sources */,
 				188E191D222B7F77006602D0 /* AssemblyCommand.swift in Sources */,
 				188E19082226D325006602D0 /* Destination.swift in Sources */,
@@ -384,6 +392,7 @@
 				188E18DF22240ECB006602D0 /* StackPointer.swift in Sources */,
 				188E19002226D02D006602D0 /* NotTests.swift in Sources */,
 				188E18E42224155F006602D0 /* Negative.swift in Sources */,
+				188E192C222B8D18006602D0 /* LabelCommandTests.swift in Sources */,
 				188E18E3222412CC006602D0 /* NegativeTests.swift in Sources */,
 				188E18F62226C79A006602D0 /* AndTests.swift in Sources */,
 				188E192A222B89B8006602D0 /* CommandBuilder.swift in Sources */,
@@ -406,6 +415,7 @@
 				188E1925222B8537006602D0 /* AssignCommandTests.swift in Sources */,
 				188E1921222B8287006602D0 /* ATCommandTests.swift in Sources */,
 				188E18E72226B10A006602D0 /* Equal.swift in Sources */,
+				188E192F222B905F006602D0 /* LabelCommand.swift in Sources */,
 				188E1923222B83E6006602D0 /* AssemblyCommand.swift in Sources */,
 				188E18CC222254D7006602D0 /* AddTests.swift in Sources */,
 				188E18C722219B68006602D0 /* Parser.swift in Sources */,
