@@ -16,8 +16,4 @@ enum Jump: String {
     case jne // x != 0
     case jle // x <= 0
     
-    var value: String {
-        return rawValue.uppercased()
-    }
-
 }
