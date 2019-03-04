@@ -13,8 +13,6 @@ final class VMTranslator {
         case fileOrDirDoesNotExist(atPath: String)
     }
     
-    private typealias Assembly = String
-    private var filePathWithAssembly: [String: Assembly] = [:]
     let outputDirectoryPath: String
     let filePaths: [String]
     
