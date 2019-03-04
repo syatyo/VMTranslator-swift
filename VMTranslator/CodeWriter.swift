@@ -13,10 +13,10 @@ enum MemoryAccessCommandType {
     case pop
 }
 
-enum SegmentType {
+enum SegmentType: String {
     case argument
     case local
-    case `static`
+    case `static` = "static"
     case constant
     case this
     case that
@@ -64,10 +64,11 @@ struct CodeWriter {
     }
     
     mutating func writePushPop(_ commandType: MemoryAccessCommandType,
-                               segmentType: SegmentType,
+                               segment: String,
                                index: Int) {
+        let segmentType = SegmentType(rawValue: segment)!
         let ma = MemoryAccess()
-        assemblyCommands.append(ma.push(segment: .constant, index: index))
+        assemblyCommands.append(ma.push(segment: segmentType, index: index))
     }
     
     mutating func writeArithmetic(command: String) {

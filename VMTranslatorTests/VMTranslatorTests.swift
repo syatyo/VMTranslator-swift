@@ -9,25 +9,51 @@
 import XCTest
 
 class VMTranslatorTests: XCTestCase {
+    let outputFilePath = testOutputDirPath + "SimpleAdd.asm"
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        try? FileManager.default.removeItem(atPath: outputFilePath)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testVMTranslateSimpleAdd() {
+        // Precondition
+        let outputFilePath = testOutputDirPath + "SimpleAdd.asm"
+        let isFileExisted = FileManager.default.fileExists(atPath: outputFilePath)
+        XCTAssertFalse(isFileExisted)
+        
+        let path = simpleAddPath // from Secret.swift
+        let vmTranslator = VMTranslator(path: path)
+        vmTranslator.startTranslating()
+        vmTranslator.write()
+        
+        let url = URL(fileURLWithPath: outputFilePath)
+        let asmText = try! String(contentsOf: url, encoding: .utf8)
+        
+        let expectation = """
+        @7
+        D=A
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        @8
+        D=A
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        @SP
+        AM=M-1
+        D=M
+        A=A-1
+        M=D+M
+        """
+        
+        XCTAssertEqual(asmText, expectation)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+    
 }
