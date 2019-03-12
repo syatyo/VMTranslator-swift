@@ -47,11 +47,12 @@ final class VMTranslator {
     }
     
     private func translate(filePath: String) throws {
-        let vmFilePath = URL(fileURLWithPath: filePath).deletingPathExtension().appendingPathExtension("vm").path
-
+        let vmFileURL = URL(fileURLWithPath: filePath)
+        let asmFileName = vmFileURL.deletingPathExtension().appendingPathExtension("asm").lastPathComponent
+        
         var parser = Parser(vmFilePath: filePath)
         var codeWriter = CodeWriter(outputDirPath: self.outputDirectoryPath)
-        codeWriter.setFileName(vmFilePath)
+        codeWriter.setFileName(asmFileName)
         
         while parser.hasMoreCommands {
             switch parser.commandType {

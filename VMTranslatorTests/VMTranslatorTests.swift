@@ -16,6 +16,7 @@ class VMTranslatorTests: XCTestCase {
     }
 
     override func tearDown() {
+        // If I use output file in CPUEmulator to test it. Comment out this line.
         try? FileManager.default.removeItem(atPath: outputFilePath)
     }
     
@@ -26,12 +27,13 @@ class VMTranslatorTests: XCTestCase {
         XCTAssertFalse(isFileExisted)
         
         let path = simpleAddPath // from Secret.swift
-        let vmTranslator = VMTranslator(path: path)
-        vmTranslator.startTranslating()
-        vmTranslator.write()
+        let vmTranslator = try! VMTranslator(path: path)
+        try! vmTranslator.startTranslating()
         
-        let url = URL(fileURLWithPath: outputFilePath)
-        let asmText = try! String(contentsOf: url, encoding: .utf8)
+        let isFileExistedAfterClose = FileManager.default.fileExists(atPath: outputFilePath)
+        XCTAssertTrue(isFileExistedAfterClose)
+        
+        let asmText = try! String(contentsOfFile: outputFilePath, encoding: .utf8)
         
         let expectation = """
         @7

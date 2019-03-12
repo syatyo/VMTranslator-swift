@@ -82,6 +82,7 @@
 		188E1939222BAD74006602D0 /* ConditionIndexRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1935222BA79B006602D0 /* ConditionIndexRepository.swift */; };
 		188E193A222BAD80006602D0 /* ConditionIndexStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1937222BA848006602D0 /* ConditionIndexStore.swift */; };
 		188E1940222BF82E006602D0 /* VMTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E193F222BF82E006602D0 /* VMTranslator.swift */; };
+		188E19412237E4B0006602D0 /* VMTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E193F222BF82E006602D0 /* VMTranslator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -459,6 +460,7 @@
 				188E18FE2226CF23006602D0 /* Or.swift in Sources */,
 				188E18CD2222561C006602D0 /* Add.swift in Sources */,
 				188E18EF2226B88C006602D0 /* Conditionable.swift in Sources */,
+				188E19412237E4B0006602D0 /* VMTranslator.swift in Sources */,
 				188E18BA2221748C006602D0 /* CommandFormatterTests.swift in Sources */,
 				188E1925222B8537006602D0 /* AssignCommandTests.swift in Sources */,
 				188E1921222B8287006602D0 /* ATCommandTests.swift in Sources */,
