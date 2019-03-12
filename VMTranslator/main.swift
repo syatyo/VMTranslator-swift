@@ -8,17 +8,24 @@
 
 import Foundation
 
-if CommandLine.arguments.count == 2 {
-    let givenPath = CommandLine.arguments[1]
-    do {
-        let translator = try VMTranslator(path: givenPath)
-        try translator.startTranslating()
-    } catch {
-        print("error occured: \(error)")
-    }
-} else {
-    print("Please input VMTranslator (filepath).")
+// 1. SimpleAdd.vm to SimpleAdd.asm
+do {
+    let vmTranslator = try VMTranslator(path: simpleAddPath)
+    try vmTranslator.startTranslating()
+} catch {
+    print("Error occured: \(error)")
     exit(EXIT_FAILURE)
 }
 
+print("Success to translate SimpleAdd.asm")
 
+// 2. StackTest.vm to StackTest.asm
+do {
+    let vmTranslator = try VMTranslator(path: stackTestPath)
+    try vmTranslator.startTranslating()
+} catch {
+    print("Error occured: \(error)")
+    exit(EXIT_FAILURE)
+}
+
+print("Success to translate StackTestPath.asm")
