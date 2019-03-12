@@ -81,6 +81,9 @@
 		188E1938222BA848006602D0 /* ConditionIndexStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1937222BA848006602D0 /* ConditionIndexStore.swift */; };
 		188E1939222BAD74006602D0 /* ConditionIndexRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1935222BA79B006602D0 /* ConditionIndexRepository.swift */; };
 		188E193A222BAD80006602D0 /* ConditionIndexStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1937222BA848006602D0 /* ConditionIndexStore.swift */; };
+		188E1940222BF82E006602D0 /* VMTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E193F222BF82E006602D0 /* VMTranslator.swift */; };
+		188E19412237E4B0006602D0 /* VMTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E193F222BF82E006602D0 /* VMTranslator.swift */; };
+		188E19422237F683006602D0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E189F22216E69006602D0 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -146,6 +149,7 @@
 		188E1932222B9371006602D0 /* ConditionCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionCommand.swift; sourceTree = "<group>"; };
 		188E1935222BA79B006602D0 /* ConditionIndexRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionIndexRepository.swift; sourceTree = "<group>"; };
 		188E1937222BA848006602D0 /* ConditionIndexStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionIndexStore.swift; sourceTree = "<group>"; };
+		188E193F222BF82E006602D0 /* VMTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMTranslator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				188E189F22216E69006602D0 /* main.swift */,
+				188E193F222BF82E006602D0 /* VMTranslator.swift */,
 				188E18B22221705D006602D0 /* Parser.swift */,
 				188E18B722217453006602D0 /* CommandFormatter.swift */,
 				188E18C122219786006602D0 /* CodeWriter.swift */,
@@ -407,6 +412,7 @@
 				188E18B32221705D006602D0 /* Parser.swift in Sources */,
 				188E1938222BA848006602D0 /* ConditionIndexStore.swift in Sources */,
 				188E18CA222254C3006602D0 /* Add.swift in Sources */,
+				188E1940222BF82E006602D0 /* VMTranslator.swift in Sources */,
 				188E191F222B8055006602D0 /* ATCommand.swift in Sources */,
 				188E18A022216E69006602D0 /* main.swift in Sources */,
 				188E18D122226A4F006602D0 /* Sub.swift in Sources */,
@@ -451,10 +457,12 @@
 				188E18CF22226A2C006602D0 /* SubTests.swift in Sources */,
 				188E18E92226B3C0006602D0 /* GreaterTests.swift in Sources */,
 				188E191B222B7CD7006602D0 /* MemoryAccess.swift in Sources */,
+				188E19422237F683006602D0 /* main.swift in Sources */,
 				188E1939222BAD74006602D0 /* ConditionIndexRepository.swift in Sources */,
 				188E18FE2226CF23006602D0 /* Or.swift in Sources */,
 				188E18CD2222561C006602D0 /* Add.swift in Sources */,
 				188E18EF2226B88C006602D0 /* Conditionable.swift in Sources */,
+				188E19412237E4B0006602D0 /* VMTranslator.swift in Sources */,
 				188E18BA2221748C006602D0 /* CommandFormatterTests.swift in Sources */,
 				188E1925222B8537006602D0 /* AssignCommandTests.swift in Sources */,
 				188E1921222B8287006602D0 /* ATCommandTests.swift in Sources */,

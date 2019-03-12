@@ -22,7 +22,7 @@ class CodeWriterTests: XCTestCase {
         let outputDirPath = "/Users/user/Documents/GitHub/VMTranslator-swift/"
         var codeWriter = CodeWriter(outputDirPath: outputDirPath)
         codeWriter.setFileName("test.asm")
-        XCTAssertEqual(codeWriter.outputFilePath, "/Users/user/Documents/GitHub/VMTranslator-swift/test.asm")
+        XCTAssertEqual(codeWriter.fileName, "test.asm")
     }
     
     func testClose() {
@@ -39,7 +39,7 @@ class CodeWriterTests: XCTestCase {
         
         var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
         codeWriter.setFileName("test.asm")
-        codeWriter.writePushPop(.push, segmentType: .constant, index: 8)
+        codeWriter.writePushPop(.push, segment: "constant", index: 8)
         
         // We don't have to initialize segment memories. In this section, test script setup them.
         let expectation = """
@@ -218,8 +218,8 @@ class CodeWriterTests: XCTestCase {
     func testSimpleAdd() {
         var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
         codeWriter.setFileName("testSimpleAdd.asm")
-        codeWriter.writePushPop(.push, segmentType: .constant, index: 7)
-        codeWriter.writePushPop(.push, segmentType: .constant, index: 8)
+        codeWriter.writePushPop(.push, segment: "constant", index: 7)
+        codeWriter.writePushPop(.push, segment: "constant", index: 8)
         codeWriter.writeArithmetic(command: "add")
         
         let expectation = """

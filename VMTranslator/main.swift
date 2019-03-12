@@ -8,5 +8,17 @@
 
 import Foundation
 
-print("Hello, World!")
+if CommandLine.arguments.count == 2 {
+    let givenPath = CommandLine.arguments[1]
+    do {
+        let translator = try VMTranslator(path: givenPath)
+        try translator.startTranslating()
+    } catch {
+        print("error occured: \(error)")
+    }
+} else {
+    print("Please input VMTranslator (filepath).")
+    exit(EXIT_FAILURE)
+}
+
 

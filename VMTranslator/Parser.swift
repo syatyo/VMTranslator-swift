@@ -75,7 +75,7 @@ struct Parser {
     }
     
     var hasMoreCommands: Bool {
-        return cursor != (commands.count - 1)
+        return cursor < commands.count
     }
     
     mutating func advance() {

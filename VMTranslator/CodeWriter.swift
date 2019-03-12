@@ -13,10 +13,10 @@ enum MemoryAccessCommandType {
     case pop
 }
 
-enum SegmentType {
+enum SegmentType: String {
     case argument
     case local
-    case `static`
+    case `static` = "static"
     case constant
     case this
     case that
@@ -25,8 +25,12 @@ enum SegmentType {
 }
 
 struct CodeWriter {
-    let outputDirPath: String
-    private var fileName: String?
+    private let outputDirURL: URL
+    var outputFilePath: String {
+        return outputDirURL.path
+    }
+    
+    private(set) var fileName: String?
     private var assemblyCommands: [String] = []
     var assembly: String {
         return assemblyCommands.joined(separator: "\n")
@@ -45,29 +49,40 @@ struct CodeWriter {
         
     }
     
+    enum Error: Swift.Error {
+        case noFileName
+        
+        var localizedDescription: String {
+            switch self {
+            case .noFileName:
+                return "Filename is not set. Please set filename before calling translation."
+            }
+        }
+    }
+    
     init(outputDirPath: String) {
-        self.outputDirPath = outputDirPath
+        self.outputDirURL = URL(string: outputDirPath)!
     }
     
     mutating func setFileName(_ fileName: String) {
         self.fileName = fileName
     }
     
-    var outputFilePath: String? {
-        guard let fileName = self.fileName else { return nil }
-        return outputDirPath + fileName
-    }
-    
     func close() throws {
-        let url = URL(fileURLWithPath: outputFilePath ?? "")
-        try assembly.write(to: url, atomically: false, encoding: .utf8)
+        guard let fileName = self.fileName else {
+            throw Error.noFileName
+        }
+        
+        let outputFilePath = outputDirURL.appendingPathComponent(fileName).path
+        try assembly.write(toFile: outputFilePath, atomically: false, encoding: .utf8)
     }
     
     mutating func writePushPop(_ commandType: MemoryAccessCommandType,
-                               segmentType: SegmentType,
+                               segment: String,
                                index: Int) {
+        let segmentType = SegmentType(rawValue: segment)!
         let ma = MemoryAccess()
-        assemblyCommands.append(ma.push(segment: .constant, index: index))
+        assemblyCommands.append(ma.push(segment: segmentType, index: index))
     }
     
     mutating func writeArithmetic(command: String) {
