@@ -21,3 +21,11 @@ struct Or {
     }
 
 }
+
+extension Or: AssemblyCommandGeneratable {
+    
+    func generate() -> String {
+        return execute()
+    }
+    
+}

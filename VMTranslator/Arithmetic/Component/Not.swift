@@ -19,3 +19,11 @@ struct Not {
     }
     
 }
+
+extension Not: AssemblyCommandGeneratable {
+    
+    func generate() -> String {
+        return execute()
+    }
+    
+}

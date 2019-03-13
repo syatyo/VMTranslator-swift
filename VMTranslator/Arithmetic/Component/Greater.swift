@@ -17,3 +17,11 @@ struct Greater: Conditionable {
     }
 
 }
+
+extension Greater: AssemblyCommandGeneratable {
+    
+    func generate() -> String {
+        return execute()
+    }
+    
+}

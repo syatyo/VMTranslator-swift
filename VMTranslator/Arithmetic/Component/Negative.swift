@@ -19,3 +19,11 @@ struct Negative {
     }
 
 }
+
+extension Negative: AssemblyCommandGeneratable {
+    
+    func generate() -> String {
+        return execute()
+    }
+    
+}

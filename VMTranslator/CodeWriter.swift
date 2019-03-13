@@ -31,9 +31,9 @@ struct CodeWriter {
     }
     
     private(set) var fileName: String?
-    private var assemblyCommands: [String] = []
+    private var assemblyCommandBuilder = CommandBuilder()
     var assembly: String {
-        return assemblyCommands.joined(separator: "\n")
+        return assemblyCommandBuilder.build()
     }
     
     private enum Symbol: String {
@@ -81,36 +81,43 @@ struct CodeWriter {
                                segment: String,
                                index: Int) {
         let segmentType = SegmentType(rawValue: segment)!
-        let push = Push(segment: segmentType, index: index)
-        assemblyCommands.append(push.execute())
+        switch commandType {
+        case .push:
+            let push = Push(segment: segmentType, index: index)
+            assemblyCommandBuilder.add(push)
+        case .pop:
+            let pop = Pop(segment: segmentType, index: index)
+            assemblyCommandBuilder.add(pop)
+        }
+        
     }
     
     mutating func writeArithmetic(command: String) {
         switch command {
         case "add":
-            assemblyCommands.append(Add().execute())
+            assemblyCommandBuilder.add(Add())
         case "sub":
-            assemblyCommands.append(Sub().execute())
+            assemblyCommandBuilder.add(Sub())
         case "neg":
-            assemblyCommands.append(Negative().execute())
+            assemblyCommandBuilder.add(Negative())
         case "eq":
             var equal = Equal()
             equal.inject(repository: ConditionIndexStore.shared)
-            assemblyCommands.append(equal.execute())
+            assemblyCommandBuilder.add(equal)
         case "gt":
             var greater = Greater()
             greater.inject(repository: ConditionIndexStore.shared)
-            assemblyCommands.append(greater.execute())
+            assemblyCommandBuilder.add(greater)
         case "lt":
             var less = Less()
             less.inject(repository: ConditionIndexStore.shared)
-            assemblyCommands.append(less.execute())
+            assemblyCommandBuilder.add(less)
         case "and":
-            assemblyCommands.append(And().execute())
+            assemblyCommandBuilder.add(And())
         case "or":
-            assemblyCommands.append(Or().execute())
+            assemblyCommandBuilder.add(Or())
         case "not":
-            assemblyCommands.append(Not().execute())
+            assemblyCommandBuilder.add(Not())
         default:
             fatalError("Unexpected command.")
         }

@@ -22,3 +22,10 @@ struct Sub {
     
 }
 
+extension Sub: AssemblyCommandGeneratable {
+    
+    func generate() -> String {
+        return execute()
+    }
+    
+}
