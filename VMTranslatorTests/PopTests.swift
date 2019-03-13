@@ -77,5 +77,35 @@ class PopTests: XCTestCase {
         """
         XCTAssertEqual(result, expectation)
     }
+    
+    func testPopPointer() {
+        let pop = Pop(segment: .pointer, index: 3)
+        let result = pop.execute()
+        let expectation = """
+        @3
+        D=A
+        @3
+        D=D+A
+        @SP
+        AM=M-1
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func testPopTemp() {
+        let pop = Pop(segment: .temp, index: 5)
+        let result = pop.execute()
+        let expectation = """
+        @5
+        D=A
+        @5
+        D=D+A
+        @SP
+        AM=M-1
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
 
+    }
 }
