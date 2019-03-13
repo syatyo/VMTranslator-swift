@@ -21,33 +21,25 @@ struct Pop {
         case .local:
             var builder = CommandBuilder()
             builder.add(Local(index: index))
-            builder.add(ATCommand(difinedSymbol: .sp))
-            builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
-            builder.add(AssignCommand(destination: .m, computation: .d))
+            builder.add(PopStackDecrementer())
             return builder.build()
 
         case .argument:
             var builder = CommandBuilder()
             builder.add(Argument(index: index))
-            builder.add(ATCommand(difinedSymbol: .sp))
-            builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
-            builder.add(AssignCommand(destination: .m, computation: .d))
+            builder.add(PopStackDecrementer())
             return builder.build()
 
         case .this:
             var builder = CommandBuilder()
             builder.add(This(index: index))
-            builder.add(ATCommand(difinedSymbol: .sp))
-            builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
-            builder.add(AssignCommand(destination: .m, computation: .d))
+            builder.add(PopStackDecrementer())
             return builder.build()
 
         case .that:
             var builder = CommandBuilder()
             builder.add(That(index: index))
-            builder.add(ATCommand(difinedSymbol: .sp))
-            builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
-            builder.add(AssignCommand(destination: .m, computation: .d))
+            builder.add(PopStackDecrementer())
             return builder.build()
             
         default:

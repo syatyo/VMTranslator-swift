@@ -18,29 +18,32 @@ struct Push {
             var builder = CommandBuilder()
             builder.add(ATCommand(constant: index))
             builder.add(AssignCommand(destination: .d, computation: .a))
-            
-            let pushStackIncrementer = PushStackIncrementer()
-            return builder.build() + "\n" + pushStackIncrementer.execute()
+            builder.add(PushStackIncrementer())
+            return builder.build()
             
         case .local:
-            let local = Local(index: index)
-            let pushStackIncrementer = PushStackIncrementer()
-            return local.execute() + "\n" + pushStackIncrementer.execute()
+            var builder = CommandBuilder()
+            builder.add(Local(index: index))
+            builder.add(PushStackIncrementer())
+            return builder.build()
             
         case .argument:
-            let argument = Argument(index: index)
-            let pushStackIncrementer = PushStackIncrementer()
-            return argument.execute() + "\n" + pushStackIncrementer.execute()
+            var builder = CommandBuilder()
+            builder.add(Argument(index: index))
+            builder.add(PushStackIncrementer())
+            return builder.build()
             
         case .this:
-            let this = This(index: index)
-            let pushStackIncrementer = PushStackIncrementer()
-            return this.execute() + "\n" + pushStackIncrementer.execute()
-
+            var builder = CommandBuilder()
+            builder.add(This(index: index))
+            builder.add(PushStackIncrementer())
+            return builder.build()
+            
         case .that:
-            let that = That(index: index)
-            let pushStackIncrementer = PushStackIncrementer()
-            return that.execute() + "\n" + pushStackIncrementer.execute()
+            var builder = CommandBuilder()
+            builder.add(That(index: index))
+            builder.add(PushStackIncrementer())
+            return builder.build()
 
         default:
             fatalError()
