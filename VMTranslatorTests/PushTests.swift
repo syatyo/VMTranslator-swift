@@ -33,4 +33,36 @@ class PushTests: XCTestCase {
         XCTAssertEqual(result, expectation)
     }
     
+    func testPushLocalZero() {
+        let push = Push(segment: .local, index: 0)
+        let result = push.execute()
+        let expectation = """
+        @LCL
+        D=A
+        @0
+        D=D+A
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func testPushLocalOne() {
+        let push = Push(segment: .local, index: 1)
+        let result = push.execute()
+        let expectation = """
+        @LCL
+        D=A
+        @1
+        D=D+A
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
 }
