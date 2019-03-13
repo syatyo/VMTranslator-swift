@@ -31,7 +31,7 @@ struct Local: Segment, AssemblyCommandGeneratable {
     var type: ATCommand.DefinedSymbol { return .lcl }
     let index: Int
     
-    func generateAssembly() -> String {
+    func generate() -> String {
         return execute()
     }
 
@@ -41,7 +41,7 @@ struct Argument: Segment, AssemblyCommandGeneratable {
     var type: ATCommand.DefinedSymbol { return .arg }
     let index: Int
     
-    func generateAssembly() -> String {
+    func generate() -> String {
         return execute()
     }
 }
@@ -50,7 +50,7 @@ struct This: Segment, AssemblyCommandGeneratable {
     var type: ATCommand.DefinedSymbol { return .this }
     let index: Int
     
-    func generateAssembly() -> String {
+    func generate() -> String {
         return execute()
     }
 }
@@ -59,7 +59,7 @@ struct That: Segment, AssemblyCommandGeneratable {
     var type: ATCommand.DefinedSymbol { return .that }
     let index: Int
     
-    func generateAssembly() -> String {
+    func generate() -> String {
         return execute()
     }
 }

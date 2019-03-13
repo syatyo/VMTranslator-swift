@@ -14,7 +14,7 @@ struct AssignCommand {
 }
 
 extension AssignCommand: AssemblyCommandGeneratable {
-    func generateAssembly() -> String {
+    func generate() -> String {
         return "\(destination.value)=\(computation.value)"
     }
     

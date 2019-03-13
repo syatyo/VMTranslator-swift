@@ -17,7 +17,7 @@ struct CommandBuilder {
     
     func build() -> String {
         return assemblyCommands
-            .map { $0.generateAssembly() }
+            .map { $0.generate() }
             .joined(separator: "\n")
     }
     

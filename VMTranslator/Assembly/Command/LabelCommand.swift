@@ -21,7 +21,7 @@ struct LabelCommand {
 
 extension LabelCommand: AssemblyCommandGeneratable {
     
-    func generateAssembly() -> String {
+    func generate() -> String {
         return "(\(value))"
     }
         
