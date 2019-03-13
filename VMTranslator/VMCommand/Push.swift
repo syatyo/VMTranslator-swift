@@ -44,6 +44,18 @@ struct Push {
             builder.add(That(index: index))
             builder.add(PushStackIncrementer())
             return builder.build()
+            
+        case .pointer:
+            var builder = CommandBuilder()
+            builder.add(Pointer(index: index))
+            builder.add(PushStackIncrementer())
+            return builder.build()
+
+        case .temp:
+            var builder = CommandBuilder()
+            builder.add(Temp(index: index))
+            builder.add(PushStackIncrementer())
+            return builder.build()
 
         default:
             fatalError()

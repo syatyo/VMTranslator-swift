@@ -10,16 +10,19 @@ import Foundation
 
 protocol Segment {
     var index: Int { get }
-    var `type`: ATCommand.DefinedSymbol { get }
     func execute() -> String
 }
 
-extension Segment {
+protocol RegisterDefined {
+    var `type`: ATCommand.DefinedSymbol { get }
+}
+
+extension Segment where Self: RegisterDefined {
     
     func execute() -> String {
         var builder = CommandBuilder()
         builder.add(ATCommand(difinedSymbol: type))
-        builder.add(AssignCommand(destination: .d, computation: .a))
+        builder.add(AssignCommand(destination: .d, computation: .m))
         builder.add(ATCommand(constant: index))
         builder.add(AssignCommand(destination: .d, computation: .dPlusA))
         return builder.build()
@@ -27,7 +30,7 @@ extension Segment {
     
 }
 
-struct Local: Segment, AssemblyCommandGeneratable {
+struct Local: Segment, RegisterDefined, AssemblyCommandGeneratable {
     var type: ATCommand.DefinedSymbol { return .lcl }
     let index: Int
     
@@ -37,7 +40,7 @@ struct Local: Segment, AssemblyCommandGeneratable {
 
 }
 
-struct Argument: Segment, AssemblyCommandGeneratable {
+struct Argument: Segment, RegisterDefined, AssemblyCommandGeneratable {
     var type: ATCommand.DefinedSymbol { return .arg }
     let index: Int
     
@@ -46,7 +49,7 @@ struct Argument: Segment, AssemblyCommandGeneratable {
     }
 }
 
-struct This: Segment, AssemblyCommandGeneratable {
+struct This: Segment, RegisterDefined, AssemblyCommandGeneratable {
     var type: ATCommand.DefinedSymbol { return .this }
     let index: Int
     
@@ -55,11 +58,49 @@ struct This: Segment, AssemblyCommandGeneratable {
     }
 }
 
-struct That: Segment, AssemblyCommandGeneratable {
+struct That: Segment, RegisterDefined, AssemblyCommandGeneratable {
     var type: ATCommand.DefinedSymbol { return .that }
     let index: Int
     
     func generate() -> String {
         return execute()
     }
+}
+
+struct Pointer: Segment, AssemblyCommandGeneratable {
+    let index: Int
+    private let baseAddress: Int = 3
+    
+    func execute() -> String {
+        var builder = CommandBuilder()
+        builder.add(ATCommand(constant: baseAddress))
+        builder.add(AssignCommand(destination: .d, computation: .m))
+        builder.add(ATCommand(constant: index))
+        builder.add(AssignCommand(destination: .d, computation: .dPlusA))
+        return builder.build()
+    }
+
+    func generate() -> String {
+        return execute()
+    }
+    
+}
+
+struct Temp: Segment, AssemblyCommandGeneratable {
+    var index: Int
+    private let baseAddress: Int = 5
+    
+    func execute() -> String {
+        var builder = CommandBuilder()
+        builder.add(ATCommand(constant: baseAddress))
+        builder.add(AssignCommand(destination: .d, computation: .m))
+        builder.add(ATCommand(constant: index))
+        builder.add(AssignCommand(destination: .d, computation: .dPlusA))
+        return builder.build()
+    }
+    
+    func generate() -> String {
+        return execute()
+    }
+    
 }

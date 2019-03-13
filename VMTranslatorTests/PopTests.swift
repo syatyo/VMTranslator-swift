@@ -23,7 +23,7 @@ class PopTests: XCTestCase {
         let result = pop.execute()
         let expectation = """
         @LCL
-        D=A
+        D=M
         @0
         D=D+A
         @SP
@@ -38,7 +38,7 @@ class PopTests: XCTestCase {
         let result = pop.execute()
         let expectation = """
         @ARG
-        D=A
+        D=M
         @5
         D=D+A
         @SP
@@ -53,7 +53,7 @@ class PopTests: XCTestCase {
         let result = pop.execute()
         let expectation = """
         @THIS
-        D=A
+        D=M
         @2
         D=D+A
         @SP
@@ -68,7 +68,7 @@ class PopTests: XCTestCase {
         let result = pop.execute()
         let expectation = """
         @THAT
-        D=A
+        D=M
         @1
         D=D+A
         @SP
@@ -77,5 +77,35 @@ class PopTests: XCTestCase {
         """
         XCTAssertEqual(result, expectation)
     }
+    
+    func testPopPointer() {
+        let pop = Pop(segment: .pointer, index: 3)
+        let result = pop.execute()
+        let expectation = """
+        @3
+        D=M
+        @3
+        D=D+A
+        @SP
+        AM=M-1
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func testPopTemp() {
+        let pop = Pop(segment: .temp, index: 5)
+        let result = pop.execute()
+        let expectation = """
+        @5
+        D=M
+        @5
+        D=D+A
+        @SP
+        AM=M-1
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
 
+    }
 }
