@@ -19,8 +19,8 @@ class PushTests: XCTestCase {
     }
     
     func testPushConstant() {
-        let ma = MemoryAccess()
-        let result = ma.push(segment: .constant, index: 5)
+        let push = Push(segment: .constant, index: 5)
+        let result = push.execute()
         let expectation = """
         @5
         D=A

@@ -1,16 +1,18 @@
 //
-//  MemoryAccess.swift
+//  Push.swift
 //  VMTranslator
 //
-//  Created by 山田良治 on 2019/03/03.
+//  Created by 山田良治 on 2019/03/13.
 //  Copyright © 2019 山田良治. All rights reserved.
 //
 
 import Foundation
 
-struct MemoryAccess {
+struct Push {
+    let segment: SegmentType
+    let index: Int
     
-    func push(segment: SegmentType, index: Int) -> String {
+    func execute() -> String {
         var builder = CommandBuilder()
         builder.add(ATCommand(constant: index))
         builder.add(AssignCommand(destination: .d, computation: .a))
@@ -20,5 +22,5 @@ struct MemoryAccess {
         builder.add(AssignCommand(destination: .m, computation: .d))
         return builder.build()
     }
-    
+
 }

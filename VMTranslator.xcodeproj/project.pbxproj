@@ -49,7 +49,6 @@
 		188E19002226D02D006602D0 /* NotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18FF2226D02D006602D0 /* NotTests.swift */; };
 		188E19022226D0C5006602D0 /* Not.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19012226D0C5006602D0 /* Not.swift */; };
 		188E19032226D0E7006602D0 /* Not.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19012226D0C5006602D0 /* Not.swift */; };
-		188E19062226D2DC006602D0 /* AssignCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19052226D2DC006602D0 /* AssignCommand.swift */; };
 		188E19082226D325006602D0 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19072226D325006602D0 /* Destination.swift */; };
 		188E190A2226D7D0006602D0 /* Computation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19092226D7D0006602D0 /* Computation.swift */; };
 		188E190C2226DD24006602D0 /* Jump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E190B2226DD24006602D0 /* Jump.swift */; };
@@ -60,8 +59,6 @@
 		188E19122226E441006602D0 /* Boolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19112226E441006602D0 /* Boolean.swift */; };
 		188E19132226E48E006602D0 /* Boolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19112226E441006602D0 /* Boolean.swift */; };
 		188E1918222B78C7006602D0 /* PushTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1917222B78C7006602D0 /* PushTests.swift */; };
-		188E191A222B7B97006602D0 /* MemoryAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1919222B7B97006602D0 /* MemoryAccess.swift */; };
-		188E191B222B7CD7006602D0 /* MemoryAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1919222B7B97006602D0 /* MemoryAccess.swift */; };
 		188E191D222B7F77006602D0 /* AssemblyCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E191C222B7F77006602D0 /* AssemblyCommand.swift */; };
 		188E191F222B8055006602D0 /* ATCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E191E222B8055006602D0 /* ATCommand.swift */; };
 		188E1921222B8287006602D0 /* ATCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1920222B8287006602D0 /* ATCommandTests.swift */; };
@@ -84,6 +81,9 @@
 		188E1940222BF82E006602D0 /* VMTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E193F222BF82E006602D0 /* VMTranslator.swift */; };
 		188E19412237E4B0006602D0 /* VMTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E193F222BF82E006602D0 /* VMTranslator.swift */; };
 		188E19422237F683006602D0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E189F22216E69006602D0 /* main.swift */; };
+		188E19442238E766006602D0 /* Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19432238E766006602D0 /* Push.swift */; };
+		188E19452238E7C3006602D0 /* Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19432238E766006602D0 /* Push.swift */; };
+		188E19462238E800006602D0 /* AssignCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19052226D2DC006602D0 /* AssignCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -136,7 +136,6 @@
 		188E190B2226DD24006602D0 /* Jump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jump.swift; sourceTree = "<group>"; };
 		188E19112226E441006602D0 /* Boolean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boolean.swift; sourceTree = "<group>"; };
 		188E1917222B78C7006602D0 /* PushTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTests.swift; sourceTree = "<group>"; };
-		188E1919222B7B97006602D0 /* MemoryAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryAccess.swift; sourceTree = "<group>"; };
 		188E191C222B7F77006602D0 /* AssemblyCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyCommand.swift; sourceTree = "<group>"; };
 		188E191E222B8055006602D0 /* ATCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATCommand.swift; sourceTree = "<group>"; };
 		188E1920222B8287006602D0 /* ATCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATCommandTests.swift; sourceTree = "<group>"; };
@@ -150,6 +149,7 @@
 		188E1935222BA79B006602D0 /* ConditionIndexRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionIndexRepository.swift; sourceTree = "<group>"; };
 		188E1937222BA848006602D0 /* ConditionIndexStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionIndexStore.swift; sourceTree = "<group>"; };
 		188E193F222BF82E006602D0 /* VMTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMTranslator.swift; sourceTree = "<group>"; };
+		188E19432238E766006602D0 /* Push.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Push.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,7 +255,7 @@
 		188E1916222B75B7006602D0 /* VMCommand */ = {
 			isa = PBXGroup;
 			children = (
-				188E1919222B7B97006602D0 /* MemoryAccess.swift */,
+				188E19432238E766006602D0 /* Push.swift */,
 			);
 			path = VMCommand;
 			sourceTree = "<group>";
@@ -282,8 +282,8 @@
 		188E193D222BB9D8006602D0 /* Command */ = {
 			isa = PBXGroup;
 			children = (
-				188E191C222B7F77006602D0 /* AssemblyCommand.swift */,
 				188E19052226D2DC006602D0 /* AssignCommand.swift */,
+				188E191C222B7F77006602D0 /* AssemblyCommand.swift */,
 				188E191E222B8055006602D0 /* ATCommand.swift */,
 				188E192D222B8FA1006602D0 /* LabelCommand.swift */,
 				188E1932222B9371006602D0 /* ConditionCommand.swift */,
@@ -396,19 +396,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				188E18B822217453006602D0 /* CommandFormatter.swift in Sources */,
+				188E19442238E766006602D0 /* Push.swift in Sources */,
 				188E19122226E441006602D0 /* Boolean.swift in Sources */,
 				188E18EE2226B532006602D0 /* Conditionable.swift in Sources */,
 				188E18D8222403DA006602D0 /* Negative.swift in Sources */,
 				188E18F82226C9D9006602D0 /* And.swift in Sources */,
 				188E18FD2226CED9006602D0 /* Or.swift in Sources */,
 				188E18DC22240CCB006602D0 /* Equal.swift in Sources */,
-				188E19062226D2DC006602D0 /* AssignCommand.swift in Sources */,
 				188E192E222B8FA1006602D0 /* LabelCommand.swift in Sources */,
 				188E1936222BA79B006602D0 /* ConditionIndexRepository.swift in Sources */,
 				188E18BD2221790E006602D0 /* Secret.swift in Sources */,
 				188E191D222B7F77006602D0 /* AssemblyCommand.swift in Sources */,
 				188E19082226D325006602D0 /* Destination.swift in Sources */,
-				188E191A222B7B97006602D0 /* MemoryAccess.swift in Sources */,
 				188E18B32221705D006602D0 /* Parser.swift in Sources */,
 				188E1938222BA848006602D0 /* ConditionIndexStore.swift in Sources */,
 				188E18CA222254C3006602D0 /* Add.swift in Sources */,
@@ -418,6 +417,7 @@
 				188E18D122226A4F006602D0 /* Sub.swift in Sources */,
 				188E18F32226BEE5006602D0 /* Less.swift in Sources */,
 				188E190A2226D7D0006602D0 /* Computation.swift in Sources */,
+				188E19462238E800006602D0 /* AssignCommand.swift in Sources */,
 				188E18EB2226B495006602D0 /* Greater.swift in Sources */,
 				188E1929222B88ED006602D0 /* CommandBuilder.swift in Sources */,
 				188E190C2226DD24006602D0 /* Jump.swift in Sources */,
@@ -456,7 +456,6 @@
 				188E1931222B9135006602D0 /* ConditionCommandTests.swift in Sources */,
 				188E18CF22226A2C006602D0 /* SubTests.swift in Sources */,
 				188E18E92226B3C0006602D0 /* GreaterTests.swift in Sources */,
-				188E191B222B7CD7006602D0 /* MemoryAccess.swift in Sources */,
 				188E19422237F683006602D0 /* main.swift in Sources */,
 				188E1939222BAD74006602D0 /* ConditionIndexRepository.swift in Sources */,
 				188E18FE2226CF23006602D0 /* Or.swift in Sources */,
@@ -469,6 +468,7 @@
 				188E18E72226B10A006602D0 /* Equal.swift in Sources */,
 				188E192F222B905F006602D0 /* LabelCommand.swift in Sources */,
 				188E1923222B83E6006602D0 /* AssemblyCommand.swift in Sources */,
+				188E19452238E7C3006602D0 /* Push.swift in Sources */,
 				188E18CC222254D7006602D0 /* AddTests.swift in Sources */,
 				188E18C722219B68006602D0 /* Parser.swift in Sources */,
 				188E18E622241604006602D0 /* EqualTests.swift in Sources */,
