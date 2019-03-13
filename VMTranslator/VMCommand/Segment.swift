@@ -22,7 +22,7 @@ extension Segment where Self: RegisterDefined {
     func execute() -> String {
         var builder = CommandBuilder()
         builder.add(ATCommand(difinedSymbol: type))
-        builder.add(AssignCommand(destination: .d, computation: .a))
+        builder.add(AssignCommand(destination: .d, computation: .m))
         builder.add(ATCommand(constant: index))
         builder.add(AssignCommand(destination: .d, computation: .dPlusA))
         return builder.build()
@@ -74,7 +74,7 @@ struct Pointer: Segment, AssemblyCommandGeneratable {
     func execute() -> String {
         var builder = CommandBuilder()
         builder.add(ATCommand(constant: baseAddress))
-        builder.add(AssignCommand(destination: .d, computation: .a))
+        builder.add(AssignCommand(destination: .d, computation: .m))
         builder.add(ATCommand(constant: index))
         builder.add(AssignCommand(destination: .d, computation: .dPlusA))
         return builder.build()
@@ -93,7 +93,7 @@ struct Temp: Segment, AssemblyCommandGeneratable {
     func execute() -> String {
         var builder = CommandBuilder()
         builder.add(ATCommand(constant: baseAddress))
-        builder.add(AssignCommand(destination: .d, computation: .a))
+        builder.add(AssignCommand(destination: .d, computation: .m))
         builder.add(ATCommand(constant: index))
         builder.add(AssignCommand(destination: .d, computation: .dPlusA))
         return builder.build()

@@ -23,7 +23,7 @@ class SegmentTests: XCTestCase {
         let result = segment.execute()
         let expectation = """
         @LCL
-        D=A
+        D=M
         @5
         D=D+A
         """
@@ -35,7 +35,7 @@ class SegmentTests: XCTestCase {
         let result = segment.execute()
         let expectation = """
         @ARG
-        D=A
+        D=M
         @2
         D=D+A
         """
@@ -47,7 +47,7 @@ class SegmentTests: XCTestCase {
         let result = segment.execute()
         let expectation = """
         @THIS
-        D=A
+        D=M
         @2
         D=D+A
         """
@@ -59,7 +59,7 @@ class SegmentTests: XCTestCase {
         let result = segment.execute()
         let expectation = """
         @THAT
-        D=A
+        D=M
         @1
         D=D+A
         """
@@ -71,7 +71,7 @@ class SegmentTests: XCTestCase {
         let result = segment.execute()
         let expectation = """
         @3
-        D=A
+        D=M
         @2
         D=D+A
         """
@@ -83,7 +83,7 @@ class SegmentTests: XCTestCase {
         let result = segment.execute()
         let expectation = """
         @5
-        D=A
+        D=M
         @3
         D=D+A
         """

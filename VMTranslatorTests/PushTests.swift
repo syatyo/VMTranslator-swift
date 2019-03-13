@@ -38,7 +38,7 @@ class PushTests: XCTestCase {
         let result = push.execute()
         let expectation = """
         @LCL
-        D=A
+        D=M
         @0
         D=D+A
         @SP
@@ -54,7 +54,7 @@ class PushTests: XCTestCase {
         let result = push.execute()
         let expectation = """
         @LCL
-        D=A
+        D=M
         @1
         D=D+A
         @SP
@@ -70,7 +70,7 @@ class PushTests: XCTestCase {
         let result = push.execute()
         let expectation = """
         @ARG
-        D=A
+        D=M
         @1
         D=D+A
         @SP
@@ -86,7 +86,7 @@ class PushTests: XCTestCase {
         let result = push.execute()
         let expectation = """
         @THAT
-        D=A
+        D=M
         @2
         D=D+A
         @SP
@@ -102,7 +102,7 @@ class PushTests: XCTestCase {
         let result = push.execute()
         let expectation = """
         @THIS
-        D=A
+        D=M
         @2
         D=D+A
         @SP
@@ -118,7 +118,7 @@ class PushTests: XCTestCase {
         let result = push.execute()
         let expectation = """
         @3
-        D=A
+        D=M
         @2
         D=D+A
         @SP
@@ -134,7 +134,7 @@ class PushTests: XCTestCase {
         let result = push.execute()
         let expectation = """
         @5
-        D=A
+        D=M
         @4
         D=D+A
         @SP
