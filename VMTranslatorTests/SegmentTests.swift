@@ -78,4 +78,16 @@ class SegmentTests: XCTestCase {
         XCTAssertEqual(result, expectation)
     }
     
+    func testTemp() {
+        let segment = Temp(index: 3)
+        let result = segment.execute()
+        let expectation = """
+        @5
+        D=A
+        @3
+        D=D+A
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
 }

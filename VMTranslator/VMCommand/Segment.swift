@@ -69,16 +69,36 @@ struct That: Segment, RegisterDefined, AssemblyCommandGeneratable {
 
 struct Pointer: Segment, AssemblyCommandGeneratable {
     let index: Int
+    private let baseAddress: Int = 3
     
     func execute() -> String {
         var builder = CommandBuilder()
-        builder.add(ATCommand(constant: 3))
+        builder.add(ATCommand(constant: baseAddress))
         builder.add(AssignCommand(destination: .d, computation: .a))
         builder.add(ATCommand(constant: index))
         builder.add(AssignCommand(destination: .d, computation: .dPlusA))
         return builder.build()
     }
 
+    func generate() -> String {
+        return execute()
+    }
+    
+}
+
+struct Temp: Segment, AssemblyCommandGeneratable {
+    var index: Int
+    private let baseAddress: Int = 5
+    
+    func execute() -> String {
+        var builder = CommandBuilder()
+        builder.add(ATCommand(constant: baseAddress))
+        builder.add(AssignCommand(destination: .d, computation: .a))
+        builder.add(ATCommand(constant: index))
+        builder.add(AssignCommand(destination: .d, computation: .dPlusA))
+        return builder.build()
+    }
+    
     func generate() -> String {
         return execute()
     }
