@@ -84,6 +84,9 @@
 		188E19442238E766006602D0 /* Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19432238E766006602D0 /* Push.swift */; };
 		188E19452238E7C3006602D0 /* Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19432238E766006602D0 /* Push.swift */; };
 		188E19462238E800006602D0 /* AssignCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19052226D2DC006602D0 /* AssignCommand.swift */; };
+		188E19482239023C006602D0 /* PushStackIncrementerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19472239023C006602D0 /* PushStackIncrementerTests.swift */; };
+		188E194A223902CB006602D0 /* PushStackIncrementer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1949223902CB006602D0 /* PushStackIncrementer.swift */; };
+		188E194B22390377006602D0 /* PushStackIncrementer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1949223902CB006602D0 /* PushStackIncrementer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -150,6 +153,8 @@
 		188E1937222BA848006602D0 /* ConditionIndexStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionIndexStore.swift; sourceTree = "<group>"; };
 		188E193F222BF82E006602D0 /* VMTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMTranslator.swift; sourceTree = "<group>"; };
 		188E19432238E766006602D0 /* Push.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Push.swift; sourceTree = "<group>"; };
+		188E19472239023C006602D0 /* PushStackIncrementerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushStackIncrementerTests.swift; sourceTree = "<group>"; };
+		188E1949223902CB006602D0 /* PushStackIncrementer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushStackIncrementer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +226,7 @@
 				188E18FA2226CCD3006602D0 /* OrTests.swift */,
 				188E18FF2226D02D006602D0 /* NotTests.swift */,
 				188E1917222B78C7006602D0 /* PushTests.swift */,
+				188E19472239023C006602D0 /* PushStackIncrementerTests.swift */,
 				188E1920222B8287006602D0 /* ATCommandTests.swift */,
 				188E1924222B8537006602D0 /* AssignCommandTests.swift */,
 				188E192B222B8D18006602D0 /* LabelCommandTests.swift */,
@@ -256,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				188E19432238E766006602D0 /* Push.swift */,
+				188E1949223902CB006602D0 /* PushStackIncrementer.swift */,
 			);
 			path = VMCommand;
 			sourceTree = "<group>";
@@ -424,6 +431,7 @@
 				188E19022226D0C5006602D0 /* Not.swift in Sources */,
 				188E18C222219786006602D0 /* CodeWriter.swift in Sources */,
 				188E1933222B9371006602D0 /* ConditionCommand.swift in Sources */,
+				188E194A223902CB006602D0 /* PushStackIncrementer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,10 +463,12 @@
 				188E190D2226DDB6006602D0 /* Jump.swift in Sources */,
 				188E1931222B9135006602D0 /* ConditionCommandTests.swift in Sources */,
 				188E18CF22226A2C006602D0 /* SubTests.swift in Sources */,
+				188E19482239023C006602D0 /* PushStackIncrementerTests.swift in Sources */,
 				188E18E92226B3C0006602D0 /* GreaterTests.swift in Sources */,
 				188E19422237F683006602D0 /* main.swift in Sources */,
 				188E1939222BAD74006602D0 /* ConditionIndexRepository.swift in Sources */,
 				188E18FE2226CF23006602D0 /* Or.swift in Sources */,
+				188E194B22390377006602D0 /* PushStackIncrementer.swift in Sources */,
 				188E18CD2222561C006602D0 /* Add.swift in Sources */,
 				188E18EF2226B88C006602D0 /* Conditionable.swift in Sources */,
 				188E19412237E4B0006602D0 /* VMTranslator.swift in Sources */,

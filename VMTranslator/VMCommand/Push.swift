@@ -20,12 +20,8 @@ struct Push {
             builder.add(ATCommand(constant: index))
             builder.add(AssignCommand(destination: .d, computation: .a))
             
-            // SP部？
-            builder.add(ATCommand(difinedSymbol: .sp))
-            builder.add(AssignCommand(destination: .am, computation: .mPlusOne))
-            builder.add(AssignCommand(destination: .a, computation: .aMinusOne))
-            builder.add(AssignCommand(destination: .m, computation: .d))
-            return builder.build()
+            let pushStackIncrementer = PushStackIncrementer()
+            return builder.build() + "\n" + pushStackIncrementer.execute()
             
         case .local:
             var builder = CommandBuilder()
@@ -35,12 +31,8 @@ struct Push {
             builder.add(ATCommand(constant: index))
             builder.add(AssignCommand(destination: .d, computation: .dPlusA))
             
-            // SP部？
-            builder.add(ATCommand(difinedSymbol: .sp))
-            builder.add(AssignCommand(destination: .am, computation: .mPlusOne))
-            builder.add(AssignCommand(destination: .a, computation: .aMinusOne))
-            builder.add(AssignCommand(destination: .m, computation: .d))
-            return builder.build()
+            let pushStackIncrementer = PushStackIncrementer()
+            return builder.build() + "\n" + pushStackIncrementer.execute()
             
         case .argument:
             var builder = CommandBuilder()
@@ -50,12 +42,8 @@ struct Push {
             builder.add(ATCommand(constant: index))
             builder.add(AssignCommand(destination: .d, computation: .dPlusA))
             
-            // SP部？
-            builder.add(ATCommand(difinedSymbol: .sp))
-            builder.add(AssignCommand(destination: .am, computation: .mPlusOne))
-            builder.add(AssignCommand(destination: .a, computation: .aMinusOne))
-            builder.add(AssignCommand(destination: .m, computation: .d))
-            return builder.build()
+            let pushStackIncrementer = PushStackIncrementer()
+            return builder.build() + "\n" + pushStackIncrementer.execute()
         default:
             fatalError()
         }
