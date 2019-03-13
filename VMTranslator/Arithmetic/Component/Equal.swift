@@ -16,3 +16,11 @@ struct Equal: Conditionable {
     }
 
 }
+
+extension Equal: AssemblyCommandGeneratable {
+    
+    func generate() -> String {
+        return execute()
+    }
+    
+}

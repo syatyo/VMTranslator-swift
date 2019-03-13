@@ -21,3 +21,11 @@ struct Add {
     }
     
 }
+
+extension Add: AssemblyCommandGeneratable {
+    
+    func generate() -> String {
+        return execute()
+    }
+    
+}

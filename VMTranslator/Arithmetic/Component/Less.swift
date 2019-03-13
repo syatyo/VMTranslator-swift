@@ -16,3 +16,11 @@ struct Less: Conditionable {
     }
     
 }
+
+extension Less: AssemblyCommandGeneratable {
+    
+    func generate() -> String {
+        return execute()
+    }
+    
+}

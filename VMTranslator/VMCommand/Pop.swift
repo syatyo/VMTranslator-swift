@@ -48,3 +48,11 @@ struct Pop {
     }
 
 }
+
+extension Pop: AssemblyCommandGeneratable {
+    
+    func generate() -> String {
+        return execute()
+    }
+    
+}

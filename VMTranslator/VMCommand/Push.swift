@@ -52,3 +52,11 @@ struct Push {
     
     
 }
+
+extension Push: AssemblyCommandGeneratable {
+    
+    func generate() -> String {
+        return execute()
+    }
+    
+}
