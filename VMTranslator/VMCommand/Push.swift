@@ -44,6 +44,29 @@ struct Push {
             
             let pushStackIncrementer = PushStackIncrementer()
             return builder.build() + "\n" + pushStackIncrementer.execute()
+            
+        case .this:
+            var builder = CommandBuilder()
+            // Header部？
+            builder.add(ATCommand(difinedSymbol: .this))
+            builder.add(AssignCommand(destination: .d, computation: .a))
+            builder.add(ATCommand(constant: index))
+            builder.add(AssignCommand(destination: .d, computation: .dPlusA))
+            
+            let pushStackIncrementer = PushStackIncrementer()
+            return builder.build() + "\n" + pushStackIncrementer.execute()
+
+        case .that:
+            var builder = CommandBuilder()
+            // Header部？
+            builder.add(ATCommand(difinedSymbol: .that))
+            builder.add(AssignCommand(destination: .d, computation: .a))
+            builder.add(ATCommand(constant: index))
+            builder.add(AssignCommand(destination: .d, computation: .dPlusA))
+            
+            let pushStackIncrementer = PushStackIncrementer()
+            return builder.build() + "\n" + pushStackIncrementer.execute()
+
         default:
             fatalError()
         }

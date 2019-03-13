@@ -81,4 +81,36 @@ class PushTests: XCTestCase {
         XCTAssertEqual(result, expectation)
     }
     
+    func testThatTwo() {
+        let push = Push(segment: .that, index: 2)
+        let result = push.execute()
+        let expectation = """
+        @THAT
+        D=A
+        @2
+        D=D+A
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func testThisTwo() {
+        let push = Push(segment: .this, index: 2)
+        let result = push.execute()
+        let expectation = """
+        @THIS
+        D=A
+        @2
+        D=D+A
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
 }
