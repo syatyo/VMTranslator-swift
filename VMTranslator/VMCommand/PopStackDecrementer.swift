@@ -21,7 +21,7 @@ struct PopStackDecrementer {
 
 extension PopStackDecrementer: AssemblyCommandGeneratable {
     
-    func generateAssembly() -> String {
+    func generate() -> String {
         return execute()
     }
     

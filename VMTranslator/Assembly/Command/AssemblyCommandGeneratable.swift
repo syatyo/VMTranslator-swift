@@ -9,5 +9,5 @@
 import Foundation
 
 protocol AssemblyCommandGeneratable {
-    func generateAssembly() -> String
+    func generate() -> String
 }

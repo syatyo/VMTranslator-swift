@@ -23,7 +23,7 @@ struct PushStackIncrementer {
 
 extension PushStackIncrementer: AssemblyCommandGeneratable {
     
-    func generateAssembly() -> String {
+    func generate() -> String {
         return execute()
     }
     

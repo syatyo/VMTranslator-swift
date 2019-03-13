@@ -20,24 +20,24 @@ class ATCommandTests: XCTestCase {
 
     func testATCommandFromSymbol() {
         let spCommand = ATCommand(difinedSymbol: .sp)
-        XCTAssertEqual(spCommand.generateAssembly(), "@SP")
+        XCTAssertEqual(spCommand.generate(), "@SP")
         
         let lclCommand = ATCommand(difinedSymbol: .lcl)
-        XCTAssertEqual(lclCommand.generateAssembly(), "@LCL")
+        XCTAssertEqual(lclCommand.generate(), "@LCL")
 
         let argCommand = ATCommand(difinedSymbol: .arg)
-        XCTAssertEqual(argCommand.generateAssembly(), "@ARG")
+        XCTAssertEqual(argCommand.generate(), "@ARG")
 
         let thisCommand = ATCommand(difinedSymbol: .this)
-        XCTAssertEqual(thisCommand.generateAssembly(), "@THIS")
+        XCTAssertEqual(thisCommand.generate(), "@THIS")
 
         let thatCommand = ATCommand(difinedSymbol: .that)
-        XCTAssertEqual(thatCommand.generateAssembly(), "@THAT")
+        XCTAssertEqual(thatCommand.generate(), "@THAT")
     }
     
     func testATCommantConstant() {
         let constantCommand = ATCommand(constant: 15)
-        XCTAssertEqual(constantCommand.generateAssembly(), "@15")
+        XCTAssertEqual(constantCommand.generate(), "@15")
     }
     
 }

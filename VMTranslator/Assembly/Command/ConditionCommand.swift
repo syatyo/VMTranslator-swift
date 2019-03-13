@@ -22,7 +22,7 @@ struct ConditionCommand {
 
 extension ConditionCommand: AssemblyCommandGeneratable {
     
-    func generateAssembly() -> String {
+    func generate() -> String {
         return "\(operand.rawValue);\(conditionType.rawValue.uppercased())"
     }
     
