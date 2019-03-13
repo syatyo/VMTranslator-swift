@@ -53,7 +53,6 @@ struct Pop {
             builder.add(Temp(index: index))
             builder.add(PopStackDecrementer())
             return builder.build()
-            
         default:
             fatalError()
         }

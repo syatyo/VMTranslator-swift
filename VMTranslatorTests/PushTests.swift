@@ -113,4 +113,36 @@ class PushTests: XCTestCase {
         XCTAssertEqual(result, expectation)
     }
     
+    func testPointer() {
+        let push = Push(segment: .pointer, index: 2)
+        let result = push.execute()
+        let expectation = """
+        @3
+        D=A
+        @2
+        D=D+A
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func testTemp() {
+        let push = Push(segment: .temp, index: 4)
+        let result = push.execute()
+        let expectation = """
+        @5
+        D=A
+        @4
+        D=D+A
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
+
+    }
 }
