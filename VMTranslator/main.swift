@@ -10,7 +10,7 @@ import Foundation
 
 // 1. SimpleAdd.vm to SimpleAdd.asm
 do {
-    let vmTranslator = try VMTranslator(path: simpleAddPath)
+    let vmTranslator = try VMTranslator(path: simpleAddTestPath)
     try vmTranslator.startTranslating()
 } catch {
     print("Error occured: \(error)")
@@ -39,5 +39,5 @@ do {
     exit(EXIT_FAILURE)
 }
 
-print("Success to translate StackTestPath.asm")
+print("Success to translate BasicTest.asm")
 
