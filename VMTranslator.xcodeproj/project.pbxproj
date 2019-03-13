@@ -59,11 +59,11 @@
 		188E19122226E441006602D0 /* Boolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19112226E441006602D0 /* Boolean.swift */; };
 		188E19132226E48E006602D0 /* Boolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19112226E441006602D0 /* Boolean.swift */; };
 		188E1918222B78C7006602D0 /* PushTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1917222B78C7006602D0 /* PushTests.swift */; };
-		188E191D222B7F77006602D0 /* AssemblyCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E191C222B7F77006602D0 /* AssemblyCommand.swift */; };
+		188E191D222B7F77006602D0 /* AssemblyCommandGeneratable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E191C222B7F77006602D0 /* AssemblyCommandGeneratable.swift */; };
 		188E191F222B8055006602D0 /* ATCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E191E222B8055006602D0 /* ATCommand.swift */; };
 		188E1921222B8287006602D0 /* ATCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1920222B8287006602D0 /* ATCommandTests.swift */; };
 		188E1922222B828B006602D0 /* ATCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E191E222B8055006602D0 /* ATCommand.swift */; };
-		188E1923222B83E6006602D0 /* AssemblyCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E191C222B7F77006602D0 /* AssemblyCommand.swift */; };
+		188E1923222B83E6006602D0 /* AssemblyCommandGeneratable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E191C222B7F77006602D0 /* AssemblyCommandGeneratable.swift */; };
 		188E1925222B8537006602D0 /* AssignCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1924222B8537006602D0 /* AssignCommandTests.swift */; };
 		188E1927222B8711006602D0 /* CommandBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1926222B8711006602D0 /* CommandBuilderTests.swift */; };
 		188E1929222B88ED006602D0 /* CommandBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1928222B88ED006602D0 /* CommandBuilder.swift */; };
@@ -144,7 +144,7 @@
 		188E190B2226DD24006602D0 /* Jump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jump.swift; sourceTree = "<group>"; };
 		188E19112226E441006602D0 /* Boolean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boolean.swift; sourceTree = "<group>"; };
 		188E1917222B78C7006602D0 /* PushTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTests.swift; sourceTree = "<group>"; };
-		188E191C222B7F77006602D0 /* AssemblyCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyCommand.swift; sourceTree = "<group>"; };
+		188E191C222B7F77006602D0 /* AssemblyCommandGeneratable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyCommandGeneratable.swift; sourceTree = "<group>"; };
 		188E191E222B8055006602D0 /* ATCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATCommand.swift; sourceTree = "<group>"; };
 		188E1920222B8287006602D0 /* ATCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATCommandTests.swift; sourceTree = "<group>"; };
 		188E1924222B8537006602D0 /* AssignCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignCommandTests.swift; sourceTree = "<group>"; };
@@ -301,7 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				188E19052226D2DC006602D0 /* AssignCommand.swift */,
-				188E191C222B7F77006602D0 /* AssemblyCommand.swift */,
+				188E191C222B7F77006602D0 /* AssemblyCommandGeneratable.swift */,
 				188E191E222B8055006602D0 /* ATCommand.swift */,
 				188E192D222B8FA1006602D0 /* LabelCommand.swift */,
 				188E1932222B9371006602D0 /* ConditionCommand.swift */,
@@ -424,7 +424,7 @@
 				188E192E222B8FA1006602D0 /* LabelCommand.swift in Sources */,
 				188E1936222BA79B006602D0 /* ConditionIndexRepository.swift in Sources */,
 				188E18BD2221790E006602D0 /* Secret.swift in Sources */,
-				188E191D222B7F77006602D0 /* AssemblyCommand.swift in Sources */,
+				188E191D222B7F77006602D0 /* AssemblyCommandGeneratable.swift in Sources */,
 				188E19082226D325006602D0 /* Destination.swift in Sources */,
 				188E18B32221705D006602D0 /* Parser.swift in Sources */,
 				188E1938222BA848006602D0 /* ConditionIndexStore.swift in Sources */,
@@ -493,7 +493,7 @@
 				188E1921222B8287006602D0 /* ATCommandTests.swift in Sources */,
 				188E18E72226B10A006602D0 /* Equal.swift in Sources */,
 				188E192F222B905F006602D0 /* LabelCommand.swift in Sources */,
-				188E1923222B83E6006602D0 /* AssemblyCommand.swift in Sources */,
+				188E1923222B83E6006602D0 /* AssemblyCommandGeneratable.swift in Sources */,
 				188E19452238E7C3006602D0 /* Push.swift in Sources */,
 				188E18CC222254D7006602D0 /* AddTests.swift in Sources */,
 				188E18C722219B68006602D0 /* Parser.swift in Sources */,

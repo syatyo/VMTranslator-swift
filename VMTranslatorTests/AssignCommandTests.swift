@@ -20,7 +20,7 @@ class AssignCommandTests: XCTestCase {
 
     func testAssingCommand() {
         let assingCommand = AssignCommand(destination: .amd, computation: .mPlusOne)
-        XCTAssertEqual(assingCommand.textRepresentation, "AMD=M+1")
+        XCTAssertEqual(assingCommand.generateAssembly(), "AMD=M+1")
     }
     
 }

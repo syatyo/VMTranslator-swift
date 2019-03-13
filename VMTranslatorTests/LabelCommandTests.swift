@@ -20,7 +20,7 @@ class LabelCommandTests: XCTestCase {
 
     func testInitLabelCommand() {
         let command = LabelCommand(label: "END_eq")
-        XCTAssertEqual(command.textRepresentation, "(END_eq)")
+        XCTAssertEqual(command.generateAssembly(), "(END_eq)")
     }
 
 }

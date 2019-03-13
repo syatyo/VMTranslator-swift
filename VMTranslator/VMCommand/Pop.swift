@@ -20,36 +20,35 @@ struct Pop {
             
         case .local:
             var builder = CommandBuilder()
-            let local = Local(index: index)
-            
+            builder.add(Local(index: index))
             builder.add(ATCommand(difinedSymbol: .sp))
             builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
             builder.add(AssignCommand(destination: .m, computation: .d))
-            return local.execute() + "\n" + builder.build()
+            return builder.build()
 
         case .argument:
             var builder = CommandBuilder()
-            let argument = Argument(index: index)
+            builder.add(Argument(index: index))
             builder.add(ATCommand(difinedSymbol: .sp))
             builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
             builder.add(AssignCommand(destination: .m, computation: .d))
-            return argument.execute() + "\n" + builder.build()
+            return builder.build()
 
         case .this:
             var builder = CommandBuilder()
-            let this = This(index: index)
+            builder.add(This(index: index))
             builder.add(ATCommand(difinedSymbol: .sp))
             builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
             builder.add(AssignCommand(destination: .m, computation: .d))
-            return this.execute() + "\n" + builder.build()
+            return builder.build()
 
         case .that:
             var builder = CommandBuilder()
-            let that = That(index: index)
+            builder.add(That(index: index))
             builder.add(ATCommand(difinedSymbol: .sp))
             builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
             builder.add(AssignCommand(destination: .m, computation: .d))
-            return that.execute() + "\n" + builder.build()
+            return builder.build()
             
         default:
             fatalError()

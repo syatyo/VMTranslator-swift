@@ -27,23 +27,39 @@ extension Segment {
     
 }
 
-struct Local: Segment {
+struct Local: Segment, AssemblyCommandGeneratable {
     var type: ATCommand.DefinedSymbol { return .lcl }
     let index: Int
     
+    func generateAssembly() -> String {
+        return execute()
+    }
+
 }
 
-struct Argument: Segment {
+struct Argument: Segment, AssemblyCommandGeneratable {
     var type: ATCommand.DefinedSymbol { return .arg }
     let index: Int
+    
+    func generateAssembly() -> String {
+        return execute()
+    }
 }
 
-struct This: Segment {
+struct This: Segment, AssemblyCommandGeneratable {
     var type: ATCommand.DefinedSymbol { return .this }
     let index: Int
+    
+    func generateAssembly() -> String {
+        return execute()
+    }
 }
 
-struct That: Segment {
+struct That: Segment, AssemblyCommandGeneratable {
     var type: ATCommand.DefinedSymbol { return .that }
     let index: Int
+    
+    func generateAssembly() -> String {
+        return execute()
+    }
 }
