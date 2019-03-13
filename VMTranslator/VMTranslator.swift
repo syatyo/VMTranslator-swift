@@ -58,6 +58,8 @@ final class VMTranslator {
             switch parser.commandType {
             case .push:
                 codeWriter.writePushPop(.push, segment: parser.arg1, index: parser.arg2)
+            case .pop:
+                codeWriter.writePushPop(.pop, segment: parser.arg1, index: parser.arg2)
             case .arithmetic:
                 codeWriter.writeArithmetic(command: parser.arg1)
             default:

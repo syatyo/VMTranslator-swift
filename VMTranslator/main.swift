@@ -29,3 +29,15 @@ do {
 }
 
 print("Success to translate StackTestPath.asm")
+
+// 3. BasicTest.vm to BasicTest.asm
+do {
+    let vmTranslator = try VMTranslator(path: basicTestPath)
+    try vmTranslator.startTranslating()
+} catch {
+    print("Error occured: \(error)")
+    exit(EXIT_FAILURE)
+}
+
+print("Success to translate StackTestPath.asm")
+
