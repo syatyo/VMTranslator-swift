@@ -8,38 +8,17 @@
 
 import Foundation
 
-struct Local {
-    let index: Int
+protocol Segment {
+    var index: Int { get }
+    var `type`: ATCommand.DefinedSymbol { get }
+    func execute() -> String
+}
+
+extension Segment {
     
     func execute() -> String {
         var builder = CommandBuilder()
-        builder.add(ATCommand(difinedSymbol: .lcl))
-        builder.add(AssignCommand(destination: .d, computation: .a))
-        builder.add(ATCommand(constant: index))
-        builder.add(AssignCommand(destination: .d, computation: .dPlusA))
-        return builder.build()
-    }
-}
-
-struct Argument {
-    let index: Int
-
-    func execute() -> String {
-        var builder = CommandBuilder()
-        builder.add(ATCommand(difinedSymbol: .arg))
-        builder.add(AssignCommand(destination: .d, computation: .a))
-        builder.add(ATCommand(constant: index))
-        builder.add(AssignCommand(destination: .d, computation: .dPlusA))
-        return builder.build()
-    }
-}
-
-struct This {
-    let index: Int
-    
-    func execute() -> String {
-        var builder = CommandBuilder()
-        builder.add(ATCommand(difinedSymbol: .this))
+        builder.add(ATCommand(difinedSymbol: type))
         builder.add(AssignCommand(destination: .d, computation: .a))
         builder.add(ATCommand(constant: index))
         builder.add(AssignCommand(destination: .d, computation: .dPlusA))
@@ -48,15 +27,23 @@ struct This {
     
 }
 
-struct That {
+struct Local: Segment {
+    var type: ATCommand.DefinedSymbol { return .lcl }
     let index: Int
     
-    func execute() -> String {
-        var builder = CommandBuilder()
-        builder.add(ATCommand(difinedSymbol: .that))
-        builder.add(AssignCommand(destination: .d, computation: .a))
-        builder.add(ATCommand(constant: index))
-        builder.add(AssignCommand(destination: .d, computation: .dPlusA))
-        return builder.build()
-    }
+}
+
+struct Argument: Segment {
+    var type: ATCommand.DefinedSymbol { return .arg }
+    let index: Int
+}
+
+struct This: Segment {
+    var type: ATCommand.DefinedSymbol { return .this }
+    let index: Int
+}
+
+struct That: Segment {
+    var type: ATCommand.DefinedSymbol { return .that }
+    let index: Int
 }
