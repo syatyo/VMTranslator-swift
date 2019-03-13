@@ -16,7 +16,6 @@ struct Push {
         switch segment {
         case .constant:
             var builder = CommandBuilder()
-            // Header部？
             builder.add(ATCommand(constant: index))
             builder.add(AssignCommand(destination: .d, computation: .a))
             
@@ -24,48 +23,24 @@ struct Push {
             return builder.build() + "\n" + pushStackIncrementer.execute()
             
         case .local:
-            var builder = CommandBuilder()
-            // Header部？
-            builder.add(ATCommand(difinedSymbol: .lcl))
-            builder.add(AssignCommand(destination: .d, computation: .a))
-            builder.add(ATCommand(constant: index))
-            builder.add(AssignCommand(destination: .d, computation: .dPlusA))
-            
+            let local = Local(index: index)
             let pushStackIncrementer = PushStackIncrementer()
-            return builder.build() + "\n" + pushStackIncrementer.execute()
+            return local.execute() + "\n" + pushStackIncrementer.execute()
             
         case .argument:
-            var builder = CommandBuilder()
-            // Header部？
-            builder.add(ATCommand(difinedSymbol: .arg))
-            builder.add(AssignCommand(destination: .d, computation: .a))
-            builder.add(ATCommand(constant: index))
-            builder.add(AssignCommand(destination: .d, computation: .dPlusA))
-            
+            let argument = Argument(index: index)
             let pushStackIncrementer = PushStackIncrementer()
-            return builder.build() + "\n" + pushStackIncrementer.execute()
+            return argument.execute() + "\n" + pushStackIncrementer.execute()
             
         case .this:
-            var builder = CommandBuilder()
-            // Header部？
-            builder.add(ATCommand(difinedSymbol: .this))
-            builder.add(AssignCommand(destination: .d, computation: .a))
-            builder.add(ATCommand(constant: index))
-            builder.add(AssignCommand(destination: .d, computation: .dPlusA))
-            
+            let this = This(index: index)
             let pushStackIncrementer = PushStackIncrementer()
-            return builder.build() + "\n" + pushStackIncrementer.execute()
+            return this.execute() + "\n" + pushStackIncrementer.execute()
 
         case .that:
-            var builder = CommandBuilder()
-            // Header部？
-            builder.add(ATCommand(difinedSymbol: .that))
-            builder.add(AssignCommand(destination: .d, computation: .a))
-            builder.add(ATCommand(constant: index))
-            builder.add(AssignCommand(destination: .d, computation: .dPlusA))
-            
+            let that = That(index: index)
             let pushStackIncrementer = PushStackIncrementer()
-            return builder.build() + "\n" + pushStackIncrementer.execute()
+            return that.execute() + "\n" + pushStackIncrementer.execute()
 
         default:
             fatalError()
