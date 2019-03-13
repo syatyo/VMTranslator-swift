@@ -19,11 +19,3 @@ extension AssignCommand: AssemblyCommandGeneratable {
     }
     
 }
-
-extension AssignCommand: CustomStringConvertible {
-    
-    var description: String {
-        return generateAssembly()
-    }
-    
-}
