@@ -19,10 +19,10 @@ struct LabelCommand {
     
 }
 
-extension LabelCommand: AssemblyCommand {
+extension LabelCommand: AssemblyCommandGeneratable {
     
-    var textRepresentation: String {
+    func generateAssembly() -> String {
         return "(\(value))"
     }
-    
+        
 }

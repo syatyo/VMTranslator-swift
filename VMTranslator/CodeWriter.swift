@@ -81,8 +81,8 @@ struct CodeWriter {
                                segment: String,
                                index: Int) {
         let segmentType = SegmentType(rawValue: segment)!
-        let ma = MemoryAccess()
-        assemblyCommands.append(ma.push(segment: segmentType, index: index))
+        let push = Push(segment: segmentType, index: index)
+        assemblyCommands.append(push.execute())
     }
     
     mutating func writeArithmetic(command: String) {

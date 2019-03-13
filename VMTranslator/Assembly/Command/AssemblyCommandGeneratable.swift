@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol AssemblyCommand {
-    var textRepresentation: String { get }
+protocol AssemblyCommandGeneratable {
+    func generateAssembly() -> String
 }

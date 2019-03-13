@@ -35,9 +35,9 @@ struct ATCommand {
     
 }
 
-extension ATCommand: AssemblyCommand {
+extension ATCommand: AssemblyCommandGeneratable {
     
-    var textRepresentation: String {
+    func generateAssembly() -> String {
         return "@\(value)"
     }
     

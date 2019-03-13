@@ -9,15 +9,15 @@
 import Foundation
 
 struct CommandBuilder {
-    private var assemblyCommands: [AssemblyCommand] = []
+    private var assemblyCommands: [AssemblyCommandGeneratable] = []
     
-    mutating func add(_ command: AssemblyCommand) {
-        assemblyCommands.append(command)
+    mutating func add(_ commandGeneratable: AssemblyCommandGeneratable) {
+        assemblyCommands.append(commandGeneratable)
     }
     
     func build() -> String {
         return assemblyCommands
-            .map { $0.textRepresentation }
+            .map { $0.generateAssembly() }
             .joined(separator: "\n")
     }
     

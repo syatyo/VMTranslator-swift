@@ -20,9 +20,9 @@ struct ConditionCommand {
     var conditionType: ConditionType
 }
 
-extension ConditionCommand: AssemblyCommand {
+extension ConditionCommand: AssemblyCommandGeneratable {
     
-    var textRepresentation: String {
+    func generateAssembly() -> String {
         return "\(operand.rawValue);\(conditionType.rawValue.uppercased())"
     }
     

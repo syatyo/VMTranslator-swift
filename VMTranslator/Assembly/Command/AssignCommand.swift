@@ -13,18 +13,9 @@ struct AssignCommand {
     let computation: Computation
 }
 
-extension AssignCommand: AssemblyCommand {
-    
-    var textRepresentation: String {
+extension AssignCommand: AssemblyCommandGeneratable {
+    func generateAssembly() -> String {
         return "\(destination.value)=\(computation.value)"
-    }
-    
-}
-
-extension AssignCommand: CustomStringConvertible {
-    
-    var description: String {
-        return textRepresentation
     }
     
 }
