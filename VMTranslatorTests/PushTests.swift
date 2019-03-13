@@ -65,4 +65,20 @@ class PushTests: XCTestCase {
         XCTAssertEqual(result, expectation)
     }
     
+    func testPushArgumentOne() {
+        let push = Push(segment: .argument, index: 1)
+        let result = push.execute()
+        let expectation = """
+        @ARG
+        D=A
+        @1
+        D=D+A
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
 }
