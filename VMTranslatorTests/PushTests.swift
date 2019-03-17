@@ -40,7 +40,8 @@ class PushTests: XCTestCase {
         @LCL
         D=M
         @0
-        D=D+A
+        A=D+A
+        D=M
         @SP
         AM=M+1
         A=A-1
@@ -56,7 +57,8 @@ class PushTests: XCTestCase {
         @LCL
         D=M
         @1
-        D=D+A
+        A=D+A
+        D=M
         @SP
         AM=M+1
         A=A-1
@@ -72,7 +74,8 @@ class PushTests: XCTestCase {
         @ARG
         D=M
         @1
-        D=D+A
+        A=D+A
+        D=M
         @SP
         AM=M+1
         A=A-1
@@ -88,7 +91,8 @@ class PushTests: XCTestCase {
         @THAT
         D=M
         @2
-        D=D+A
+        A=D+A
+        D=M
         @SP
         AM=M+1
         A=A-1
@@ -104,7 +108,8 @@ class PushTests: XCTestCase {
         @THIS
         D=M
         @2
-        D=D+A
+        A=D+A
+        D=M
         @SP
         AM=M+1
         A=A-1
@@ -113,14 +118,26 @@ class PushTests: XCTestCase {
         XCTAssertEqual(result, expectation)
     }
     
-    func testPointer() {
-        let push = Push(segment: .pointer, index: 2)
+    func testPointerIndexZero() {
+        let push = Push(segment: .pointer, index: 0)
         let result = push.execute()
         let expectation = """
-        @3
+        @THIS
         D=M
-        @2
-        D=D+A
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
+    }
+
+    func testPointerIndexOne() {
+        let push = Push(segment: .pointer, index: 1)
+        let result = push.execute()
+        let expectation = """
+        @THAT
+        D=M
         @SP
         AM=M+1
         A=A-1
@@ -129,20 +146,46 @@ class PushTests: XCTestCase {
         XCTAssertEqual(result, expectation)
     }
     
-    func testTemp() {
+    func testTempFirst() {
+        let push = Push(segment: .temp, index: 0)
+        let result = push.execute()
+        let expectation = """
+        @R5
+        D=M
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func testTempMiddle() {
         let push = Push(segment: .temp, index: 4)
         let result = push.execute()
         let expectation = """
-        @5
+        @R9
         D=M
-        @4
-        D=D+A
         @SP
         AM=M+1
         A=A-1
         M=D
         """
         XCTAssertEqual(result, expectation)
-
+    }
+    
+    func testTempLast() {
+        let push = Push(segment: .temp, index: 7)
+        let result = push.execute()
+        let expectation = """
+        @R12
+        D=M
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
+        
     }
 }

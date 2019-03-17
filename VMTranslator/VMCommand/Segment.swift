@@ -24,7 +24,8 @@ extension Segment where Self: RegisterDefined {
         builder.add(ATCommand(difinedSymbol: type))
         builder.add(AssignCommand(destination: .d, computation: .m))
         builder.add(ATCommand(constant: index))
-        builder.add(AssignCommand(destination: .d, computation: .dPlusA))
+        builder.add(AssignCommand(destination: .a, computation: .dPlusA))
+        builder.add(AssignCommand(destination: .d, computation: .m))
         return builder.build()
     }
     
@@ -61,16 +62,6 @@ struct Argument: Segment, RegisterDefined, AssemblyCommandGeneratable {
 struct This: Segment, RegisterDefined, AssemblyCommandGeneratable {
     var type: ATCommand.DefinedSymbol { return .this }
     let index: Int
-    
-    func execute() -> String {
-        var builder = CommandBuilder()
-        builder.add(ATCommand(difinedSymbol: type))
-        builder.add(AssignCommand(destination: .d, computation: .a))
-        builder.add(ATCommand(constant: index))
-        builder.add(AssignCommand(destination: .d, computation: .dPlusA))
-        return builder.build()
-    }
-    
 }
 
 /// 汎用セグメント。異なるヒープ領域に対応するように作られているセグメント。プログラミングの様々なニーズで用いられる
@@ -79,16 +70,6 @@ struct This: Segment, RegisterDefined, AssemblyCommandGeneratable {
 struct That: Segment, RegisterDefined, AssemblyCommandGeneratable {
     var type: ATCommand.DefinedSymbol { return .that }
     let index: Int
-    
-    func execute() -> String {
-        var builder = CommandBuilder()
-        builder.add(ATCommand(difinedSymbol: type))
-        builder.add(AssignCommand(destination: .d, computation: .a))
-        builder.add(ATCommand(constant: index))
-        builder.add(AssignCommand(destination: .d, computation: .dPlusA))
-        return builder.build()
-    }
-
 }
 
 /// thisとthatセグメントのベースアドレスを持つ2つの要素からなるセグメント
@@ -96,14 +77,25 @@ struct That: Segment, RegisterDefined, AssemblyCommandGeneratable {
 /// VMの関数で、pointerの0番目(または1番目)をあるアドレスに設定することができる。
 struct Pointer: Segment, AssemblyCommandGeneratable {
     let index: Int
-    private let baseAddress: Int = 3
+    private let register: ATCommand.DefinedSymbol
+    
+    init(index: Int) {
+        self.index = index
+        
+        switch index {
+        case 0:
+            self.register = .this
+        case 1:
+            self.register = .that
+        default:
+            fatalError()
+        }
+    }
     
     func execute() -> String {
         var builder = CommandBuilder()
-        builder.add(ATCommand(constant: baseAddress))
-        builder.add(AssignCommand(destination: .d, computation: .a))
-        builder.add(ATCommand(constant: index))
-        builder.add(AssignCommand(destination: .d, computation: .dPlusA))
+        builder.add(ATCommand(difinedSymbol: register))
+        builder.add(AssignCommand(destination: .d, computation: .m))
         return builder.build()
     }
 
@@ -118,14 +110,18 @@ struct Pointer: Segment, AssemblyCommandGeneratable {
 /// 目的に応じてVM関数によって使われる。プログラムのすべての関数で共有される。
 struct Temp: Segment, AssemblyCommandGeneratable {
     var index: Int
-    private let baseAddress: Int = 5
+    private let label: String
+    private let registerStartingIndex: Int = 5
+    
+    init(index: Int) {
+        self.index = index
+        self.label = "R\(registerStartingIndex + index)"
+    }
     
     func execute() -> String {
         var builder = CommandBuilder()
-        builder.add(ATCommand(constant: baseAddress))
-        builder.add(AssignCommand(destination: .d, computation: .a))
-        builder.add(ATCommand(constant: index))
-        builder.add(AssignCommand(destination: .d, computation: .dPlusA))
+        builder.add(ATCommand(label: label))
+        builder.add(AssignCommand(destination: .d, computation: .m))
         return builder.build()
     }
     

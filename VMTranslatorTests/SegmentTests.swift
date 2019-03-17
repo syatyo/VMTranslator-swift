@@ -25,7 +25,8 @@ class SegmentTests: XCTestCase {
         @LCL
         D=M
         @5
-        D=D+A
+        A=D+A
+        D=M
         """
         XCTAssertEqual(result, expectation)
     }
@@ -37,7 +38,8 @@ class SegmentTests: XCTestCase {
         @ARG
         D=M
         @2
-        D=D+A
+        A=D+A
+        D=M
         """
         XCTAssertEqual(result, expectation)
     }
@@ -49,7 +51,8 @@ class SegmentTests: XCTestCase {
         @THIS
         D=M
         @2
-        D=D+A
+        A=D+A
+        D=M
         """
         XCTAssertEqual(result, expectation)
     }
@@ -64,34 +67,62 @@ class SegmentTests: XCTestCase {
         @THAT
         D=M
         @1
-        D=D+A
+        A=D+A
+        D=M
         """
         XCTAssertEqual(result, expectation)
     }
     
     
-    func testPointer() {
-        let segment = Pointer(index: 2)
+    func testPointerIndexZero() {
+        let segment = Pointer(index: 0)
         let result = segment.execute()
         let expectation = """
-        @3
+        @THIS
         D=M
-        @2
-        D=D+A
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func testPointerIndexOne() {
+        let segment = Pointer(index: 1)
+        let result = segment.execute()
+        let expectation = """
+        @THAT
+        D=M
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func testTempFirst() {
+        let segment = Temp(index: 0)
+        let result = segment.execute()
+        let expectation = """
+        @R5
+        D=M
+        """
+        XCTAssertEqual(result, expectation)
+    }
+
+    func testTempMiddle() {
+        let segment = Temp(index: 4)
+        let result = segment.execute()
+        let expectation = """
+        @R9
+        D=M
         """
         XCTAssertEqual(result, expectation)
     }
     
     func testTemp() {
-        let segment = Temp(index: 3)
+        let segment = Temp(index: 7)
         let result = segment.execute()
         let expectation = """
-        @5
+        @R12
         D=M
-        @3
-        D=D+A
         """
         XCTAssertEqual(result, expectation)
     }
+
     
 }
