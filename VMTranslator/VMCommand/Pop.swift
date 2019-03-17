@@ -20,38 +20,77 @@ struct Pop {
             
         case .local:
             var builder = CommandBuilder()
-            builder.add(Local(index: index))
-            builder.add(PopStackDecrementer())
+            builder.add(ATCommand(difinedSymbol: .sp))
+            builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
+            builder.add(AssignCommand(destination: .d, computation: .m))
+            builder.add(ATCommand(difinedSymbol: .lcl))
+            builder.add(AssignCommand(destination: .a, computation: .m))
+            (0..<index).forEach { _ in
+                builder.add(AssignCommand(destination: .a, computation: .aPlusOne))
+            }
+            builder.add(AssignCommand(destination: .m, computation: .d))
             return builder.build()
 
         case .argument:
             var builder = CommandBuilder()
-            builder.add(Argument(index: index))
-            builder.add(PopStackDecrementer())
+            builder.add(ATCommand(difinedSymbol: .sp))
+            builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
+            builder.add(AssignCommand(destination: .d, computation: .m))
+            builder.add(ATCommand(difinedSymbol: .arg))
+            builder.add(AssignCommand(destination: .a, computation: .m))
+            (0..<index).forEach { _ in
+                builder.add(AssignCommand(destination: .a, computation: .aPlusOne))
+            }
+            builder.add(AssignCommand(destination: .m, computation: .d))
             return builder.build()
 
         case .this:
             var builder = CommandBuilder()
-            builder.add(This(index: index))
-            builder.add(PopStackDecrementer())
+            builder.add(ATCommand(difinedSymbol: .sp))
+            builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
+            builder.add(AssignCommand(destination: .d, computation: .m))
+            builder.add(ATCommand(difinedSymbol: .this))
+            builder.add(AssignCommand(destination: .a, computation: .m))
+            (0..<index).forEach { _ in
+                builder.add(AssignCommand(destination: .a, computation: .aPlusOne))
+            }
+            builder.add(AssignCommand(destination: .m, computation: .d))
             return builder.build()
 
         case .that:
             var builder = CommandBuilder()
-            builder.add(That(index: index))
-            builder.add(PopStackDecrementer())
+            builder.add(ATCommand(difinedSymbol: .sp))
+            builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
+            builder.add(AssignCommand(destination: .d, computation: .m))
+            builder.add(ATCommand(difinedSymbol: .that))
+            builder.add(AssignCommand(destination: .a, computation: .m))
+            (0..<index).forEach { _ in
+                builder.add(AssignCommand(destination: .a, computation: .aPlusOne))
+            }
+            builder.add(AssignCommand(destination: .m, computation: .d))
             return builder.build()
-            
+
         case .pointer:
             var builder = CommandBuilder()
-            builder.add(Pointer(index: index))
-            builder.add(PopStackDecrementer())
+            builder.add(ATCommand(difinedSymbol: .sp))
+            builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
+            builder.add(AssignCommand(destination: .d, computation: .m))
+            if index == 0 {
+                builder.add(ATCommand(difinedSymbol: .this))
+            } else if index == 1 {
+                builder.add(ATCommand(difinedSymbol: .that))
+            }
+            builder.add(AssignCommand(destination: .m, computation: .d))
             return builder.build()
-        
+
         case .temp:
             var builder = CommandBuilder()
-            builder.add(Temp(index: index))
-            builder.add(PopStackDecrementer())
+            builder.add(ATCommand(difinedSymbol: .sp))
+            builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
+            builder.add(AssignCommand(destination: .d, computation: .m))
+            let label = "R\(5 + index)"
+            builder.add(ATCommand(label: label))
+            builder.add(AssignCommand(destination: .m, computation: .d))
             return builder.build()
         default:
             fatalError()
