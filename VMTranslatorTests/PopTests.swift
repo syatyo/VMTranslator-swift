@@ -66,6 +66,9 @@ class PopTests: XCTestCase {
     func testPopThat() {
         let pop = Pop(segment: .that, index: 1)
         let result = pop.execute()
+        
+        // @THAT is located at RAM[4].
+        // @THAT represent base address of `that` segment.
         let expectation = """
         @THAT
         D=M

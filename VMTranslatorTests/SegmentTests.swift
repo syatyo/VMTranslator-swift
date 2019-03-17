@@ -57,6 +57,9 @@ class SegmentTests: XCTestCase {
     func testThat() {
         let segment = That(index: 1)
         let result = segment.execute()
+        
+        // If that staring pointer is RAM[3000],
+        // expectation should point at RAM[3001]
         let expectation = """
         @THAT
         D=M
@@ -65,6 +68,7 @@ class SegmentTests: XCTestCase {
         """
         XCTAssertEqual(result, expectation)
     }
+    
     
     func testPointer() {
         let segment = Pointer(index: 2)
