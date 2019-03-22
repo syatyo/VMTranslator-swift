@@ -86,7 +86,25 @@ struct CodeWriter {
             let push = Push(segment: segmentType, index: index)
             assemblyCommandBuilder.add(push)
         case .pop:
-            let pop = Pop(segment: segmentType, index: index)
+            let segmentValue: Segment = {
+                switch segment {
+                case "argument":
+                    return Argument(index: index)
+                case "local":
+                    return Local(index: index)
+                case "this":
+                    return This(index: index)
+                case "that":
+                    return That(index: index)
+                case "pointer":
+                    return Pointer(index: index)
+                case "temp":
+                    return Temp(index: index)
+                default:
+                    fatalError()
+                }
+            }()
+            let pop = Pop(segment: segmentValue)
             assemblyCommandBuilder.add(pop)
         }
         

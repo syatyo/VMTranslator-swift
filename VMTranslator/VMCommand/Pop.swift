@@ -27,10 +27,8 @@ private extension SegmentType {
 
 struct Pop {
     let segment: Segment
-    let index: Int
     
     func execute() -> String {
-        
         var builder = CommandBuilder()
         builder.add(ATCommand(difinedSymbol: .sp))
         builder.add(AssignCommand(destination: .am, computation: .mMinusOne))

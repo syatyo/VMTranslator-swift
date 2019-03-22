@@ -20,7 +20,7 @@ class SegmentTests: XCTestCase {
 
     func testLocal() {
         let segment = Local(index: 5)
-        let result = segment.execute()
+        let result = segment.pushCommands().map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @LCL
         D=M
@@ -33,7 +33,7 @@ class SegmentTests: XCTestCase {
     
     func testArgument() {
         let segment = Argument(index: 2)
-        let result = segment.execute()
+        let result = segment.pushCommands().map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @ARG
         D=M
@@ -46,7 +46,7 @@ class SegmentTests: XCTestCase {
     
     func testThis() {
         let segment = This(index: 2)
-        let result = segment.execute()
+        let result = segment.pushCommands().map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @THIS
         D=M
@@ -59,7 +59,7 @@ class SegmentTests: XCTestCase {
 
     func testThat() {
         let segment = That(index: 1)
-        let result = segment.execute()
+        let result = segment.pushCommands().map { $0.generate() }.joined(separator: "\n")
         
         // If that staring pointer is RAM[3000],
         // expectation should point at RAM[3001]
@@ -76,7 +76,7 @@ class SegmentTests: XCTestCase {
     
     func testPointerIndexZero() {
         let segment = Pointer(index: 0)
-        let result = segment.execute()
+        let result = segment.pushCommands().map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @THIS
         D=M
@@ -86,7 +86,7 @@ class SegmentTests: XCTestCase {
     
     func testPointerIndexOne() {
         let segment = Pointer(index: 1)
-        let result = segment.execute()
+        let result = segment.pushCommands().map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @THAT
         D=M
@@ -96,7 +96,7 @@ class SegmentTests: XCTestCase {
     
     func testTempFirst() {
         let segment = Temp(index: 0)
-        let result = segment.execute()
+        let result = segment.pushCommands().map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @R5
         D=M
@@ -106,7 +106,7 @@ class SegmentTests: XCTestCase {
 
     func testTempMiddle() {
         let segment = Temp(index: 4)
-        let result = segment.execute()
+        let result = segment.pushCommands().map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @R9
         D=M
@@ -116,7 +116,7 @@ class SegmentTests: XCTestCase {
     
     func testTemp() {
         let segment = Temp(index: 7)
-        let result = segment.execute()
+        let result = segment.pushCommands().map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @R12
         D=M

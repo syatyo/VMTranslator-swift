@@ -13,7 +13,6 @@ protocol Segment {
     
     func pushCommands() -> [AssemblyCommandGeneratable]
     func popCommands() -> [AssemblyCommandGeneratable]
-    
 }
 
 protocol RegisterDefined {
