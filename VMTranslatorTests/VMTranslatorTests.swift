@@ -26,7 +26,7 @@ class VMTranslatorTests: XCTestCase {
         let isFileExisted = FileManager.default.fileExists(atPath: outputFilePath)
         XCTAssertFalse(isFileExisted)
         
-        let path = simpleAddPath // from Secret.swift
+        let path = testOutputDirPath + "SimpleAdd.vm"
         let vmTranslator = try! VMTranslator(path: path)
         try! vmTranslator.startTranslating()
         
