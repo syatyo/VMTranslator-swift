@@ -10,7 +10,10 @@ import Foundation
 
 protocol Segment {
     var index: Int { get }
-    func execute() -> String
+    
+    func pushCommands() -> [AssemblyCommandGeneratable]
+    func popCommands() -> [AssemblyCommandGeneratable]
+    
 }
 
 protocol RegisterDefined {
@@ -19,30 +22,35 @@ protocol RegisterDefined {
 
 extension Segment where Self: RegisterDefined {
     
-    func execute() -> String {
-        var builder = CommandBuilder()
-        builder.add(ATCommand(difinedSymbol: type))
-        builder.add(AssignCommand(destination: .d, computation: .m))
-        builder.add(ATCommand(constant: index))
-        builder.add(AssignCommand(destination: .a, computation: .dPlusA))
-        builder.add(AssignCommand(destination: .d, computation: .m))
-        return builder.build()
+    func pushCommands() -> [AssemblyCommandGeneratable] {
+        let commands: [AssemblyCommandGeneratable] = [
+            ATCommand(difinedSymbol: type),
+            AssignCommand(destination: .d, computation: .m),
+            ATCommand(constant: index),
+            AssignCommand(destination: .a, computation: .dPlusA),
+            AssignCommand(destination: .d, computation: .m)
+        ]
+        return commands
     }
     
-}
+    func popCommands() -> [AssemblyCommandGeneratable] {
+        var commands: [AssemblyCommandGeneratable] = [
+            ATCommand(difinedSymbol: type),
+            AssignCommand(destination: .a, computation: .m)
+        ]
+        (0..<index).forEach { _ in
+            commands.append(AssignCommand(destination: .a, computation: .aPlusOne))
+        }
 
-extension Segment where Self: AssemblyCommandGeneratable {
-    
-    func generate() -> String {
-        return execute()
+        return commands
     }
-
+    
 }
 
 /// 関数のローカル変数を格納するセグメント
 ///
 /// 関数に入るとVM実装によって動的に割り当てられ、0に初期化される
-struct Local: Segment, RegisterDefined, AssemblyCommandGeneratable {
+struct Local: Segment, RegisterDefined {
     var type: ATCommand.DefinedSymbol { return .lcl }
     let index: Int
 }
@@ -51,7 +59,7 @@ struct Local: Segment, RegisterDefined, AssemblyCommandGeneratable {
 /// 関数の引数を格納するセグメント
 ///
 /// 関数に入るとVM実装によって動的に割り当てられる。
-struct Argument: Segment, RegisterDefined, AssemblyCommandGeneratable {
+struct Argument: Segment, RegisterDefined {
     var type: ATCommand.DefinedSymbol { return .arg }
     let index: Int
 }
@@ -59,7 +67,7 @@ struct Argument: Segment, RegisterDefined, AssemblyCommandGeneratable {
 /// 汎用セグメント。異なるヒープ領域に対応するように作られているセグメント。プログラミングの様々なニーズで用いられる
 ///
 /// ヒープ上の選択された領域を操作するために、どのような関数でもこれらのセグメントを使うことができる
-struct This: Segment, RegisterDefined, AssemblyCommandGeneratable {
+struct This: Segment, RegisterDefined {
     var type: ATCommand.DefinedSymbol { return .this }
     let index: Int
 }
@@ -67,7 +75,7 @@ struct This: Segment, RegisterDefined, AssemblyCommandGeneratable {
 /// 汎用セグメント。異なるヒープ領域に対応するように作られているセグメント。プログラミングの様々なニーズで用いられる
 ///
 /// ヒープ上の選択された領域を操作するために、どのような関数でもこれらのセグメントを使うことができる
-struct That: Segment, RegisterDefined, AssemblyCommandGeneratable {
+struct That: Segment, RegisterDefined {
     var type: ATCommand.DefinedSymbol { return .that }
     let index: Int
 }
@@ -75,7 +83,7 @@ struct That: Segment, RegisterDefined, AssemblyCommandGeneratable {
 /// thisとthatセグメントのベースアドレスを持つ2つの要素からなるセグメント
 ///
 /// VMの関数で、pointerの0番目(または1番目)をあるアドレスに設定することができる。
-struct Pointer: Segment, AssemblyCommandGeneratable {
+struct Pointer: Segment {
     let index: Int
     private let register: ATCommand.DefinedSymbol
     
@@ -92,15 +100,15 @@ struct Pointer: Segment, AssemblyCommandGeneratable {
         }
     }
     
-    func execute() -> String {
-        var builder = CommandBuilder()
-        builder.add(ATCommand(difinedSymbol: register))
-        builder.add(AssignCommand(destination: .d, computation: .m))
-        return builder.build()
+    func pushCommands() -> [AssemblyCommandGeneratable] {
+        return [
+            ATCommand(difinedSymbol: register),
+            AssignCommand(destination: .d, computation: .m)
+        ]
     }
-
-    func generate() -> String {
-        return execute()
+   
+    func popCommands() -> [AssemblyCommandGeneratable] {
+        return [ATCommand(difinedSymbol: register)]
     }
     
 }
@@ -108,7 +116,7 @@ struct Pointer: Segment, AssemblyCommandGeneratable {
 /// 固定された8つの要素からなるセグメント。一時的な変数を格納するために用いられる。
 ///
 /// 目的に応じてVM関数によって使われる。プログラムのすべての関数で共有される。
-struct Temp: Segment, AssemblyCommandGeneratable {
+struct Temp: Segment {
     var index: Int
     private let label: String
     private let registerStartingIndex: Int = 5
@@ -118,15 +126,15 @@ struct Temp: Segment, AssemblyCommandGeneratable {
         self.label = "R\(registerStartingIndex + index)"
     }
     
-    func execute() -> String {
-        var builder = CommandBuilder()
-        builder.add(ATCommand(label: label))
-        builder.add(AssignCommand(destination: .d, computation: .m))
-        return builder.build()
+    func pushCommands() -> [AssemblyCommandGeneratable] {
+        return [
+            ATCommand(label: label),
+            AssignCommand(destination: .d, computation: .m)
+        ]
     }
     
-    func generate() -> String {
-        return execute()
+    func popCommands() -> [AssemblyCommandGeneratable] {
+        return [ATCommand(label: label)]
     }
-    
+        
 }
