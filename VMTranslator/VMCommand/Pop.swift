@@ -29,6 +29,7 @@ struct Pop {
     let segment: Segment
     let index: Int
     
+    // Template method
     func execute() -> String {
         var builder = CommandBuilder()
         builder.add(ATCommand(difinedSymbol: .sp))

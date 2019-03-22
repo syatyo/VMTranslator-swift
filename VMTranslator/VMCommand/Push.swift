@@ -9,57 +9,18 @@
 import Foundation
 
 struct Push {
-    let segment: SegmentType
+    let segment: Segment
     let index: Int
     
+    // Template method
     func execute() -> String {
-        switch segment {
-        case .constant:
-            var builder = CommandBuilder()
-            builder.add(ATCommand(constant: index))
-            builder.add(AssignCommand(destination: .d, computation: .a))
-            builder.add(PushStackIncrementer())
-            return builder.build()
-            
-        case .local:
-            var builder = CommandBuilder()
-            builder.add(contentsOf: Local().pushCommands(index: index))
-            builder.add(PushStackIncrementer())
-            return builder.build()
-            
-        case .argument:
-            var builder = CommandBuilder()
-            builder.add(contentsOf: Argument().pushCommands(index: index))
-            builder.add(PushStackIncrementer())
-            return builder.build()
-            
-        case .this:
-            var builder = CommandBuilder()
-            builder.add(contentsOf: This().pushCommands(index: index))
-            builder.add(PushStackIncrementer())
-            return builder.build()
-            
-        case .that:
-            var builder = CommandBuilder()
-            builder.add(contentsOf: That().pushCommands(index: index))
-            builder.add(PushStackIncrementer())
-            return builder.build()
-            
-        case .pointer:
-            var builder = CommandBuilder()
-            builder.add(contentsOf: Pointer().pushCommands(index: index))
-            builder.add(PushStackIncrementer())
-            return builder.build()
-
-        case .temp:
-            var builder = CommandBuilder()
-            builder.add(contentsOf: Temp().pushCommands(index: index))
-            builder.add(PushStackIncrementer())
-            return builder.build()
-
-        default:
-            fatalError()
-        }
+        var builder = CommandBuilder()
+        builder.add(contentsOf: segment.pushCommands(index: index))
+        builder.add(ATCommand(difinedSymbol: .sp))
+        builder.add(AssignCommand(destination: .am, computation: .mPlusOne))
+        builder.add(AssignCommand(destination: .a, computation: .aMinusOne))
+        builder.add(AssignCommand(destination: .m, computation: .d))
+        return builder.build()
     }
     
     

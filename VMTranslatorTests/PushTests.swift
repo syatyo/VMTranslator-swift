@@ -19,7 +19,7 @@ class PushTests: XCTestCase {
     }
     
     func testPushConstant() {
-        let push = Push(segment: .constant, index: 5)
+        let push = Push(segment: Constant(), index: 5)
         let result = push.execute()
         let expectation = """
         @5
@@ -34,7 +34,7 @@ class PushTests: XCTestCase {
     }
     
     func testPushLocalZero() {
-        let push = Push(segment: .local, index: 0)
+        let push = Push(segment: Local(), index: 0)
         let result = push.execute()
         let expectation = """
         @LCL
@@ -51,7 +51,7 @@ class PushTests: XCTestCase {
     }
     
     func testPushLocalOne() {
-        let push = Push(segment: .local, index: 1)
+        let push = Push(segment: Local(), index: 1)
         let result = push.execute()
         let expectation = """
         @LCL
@@ -68,7 +68,7 @@ class PushTests: XCTestCase {
     }
     
     func testPushArgumentOne() {
-        let push = Push(segment: .argument, index: 1)
+        let push = Push(segment: Argument(), index: 1)
         let result = push.execute()
         let expectation = """
         @ARG
@@ -85,7 +85,7 @@ class PushTests: XCTestCase {
     }
     
     func testThatTwo() {
-        let push = Push(segment: .that, index: 2)
+        let push = Push(segment: That(), index: 2)
         let result = push.execute()
         let expectation = """
         @THAT
@@ -102,7 +102,7 @@ class PushTests: XCTestCase {
     }
     
     func testThisTwo() {
-        let push = Push(segment: .this, index: 2)
+        let push = Push(segment: This(), index: 2)
         let result = push.execute()
         let expectation = """
         @THIS
@@ -119,7 +119,7 @@ class PushTests: XCTestCase {
     }
     
     func testPointerIndexZero() {
-        let push = Push(segment: .pointer, index: 0)
+        let push = Push(segment: Pointer(), index: 0)
         let result = push.execute()
         let expectation = """
         @THIS
@@ -133,7 +133,7 @@ class PushTests: XCTestCase {
     }
 
     func testPointerIndexOne() {
-        let push = Push(segment: .pointer, index: 1)
+        let push = Push(segment: Pointer(), index: 1)
         let result = push.execute()
         let expectation = """
         @THAT
@@ -147,7 +147,7 @@ class PushTests: XCTestCase {
     }
     
     func testTempFirst() {
-        let push = Push(segment: .temp, index: 0)
+        let push = Push(segment: Temp(), index: 0)
         let result = push.execute()
         let expectation = """
         @R5
@@ -161,7 +161,7 @@ class PushTests: XCTestCase {
     }
     
     func testTempMiddle() {
-        let push = Push(segment: .temp, index: 4)
+        let push = Push(segment: Temp(), index: 4)
         let result = push.execute()
         let expectation = """
         @R9
@@ -175,7 +175,7 @@ class PushTests: XCTestCase {
     }
     
     func testTempLast() {
-        let push = Push(segment: .temp, index: 7)
+        let push = Push(segment: Temp(), index: 7)
         let result = push.execute()
         let expectation = """
         @R12

@@ -17,6 +17,21 @@ class SegmentTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func testConstant() {
+        let segment = Constant()
+        let result = segment
+            .pushCommands(index: 5)
+            .map { $0.generate() }
+            .joined(separator: "\n")
+        
+        let expectation = """
+        @5
+        D=A
+        """
+        
+        XCTAssertEqual(result, expectation)
+    }
 
     func testLocal() {
         let segment = Local()

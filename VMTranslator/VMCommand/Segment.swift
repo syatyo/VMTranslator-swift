@@ -124,3 +124,18 @@ struct Temp: Segment {
     }
         
 }
+
+struct Constant: Segment {
+    
+    func pushCommands(index: Int) -> [AssemblyCommandGeneratable] {
+        return [
+            ATCommand(constant: index),
+            AssignCommand(destination: .d, computation: .a)
+        ]
+    }
+    
+    func popCommands(index: Int) -> [AssemblyCommandGeneratable] {
+        fatalError("Constant segment cannot execute pop.")
+    }
+    
+}

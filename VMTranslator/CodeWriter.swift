@@ -80,30 +80,34 @@ struct CodeWriter {
     mutating func writePushPop(_ commandType: MemoryAccessCommandType,
                                segment: String,
                                index: Int) {
-        let segmentType = SegmentType(rawValue: segment)!
+        
+        let segmentValue: Segment = {
+            switch segment {
+            case "constant":
+                return Constant()
+            case "argument":
+                return Argument()
+            case "local":
+                return Local()
+            case "this":
+                return This()
+            case "that":
+                return That()
+            case "pointer":
+                return Pointer()
+            case "temp":
+                return Temp()
+            default:
+                fatalError()
+            }
+        }()
+
         switch commandType {
         case .push:
-            let push = Push(segment: segmentType, index: index)
+            let push = Push(segment: segmentValue, index: index)
             assemblyCommandBuilder.add(push)
         case .pop:
-            let segmentValue: Segment = {
-                switch segment {
-                case "argument":
-                    return Argument()
-                case "local":
-                    return Local()
-                case "this":
-                    return This()
-                case "that":
-                    return That()
-                case "pointer":
-                    return Pointer()
-                case "temp":
-                    return Temp()
-                default:
-                    fatalError()
-                }
-            }()
+            
             let pop = Pop(segment: segmentValue, index: index)
             assemblyCommandBuilder.add(pop)
         }
