@@ -9,10 +9,8 @@
 import Foundation
 
 protocol Segment {
-    var index: Int { get }
-    
-    func pushCommands() -> [AssemblyCommandGeneratable]
-    func popCommands() -> [AssemblyCommandGeneratable]
+    func pushCommands(index: Int) -> [AssemblyCommandGeneratable]
+    func popCommands(index: Int) -> [AssemblyCommandGeneratable]
 }
 
 protocol RegisterDefined {
@@ -21,7 +19,7 @@ protocol RegisterDefined {
 
 extension Segment where Self: RegisterDefined {
     
-    func pushCommands() -> [AssemblyCommandGeneratable] {
+    func pushCommands(index: Int) -> [AssemblyCommandGeneratable] {
         let commands: [AssemblyCommandGeneratable] = [
             ATCommand(difinedSymbol: type),
             AssignCommand(destination: .d, computation: .m),
@@ -32,7 +30,7 @@ extension Segment where Self: RegisterDefined {
         return commands
     }
     
-    func popCommands() -> [AssemblyCommandGeneratable] {
+    func popCommands(index: Int) -> [AssemblyCommandGeneratable] {
         var commands: [AssemblyCommandGeneratable] = [
             ATCommand(difinedSymbol: type),
             AssignCommand(destination: .a, computation: .m)
@@ -51,7 +49,6 @@ extension Segment where Self: RegisterDefined {
 /// 関数に入るとVM実装によって動的に割り当てられ、0に初期化される
 struct Local: Segment, RegisterDefined {
     var type: ATCommand.DefinedSymbol { return .lcl }
-    let index: Int
 }
 
 
@@ -60,7 +57,6 @@ struct Local: Segment, RegisterDefined {
 /// 関数に入るとVM実装によって動的に割り当てられる。
 struct Argument: Segment, RegisterDefined {
     var type: ATCommand.DefinedSymbol { return .arg }
-    let index: Int
 }
 
 /// 汎用セグメント。異なるヒープ領域に対応するように作られているセグメント。プログラミングの様々なニーズで用いられる
@@ -68,7 +64,6 @@ struct Argument: Segment, RegisterDefined {
 /// ヒープ上の選択された領域を操作するために、どのような関数でもこれらのセグメントを使うことができる
 struct This: Segment, RegisterDefined {
     var type: ATCommand.DefinedSymbol { return .this }
-    let index: Int
 }
 
 /// 汎用セグメント。異なるヒープ領域に対応するように作られているセグメント。プログラミングの様々なニーズで用いられる
@@ -76,38 +71,33 @@ struct This: Segment, RegisterDefined {
 /// ヒープ上の選択された領域を操作するために、どのような関数でもこれらのセグメントを使うことができる
 struct That: Segment, RegisterDefined {
     var type: ATCommand.DefinedSymbol { return .that }
-    let index: Int
 }
 
 /// thisとthatセグメントのベースアドレスを持つ2つの要素からなるセグメント
 ///
 /// VMの関数で、pointerの0番目(または1番目)をあるアドレスに設定することができる。
 struct Pointer: Segment {
-    let index: Int
-    private let register: ATCommand.DefinedSymbol
     
-    init(index: Int) {
-        self.index = index
-        
+    private func register(from index: Int) -> ATCommand.DefinedSymbol {
         switch index {
         case 0:
-            self.register = .this
+            return .this
         case 1:
-            self.register = .that
+            return .that
         default:
             fatalError()
         }
     }
     
-    func pushCommands() -> [AssemblyCommandGeneratable] {
+    func pushCommands(index: Int) -> [AssemblyCommandGeneratable] {
         return [
-            ATCommand(difinedSymbol: register),
+            ATCommand(difinedSymbol: register(from: index)),
             AssignCommand(destination: .d, computation: .m)
         ]
     }
    
-    func popCommands() -> [AssemblyCommandGeneratable] {
-        return [ATCommand(difinedSymbol: register)]
+    func popCommands(index: Int) -> [AssemblyCommandGeneratable] {
+        return [ATCommand(difinedSymbol: register(from: index))]
     }
     
 }
@@ -116,24 +106,21 @@ struct Pointer: Segment {
 ///
 /// 目的に応じてVM関数によって使われる。プログラムのすべての関数で共有される。
 struct Temp: Segment {
-    var index: Int
-    private let label: String
     private let registerStartingIndex: Int = 5
     
-    init(index: Int) {
-        self.index = index
-        self.label = "R\(registerStartingIndex + index)"
+    private func label(from index: Int) -> String {
+        return "R\(registerStartingIndex + index)"
     }
     
-    func pushCommands() -> [AssemblyCommandGeneratable] {
+    func pushCommands(index: Int) -> [AssemblyCommandGeneratable] {
         return [
-            ATCommand(label: label),
+            ATCommand(label: label(from: index)),
             AssignCommand(destination: .d, computation: .m)
         ]
     }
     
-    func popCommands() -> [AssemblyCommandGeneratable] {
-        return [ATCommand(label: label)]
+    func popCommands(index: Int) -> [AssemblyCommandGeneratable] {
+        return [ATCommand(label: label(from: index))]
     }
         
 }

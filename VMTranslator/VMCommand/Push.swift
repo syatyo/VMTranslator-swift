@@ -23,37 +23,37 @@ struct Push {
             
         case .local:
             var builder = CommandBuilder()
-            builder.add(contentsOf: Local(index: index).pushCommands())
+            builder.add(contentsOf: Local().pushCommands(index: index))
             builder.add(PushStackIncrementer())
             return builder.build()
             
         case .argument:
             var builder = CommandBuilder()
-            builder.add(contentsOf: Argument(index: index).pushCommands())
+            builder.add(contentsOf: Argument().pushCommands(index: index))
             builder.add(PushStackIncrementer())
             return builder.build()
             
         case .this:
             var builder = CommandBuilder()
-            builder.add(contentsOf: This(index: index).pushCommands())
+            builder.add(contentsOf: This().pushCommands(index: index))
             builder.add(PushStackIncrementer())
             return builder.build()
             
         case .that:
             var builder = CommandBuilder()
-            builder.add(contentsOf: That(index: index).pushCommands())
+            builder.add(contentsOf: That().pushCommands(index: index))
             builder.add(PushStackIncrementer())
             return builder.build()
             
         case .pointer:
             var builder = CommandBuilder()
-            builder.add(contentsOf: Pointer(index: index).pushCommands())
+            builder.add(contentsOf: Pointer().pushCommands(index: index))
             builder.add(PushStackIncrementer())
             return builder.build()
 
         case .temp:
             var builder = CommandBuilder()
-            builder.add(contentsOf: Temp(index: index).pushCommands())
+            builder.add(contentsOf: Temp().pushCommands(index: index))
             builder.add(PushStackIncrementer())
             return builder.build()
 

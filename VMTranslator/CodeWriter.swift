@@ -89,22 +89,22 @@ struct CodeWriter {
             let segmentValue: Segment = {
                 switch segment {
                 case "argument":
-                    return Argument(index: index)
+                    return Argument()
                 case "local":
-                    return Local(index: index)
+                    return Local()
                 case "this":
-                    return This(index: index)
+                    return This()
                 case "that":
-                    return That(index: index)
+                    return That()
                 case "pointer":
-                    return Pointer(index: index)
+                    return Pointer()
                 case "temp":
-                    return Temp(index: index)
+                    return Temp()
                 default:
                     fatalError()
                 }
             }()
-            let pop = Pop(segment: segmentValue)
+            let pop = Pop(segment: segmentValue, index: index)
             assemblyCommandBuilder.add(pop)
         }
         

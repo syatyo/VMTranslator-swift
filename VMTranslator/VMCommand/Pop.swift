@@ -27,13 +27,14 @@ private extension SegmentType {
 
 struct Pop {
     let segment: Segment
+    let index: Int
     
     func execute() -> String {
         var builder = CommandBuilder()
         builder.add(ATCommand(difinedSymbol: .sp))
         builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
         builder.add(AssignCommand(destination: .d, computation: .m))
-        builder.add(contentsOf: segment.popCommands())
+        builder.add(contentsOf: segment.popCommands(index: index))
         builder.add(AssignCommand(destination: .m, computation: .d))
         return builder.build()
     }
