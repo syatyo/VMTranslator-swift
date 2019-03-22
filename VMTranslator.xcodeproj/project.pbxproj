@@ -84,18 +84,12 @@
 		188E19442238E766006602D0 /* Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19432238E766006602D0 /* Push.swift */; };
 		188E19452238E7C3006602D0 /* Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19432238E766006602D0 /* Push.swift */; };
 		188E19462238E800006602D0 /* AssignCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19052226D2DC006602D0 /* AssignCommand.swift */; };
-		188E19482239023C006602D0 /* PushStackIncrementerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19472239023C006602D0 /* PushStackIncrementerTests.swift */; };
-		188E194A223902CB006602D0 /* PushStackIncrementer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1949223902CB006602D0 /* PushStackIncrementer.swift */; };
-		188E194B22390377006602D0 /* PushStackIncrementer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1949223902CB006602D0 /* PushStackIncrementer.swift */; };
 		188E194D2239098F006602D0 /* PopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E194C2239098F006602D0 /* PopTests.swift */; };
 		188E194F22391A58006602D0 /* Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E194E22391A58006602D0 /* Pop.swift */; };
 		188E195022391AC1006602D0 /* Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E194E22391A58006602D0 /* Pop.swift */; };
 		188E195222391D1A006602D0 /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E195122391D1A006602D0 /* Segment.swift */; };
 		188E195322391E24006602D0 /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E195122391D1A006602D0 /* Segment.swift */; };
-		188E195522392CD9006602D0 /* PopStackDecrementer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E195422392CD9006602D0 /* PopStackDecrementer.swift */; };
-		188E195622392DA1006602D0 /* PopStackDecrementer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E195422392CD9006602D0 /* PopStackDecrementer.swift */; };
 		188E195822392E2A006602D0 /* SegmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E195722392E2A006602D0 /* SegmentTests.swift */; };
-		188E195A223930D1006602D0 /* PopStackDecrementerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1959223930D1006602D0 /* PopStackDecrementerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -162,14 +156,10 @@
 		188E1937222BA848006602D0 /* ConditionIndexStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionIndexStore.swift; sourceTree = "<group>"; };
 		188E193F222BF82E006602D0 /* VMTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMTranslator.swift; sourceTree = "<group>"; };
 		188E19432238E766006602D0 /* Push.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Push.swift; sourceTree = "<group>"; };
-		188E19472239023C006602D0 /* PushStackIncrementerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushStackIncrementerTests.swift; sourceTree = "<group>"; };
-		188E1949223902CB006602D0 /* PushStackIncrementer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushStackIncrementer.swift; sourceTree = "<group>"; };
 		188E194C2239098F006602D0 /* PopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopTests.swift; sourceTree = "<group>"; };
 		188E194E22391A58006602D0 /* Pop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pop.swift; sourceTree = "<group>"; };
 		188E195122391D1A006602D0 /* Segment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
-		188E195422392CD9006602D0 /* PopStackDecrementer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopStackDecrementer.swift; sourceTree = "<group>"; };
 		188E195722392E2A006602D0 /* SegmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentTests.swift; sourceTree = "<group>"; };
-		188E1959223930D1006602D0 /* PopStackDecrementerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopStackDecrementerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,8 +233,6 @@
 				188E1917222B78C7006602D0 /* PushTests.swift */,
 				188E194C2239098F006602D0 /* PopTests.swift */,
 				188E195722392E2A006602D0 /* SegmentTests.swift */,
-				188E19472239023C006602D0 /* PushStackIncrementerTests.swift */,
-				188E1959223930D1006602D0 /* PopStackDecrementerTests.swift */,
 				188E1920222B8287006602D0 /* ATCommandTests.swift */,
 				188E1924222B8537006602D0 /* AssignCommandTests.swift */,
 				188E192B222B8D18006602D0 /* LabelCommandTests.swift */,
@@ -282,8 +270,6 @@
 				188E19432238E766006602D0 /* Push.swift */,
 				188E194E22391A58006602D0 /* Pop.swift */,
 				188E195122391D1A006602D0 /* Segment.swift */,
-				188E1949223902CB006602D0 /* PushStackIncrementer.swift */,
-				188E195422392CD9006602D0 /* PopStackDecrementer.swift */,
 			);
 			path = VMCommand;
 			sourceTree = "<group>";
@@ -433,7 +419,6 @@
 				188E18DC22240CCB006602D0 /* Equal.swift in Sources */,
 				188E192E222B8FA1006602D0 /* LabelCommand.swift in Sources */,
 				188E1936222BA79B006602D0 /* ConditionIndexRepository.swift in Sources */,
-				188E195522392CD9006602D0 /* PopStackDecrementer.swift in Sources */,
 				188E18BD2221790E006602D0 /* Secret.swift in Sources */,
 				188E191D222B7F77006602D0 /* AssemblyCommandGeneratable.swift in Sources */,
 				188E19082226D325006602D0 /* Destination.swift in Sources */,
@@ -455,7 +440,6 @@
 				188E19022226D0C5006602D0 /* Not.swift in Sources */,
 				188E18C222219786006602D0 /* CodeWriter.swift in Sources */,
 				188E1933222B9371006602D0 /* ConditionCommand.swift in Sources */,
-				188E194A223902CB006602D0 /* PushStackIncrementer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,12 +475,10 @@
 				188E190D2226DDB6006602D0 /* Jump.swift in Sources */,
 				188E1931222B9135006602D0 /* ConditionCommandTests.swift in Sources */,
 				188E18CF22226A2C006602D0 /* SubTests.swift in Sources */,
-				188E19482239023C006602D0 /* PushStackIncrementerTests.swift in Sources */,
 				188E18E92226B3C0006602D0 /* GreaterTests.swift in Sources */,
 				188E19422237F683006602D0 /* main.swift in Sources */,
 				188E1939222BAD74006602D0 /* ConditionIndexRepository.swift in Sources */,
 				188E18FE2226CF23006602D0 /* Or.swift in Sources */,
-				188E194B22390377006602D0 /* PushStackIncrementer.swift in Sources */,
 				188E18CD2222561C006602D0 /* Add.swift in Sources */,
 				188E18EF2226B88C006602D0 /* Conditionable.swift in Sources */,
 				188E19412237E4B0006602D0 /* VMTranslator.swift in Sources */,
@@ -507,14 +489,12 @@
 				188E192F222B905F006602D0 /* LabelCommand.swift in Sources */,
 				188E1923222B83E6006602D0 /* AssemblyCommandGeneratable.swift in Sources */,
 				188E19452238E7C3006602D0 /* Push.swift in Sources */,
-				188E195A223930D1006602D0 /* PopStackDecrementerTests.swift in Sources */,
 				188E18CC222254D7006602D0 /* AddTests.swift in Sources */,
 				188E18C722219B68006602D0 /* Parser.swift in Sources */,
 				188E18E622241604006602D0 /* EqualTests.swift in Sources */,
 				188E18F42226BF2F006602D0 /* Less.swift in Sources */,
 				188E19132226E48E006602D0 /* Boolean.swift in Sources */,
 				188E18AD22216FFA006602D0 /* VMTranslatorTests.swift in Sources */,
-				188E195622392DA1006602D0 /* PopStackDecrementer.swift in Sources */,
 				188E18B6222172D4006602D0 /* ParserTests.swift in Sources */,
 				188E18C622219B65006602D0 /* CommandFormatter.swift in Sources */,
 				188E190E2226DDB9006602D0 /* Computation.swift in Sources */,

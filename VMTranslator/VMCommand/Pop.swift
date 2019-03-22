@@ -8,54 +8,36 @@
 
 import Foundation
 
-struct Pop {
-    let segment: SegmentType
-    let index: Int
-
-    func execute() -> String {
-        
-        switch segment {
-        case .constant:
-            fatalError("Constant segment is only for push.")
-            
+private extension SegmentType {
+    var symbol: ATCommand.DefinedSymbol {
+        switch self {
         case .local:
-            var builder = CommandBuilder()
-            builder.add(Local(index: index))
-            builder.add(PopStackDecrementer())
-            return builder.build()
-
+            return .lcl
         case .argument:
-            var builder = CommandBuilder()
-            builder.add(Argument(index: index))
-            builder.add(PopStackDecrementer())
-            return builder.build()
-
+            return .arg
         case .this:
-            var builder = CommandBuilder()
-            builder.add(This(index: index))
-            builder.add(PopStackDecrementer())
-            return builder.build()
-
+            return .this
         case .that:
-            var builder = CommandBuilder()
-            builder.add(That(index: index))
-            builder.add(PopStackDecrementer())
-            return builder.build()
-            
-        case .pointer:
-            var builder = CommandBuilder()
-            builder.add(Pointer(index: index))
-            builder.add(PopStackDecrementer())
-            return builder.build()
-        
-        case .temp:
-            var builder = CommandBuilder()
-            builder.add(Temp(index: index))
-            builder.add(PopStackDecrementer())
-            return builder.build()
+            return .that
         default:
             fatalError()
         }
+    }
+}
+
+struct Pop {
+    let segment: Segment
+    let index: Int
+    
+    // Template method
+    func execute() -> String {
+        var builder = CommandBuilder()
+        builder.add(ATCommand(difinedSymbol: .sp))
+        builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
+        builder.add(AssignCommand(destination: .d, computation: .m))
+        builder.add(contentsOf: segment.popCommands(index: index))
+        builder.add(AssignCommand(destination: .m, computation: .d))
+        return builder.build()
     }
 
 }

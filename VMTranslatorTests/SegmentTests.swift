@@ -17,77 +17,127 @@ class SegmentTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func testConstant() {
+        let segment = Constant()
+        let result = segment
+            .pushCommands(index: 5)
+            .map { $0.generate() }
+            .joined(separator: "\n")
+        
+        let expectation = """
+        @5
+        D=A
+        """
+        
+        XCTAssertEqual(result, expectation)
+    }
 
     func testLocal() {
-        let segment = Local(index: 5)
-        let result = segment.execute()
+        let segment = Local()
+        let result = segment.pushCommands(index: 5).map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @LCL
         D=M
         @5
-        D=D+A
+        A=D+A
+        D=M
         """
         XCTAssertEqual(result, expectation)
     }
     
     func testArgument() {
-        let segment = Argument(index: 2)
-        let result = segment.execute()
+        let segment = Argument()
+        let result = segment.pushCommands(index: 2).map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @ARG
         D=M
         @2
-        D=D+A
+        A=D+A
+        D=M
         """
         XCTAssertEqual(result, expectation)
     }
     
     func testThis() {
-        let segment = This(index: 2)
-        let result = segment.execute()
+        let segment = This()
+        let result = segment.pushCommands(index: 2).map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @THIS
         D=M
         @2
-        D=D+A
+        A=D+A
+        D=M
         """
         XCTAssertEqual(result, expectation)
     }
 
     func testThat() {
-        let segment = That(index: 1)
-        let result = segment.execute()
+        let segment = That()
+        let result = segment.pushCommands(index: 1).map { $0.generate() }.joined(separator: "\n")
+        
+        // If that staring pointer is RAM[3000],
+        // expectation should point at RAM[3001]
         let expectation = """
         @THAT
         D=M
         @1
-        D=D+A
+        A=D+A
+        D=M
         """
         XCTAssertEqual(result, expectation)
     }
     
-    func testPointer() {
-        let segment = Pointer(index: 2)
-        let result = segment.execute()
+    
+    func testPointerIndexZero() {
+        let segment = Pointer()
+        let result = segment.pushCommands(index: 0).map { $0.generate() }.joined(separator: "\n")
         let expectation = """
-        @3
+        @THIS
         D=M
-        @2
-        D=D+A
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func testPointerIndexOne() {
+        let segment = Pointer()
+        let result = segment.pushCommands(index: 1).map { $0.generate() }.joined(separator: "\n")
+        let expectation = """
+        @THAT
+        D=M
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func testTempFirst() {
+        let segment = Temp()
+        let result = segment.pushCommands(index: 0).map { $0.generate() }.joined(separator: "\n")
+        let expectation = """
+        @R5
+        D=M
+        """
+        XCTAssertEqual(result, expectation)
+    }
+
+    func testTempMiddle() {
+        let segment = Temp()
+        let result = segment.pushCommands(index: 4).map { $0.generate() }.joined(separator: "\n")
+        let expectation = """
+        @R9
+        D=M
         """
         XCTAssertEqual(result, expectation)
     }
     
     func testTemp() {
-        let segment = Temp(index: 3)
-        let result = segment.execute()
+        let segment = Temp()
+        let result = segment.pushCommands(index: 7).map { $0.generate() }.joined(separator: "\n")
         let expectation = """
-        @5
+        @R12
         D=M
-        @3
-        D=D+A
         """
         XCTAssertEqual(result, expectation)
     }
+
     
 }

@@ -19,93 +19,137 @@ class PopTests: XCTestCase {
     }
 
     func testPopLocal() {
-        let pop = Pop(segment: .local, index: 0)
+        
+        let pop = Pop(segment: Local(), index: 0)
         let result = pop.execute()
         let expectation = """
-        @LCL
-        D=M
-        @0
-        D=D+A
         @SP
         AM=M-1
+        D=M
+        @LCL
+        A=M
         M=D
         """
         XCTAssertEqual(result, expectation)
     }
-
+    
+    // A=M+1 is a little bit smatter than A=M, A=A+1. But I use fooler idea for simplify.
     func testPopArgument() {
-        let pop = Pop(segment: .argument, index: 5)
+        let pop = Pop(segment: Argument(), index: 5)
         let result = pop.execute()
         let expectation = """
-        @ARG
-        D=M
-        @5
-        D=D+A
         @SP
         AM=M-1
+        D=M
+        @ARG
+        A=M
+        A=A+1
+        A=A+1
+        A=A+1
+        A=A+1
+        A=A+1
         M=D
         """
         XCTAssertEqual(result, expectation)
     }
     
     func testPopThis() {
-        let pop = Pop(segment: .this, index: 2)
+        let pop = Pop(segment: This(), index: 2)
         let result = pop.execute()
         let expectation = """
-        @THIS
-        D=M
-        @2
-        D=D+A
         @SP
         AM=M-1
+        D=M
+        @THIS
+        A=M
+        A=A+1
+        A=A+1
         M=D
         """
         XCTAssertEqual(result, expectation)
     }
 
     func testPopThat() {
-        let pop = Pop(segment: .that, index: 1)
+        let pop = Pop(segment: That(), index: 1)
         let result = pop.execute()
+        
+        // @THAT is located at RAM[4].
+        // @THAT represent base address of `that` segment.
         let expectation = """
+        @SP
+        AM=M-1
+        D=M
         @THAT
-        D=M
-        @1
-        D=D+A
-        @SP
-        AM=M-1
+        A=M
+        A=A+1
         M=D
         """
         XCTAssertEqual(result, expectation)
     }
     
-    func testPopPointer() {
-        let pop = Pop(segment: .pointer, index: 3)
+    func testPopPointerIndexZero() {
+        let pop = Pop(segment: Pointer(), index: 0)
         let result = pop.execute()
         let expectation = """
-        @3
-        D=M
-        @3
-        D=D+A
         @SP
         AM=M-1
+        D=M
+        @THIS
         M=D
         """
         XCTAssertEqual(result, expectation)
     }
     
-    func testPopTemp() {
-        let pop = Pop(segment: .temp, index: 5)
+    func testPopPointerIndexOne() {
+        let pop = Pop(segment: Pointer(), index: 1)
         let result = pop.execute()
         let expectation = """
-        @5
-        D=M
-        @5
-        D=D+A
         @SP
         AM=M-1
+        D=M
+        @THAT
         M=D
         """
         XCTAssertEqual(result, expectation)
+    }
 
+    func testPopTempFirst() {
+        let pop = Pop(segment: Temp(), index: 0)
+        let result = pop.execute()
+        let expectation = """
+        @SP
+        AM=M-1
+        D=M
+        @R5
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
     }
+
+    func testPopTempMiddle() {
+        let pop = Pop(segment: Temp(), index: 3)
+        let result = pop.execute()
+        let expectation = """
+        @SP
+        AM=M-1
+        D=M
+        @R8
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func testPopTempLast() {
+        let pop = Pop(segment: Temp(), index: 7)
+        let result = pop.execute()
+        let expectation = """
+        @SP
+        AM=M-1
+        D=M
+        @R12
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
+    }
+
 }

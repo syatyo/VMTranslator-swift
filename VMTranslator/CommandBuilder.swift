@@ -15,6 +15,10 @@ struct CommandBuilder {
         assemblyCommands.append(commandGeneratable)
     }
     
+    mutating func add(contentsOf commandGeneratables: [AssemblyCommandGeneratable]) {
+        assemblyCommands.append(contentsOf: commandGeneratables)
+    }
+    
     func build() -> String {
         return assemblyCommands
             .map { $0.generate() }
