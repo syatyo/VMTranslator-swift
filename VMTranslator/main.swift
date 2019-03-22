@@ -41,3 +41,14 @@ do {
 
 print("Success to translate BasicTest.asm")
 
+// 4. PointerTest.vm to PointerTest.asm
+do {
+    let vmTranslator = try VMTranslator(path: pointerTestPath)
+    try vmTranslator.startTranslating()
+} catch {
+    print("Error occured: \(error)")
+    exit(EXIT_FAILURE)
+}
+
+print("Success to translate PointerTest.asm")
+
