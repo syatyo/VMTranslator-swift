@@ -80,7 +80,6 @@ struct CodeWriter {
     mutating func writePushPop(_ commandType: MemoryAccessCommandType,
                                segment: String,
                                index: Int) {
-        
         let segmentValue: Segment = {
             switch segment {
             case "constant":
@@ -97,6 +96,8 @@ struct CodeWriter {
                 return Pointer()
             case "temp":
                 return Temp()
+            case "static":
+                return Static(fileName: fileName!)
             default:
                 fatalError()
             }

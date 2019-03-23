@@ -186,6 +186,20 @@ class PushTests: XCTestCase {
         M=D
         """
         XCTAssertEqual(result, expectation)
-        
     }
+    
+    func testStatic() {
+        let push = Push(segment: Static(fileName: "ABC.vm"), index: 7)
+        let result = push.execute()
+        let expectation = """
+        @ABC.7
+        D=M
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
 }
