@@ -152,4 +152,17 @@ class PopTests: XCTestCase {
         XCTAssertEqual(result, expectation)
     }
 
+    func testStatic() {
+        let pop = Pop(segment: Static(fileName: "Swift.vm"), index: 5)
+        let result = pop.execute()
+        let expectation = """
+        @SP
+        AM=M-1
+        D=M
+        @Swift.5
+        M=D
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
 }

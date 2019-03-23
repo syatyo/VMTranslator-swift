@@ -125,6 +125,9 @@ struct Temp: Segment {
         
 }
 
+/// 0から32767(15bit)までの範囲のすべての定数値を持つ擬似セグメント
+///
+/// VM実装によってエミュレートされる。プログラムのすべての関数から見える。
 struct Constant: Segment {
     
     func pushCommands(index: Int) -> [AssemblyCommandGeneratable] {
@@ -136,6 +139,32 @@ struct Constant: Segment {
     
     func popCommands(index: Int) -> [AssemblyCommandGeneratable] {
         fatalError("Constant segment cannot execute pop.")
+    }
+    
+}
+
+/// スタティック関数を格納する。スタティック変数は、同じ.vmファイルのすべての関数で共有する
+///
+/// 各.vmファイルに対して、VM実装により動的に割り当てられる。.vmファイルのすべての関数で共有される。
+struct Static: Segment {
+    let fileName: String
+    
+    /// include extension
+    init(fileName: String) {
+        self.fileName = fileName
+            .components(separatedBy: ".")
+            .first!
+    }
+    
+    func pushCommands(index: Int) -> [AssemblyCommandGeneratable] {
+        return [
+            ATCommand(label: "\(fileName).\(index)"),
+            AssignCommand(destination: .d, computation: .m)
+        ]
+    }
+    
+    func popCommands(index: Int) -> [AssemblyCommandGeneratable] {
+        return [ATCommand(label: "\(fileName).\(index)")]
     }
     
 }

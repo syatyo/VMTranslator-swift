@@ -138,6 +138,33 @@ class SegmentTests: XCTestCase {
         """
         XCTAssertEqual(result, expectation)
     }
+    
+    func testPushStatic() {
+        let segment = Static(fileName: "Xxx.vm")
+        let result = segment
+            .pushCommands(index: 7)
+            .map { $0.generate() }
+            .joined(separator: "\n")
+        
+        let expectation = """
+        @Xxx.7
+        D=M
+        """
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func testPopStatic() {
+        let segment = Static(fileName: "Xxx.vm")
+        let result = segment
+            .popCommands(index: 7)
+            .map { $0.generate() }
+            .joined(separator: "\n")
+        
+        let expectation = """
+        @Xxx.7
+        """
+        XCTAssertEqual(result, expectation)
+    }
 
     
 }
