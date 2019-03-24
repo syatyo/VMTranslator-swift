@@ -74,3 +74,13 @@ do {
 
 print("Success to translate BasicLoop.asm")
 
+// 6. FibonacciSeries.vm to PointerTest.asm
+do {
+    let vmTranslator = try VMTranslator(path: fibonacciSeriesPath)
+    try vmTranslator.startTranslating()
+} catch {
+    print("Error occured: \(error)")
+    exit(EXIT_FAILURE)
+}
+
+print("Success to translate FibonacciSeries.asm")
