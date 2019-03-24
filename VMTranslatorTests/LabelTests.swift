@@ -24,7 +24,7 @@ class LabelTests: XCTestCase {
         let expectation = """
         (null$LOOP_START)
         """
-        XCTAssertEqual(result, result)
+        XCTAssertEqual(result, expectation)
     }
     
 }
