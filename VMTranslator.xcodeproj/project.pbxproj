@@ -90,6 +90,7 @@
 		188E195222391D1A006602D0 /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E195122391D1A006602D0 /* Segment.swift */; };
 		188E195322391E24006602D0 /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E195122391D1A006602D0 /* Segment.swift */; };
 		188E195822392E2A006602D0 /* SegmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E195722392E2A006602D0 /* SegmentTests.swift */; };
+		18F2E1CA2247BD0E009B14BA /* LabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1C92247BD0E009B14BA /* LabelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -160,6 +161,7 @@
 		188E194E22391A58006602D0 /* Pop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pop.swift; sourceTree = "<group>"; };
 		188E195122391D1A006602D0 /* Segment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
 		188E195722392E2A006602D0 /* SegmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentTests.swift; sourceTree = "<group>"; };
+		18F2E1C92247BD0E009B14BA /* LabelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 				188E1930222B9135006602D0 /* ConditionCommandTests.swift */,
 				188E1926222B8711006602D0 /* CommandBuilderTests.swift */,
 				188E18B92221748C006602D0 /* CommandFormatterTests.swift */,
+				18F2E1C92247BD0E009B14BA /* LabelTests.swift */,
 				188E18AE22216FFA006602D0 /* Info.plist */,
 			);
 			path = VMTranslatorTests;
@@ -483,6 +486,7 @@
 				188E18EF2226B88C006602D0 /* Conditionable.swift in Sources */,
 				188E19412237E4B0006602D0 /* VMTranslator.swift in Sources */,
 				188E18BA2221748C006602D0 /* CommandFormatterTests.swift in Sources */,
+				18F2E1CA2247BD0E009B14BA /* LabelTests.swift in Sources */,
 				188E1925222B8537006602D0 /* AssignCommandTests.swift in Sources */,
 				188E1921222B8287006602D0 /* ATCommandTests.swift in Sources */,
 				188E18E72226B10A006602D0 /* Equal.swift in Sources */,

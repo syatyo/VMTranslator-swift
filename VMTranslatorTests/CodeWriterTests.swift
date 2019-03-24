@@ -243,5 +243,4 @@ class CodeWriterTests: XCTestCase {
         """
         XCTAssertEqual(codeWriter.assembly, expectation)
     }
-    
 }
