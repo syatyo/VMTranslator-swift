@@ -94,6 +94,8 @@
 		18F2E1CC2247BED6009B14BA /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1CB2247BED6009B14BA /* Label.swift */; };
 		18F2E1CD2247BF24009B14BA /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1CB2247BED6009B14BA /* Label.swift */; };
 		18F2E1D12247D057009B14BA /* GotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1D02247D057009B14BA /* GotoTests.swift */; };
+		18F2E1D32247D3C4009B14BA /* Goto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1D22247D3C4009B14BA /* Goto.swift */; };
+		18F2E1D42247D41A009B14BA /* Goto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1D22247D3C4009B14BA /* Goto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -167,6 +169,7 @@
 		18F2E1C92247BD0E009B14BA /* LabelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTests.swift; sourceTree = "<group>"; };
 		18F2E1CB2247BED6009B14BA /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		18F2E1D02247D057009B14BA /* GotoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GotoTests.swift; sourceTree = "<group>"; };
+		18F2E1D22247D3C4009B14BA /* Goto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +283,7 @@
 				188E194E22391A58006602D0 /* Pop.swift */,
 				188E195122391D1A006602D0 /* Segment.swift */,
 				18F2E1CB2247BED6009B14BA /* Label.swift */,
+				18F2E1D22247D3C4009B14BA /* Goto.swift */,
 			);
 			path = VMCommand;
 			sourceTree = "<group>";
@@ -439,6 +443,7 @@
 				188E1940222BF82E006602D0 /* VMTranslator.swift in Sources */,
 				188E191F222B8055006602D0 /* ATCommand.swift in Sources */,
 				188E18A022216E69006602D0 /* main.swift in Sources */,
+				18F2E1D32247D3C4009B14BA /* Goto.swift in Sources */,
 				188E18D122226A4F006602D0 /* Sub.swift in Sources */,
 				188E18F32226BEE5006602D0 /* Less.swift in Sources */,
 				188E194F22391A58006602D0 /* Pop.swift in Sources */,
@@ -488,6 +493,7 @@
 				188E1931222B9135006602D0 /* ConditionCommandTests.swift in Sources */,
 				188E18CF22226A2C006602D0 /* SubTests.swift in Sources */,
 				188E18E92226B3C0006602D0 /* GreaterTests.swift in Sources */,
+				18F2E1D42247D41A009B14BA /* Goto.swift in Sources */,
 				188E19422237F683006602D0 /* main.swift in Sources */,
 				188E1939222BAD74006602D0 /* ConditionIndexRepository.swift in Sources */,
 				188E18FE2226CF23006602D0 /* Or.swift in Sources */,

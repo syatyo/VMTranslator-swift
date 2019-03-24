@@ -9,6 +9,7 @@
 import Foundation
 
 enum ConditionType: String {
+    case jmp // force jump
     case jgt
     case jeq
     case jge
@@ -28,6 +29,8 @@ enum ConditionType: String {
     
     var complement: ConditionType {
         switch self {
+        case .jmp:
+            return .jmp
         case .jgt:
             return .jle
         case .jeq:
