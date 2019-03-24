@@ -63,3 +63,14 @@ do {
 
 print("Success to translate StaticTest.asm")
 
+// 6. BasicLoop.vm to PointerTest.asm
+do {
+    let vmTranslator = try VMTranslator(path: basicLoopPath)
+    try vmTranslator.startTranslating()
+} catch {
+    print("Error occured: \(error)")
+    exit(EXIT_FAILURE)
+}
+
+print("Success to translate BasicLoop.asm")
+
