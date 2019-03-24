@@ -62,6 +62,12 @@ final class VMTranslator {
                 codeWriter.writePushPop(.pop, segment: parser.arg1, index: parser.arg2)
             case .arithmetic:
                 codeWriter.writeArithmetic(command: parser.arg1)
+            case .label:
+                codeWriter.writeLabel(parser.arg1)
+            case .goto:
+                codeWriter.writeGoto(parser.arg1)
+            case .if:
+                codeWriter.writeIf(parser.arg1)
             default:
                 fatalError("TODO")
             }

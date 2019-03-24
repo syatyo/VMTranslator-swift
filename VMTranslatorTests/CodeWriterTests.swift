@@ -244,4 +244,42 @@ class CodeWriterTests: XCTestCase {
         XCTAssertEqual(codeWriter.assembly, expectation)
     }
     
+    func testWriteLabel() {
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("testLabel.asm")
+        codeWriter.writeLabel("label-func$label")
+        
+        let expectation = """
+        (label-func$label)
+        """
+        XCTAssertEqual(codeWriter.assembly, expectation)
+    }
+    
+    func testWriteGoto() {
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("testGoto.asm")
+        codeWriter.writeGoto("goto-func$label")
+        
+        let expectation = """
+        @goto-func$label
+        0;JMP
+        """
+        XCTAssertEqual(codeWriter.assembly, expectation)
+    }
+    
+    func testWriteIf() {
+        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        codeWriter.setFileName("testIf.asm")
+        codeWriter.writeIf("if-func$label")
+        
+        let expectation = """
+        @SP
+        AM=M-1
+        D=M
+        @if-func$label
+        D;JNE
+        """
+        XCTAssertEqual(codeWriter.assembly, expectation)
+    }
+
 }
