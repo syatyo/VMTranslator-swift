@@ -93,6 +93,7 @@
 		18F2E1CA2247BD0E009B14BA /* LabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1C92247BD0E009B14BA /* LabelTests.swift */; };
 		18F2E1CC2247BED6009B14BA /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1CB2247BED6009B14BA /* Label.swift */; };
 		18F2E1CD2247BF24009B14BA /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1CB2247BED6009B14BA /* Label.swift */; };
+		18F2E1D12247D057009B14BA /* GotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1D02247D057009B14BA /* GotoTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -165,6 +166,7 @@
 		188E195722392E2A006602D0 /* SegmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentTests.swift; sourceTree = "<group>"; };
 		18F2E1C92247BD0E009B14BA /* LabelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTests.swift; sourceTree = "<group>"; };
 		18F2E1CB2247BED6009B14BA /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		18F2E1D02247D057009B14BA /* GotoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GotoTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 				188E1926222B8711006602D0 /* CommandBuilderTests.swift */,
 				188E18B92221748C006602D0 /* CommandFormatterTests.swift */,
 				18F2E1C92247BD0E009B14BA /* LabelTests.swift */,
+				18F2E1D02247D057009B14BA /* GotoTests.swift */,
 				188E18AE22216FFA006602D0 /* Info.plist */,
 			);
 			path = VMTranslatorTests;
@@ -479,6 +482,7 @@
 				188E18D222226A81006602D0 /* Sub.swift in Sources */,
 				188E18FB2226CCD3006602D0 /* OrTests.swift in Sources */,
 				188E18EC2226B4D0006602D0 /* Greater.swift in Sources */,
+				18F2E1D12247D057009B14BA /* GotoTests.swift in Sources */,
 				188E18C422219B60006602D0 /* Secret.swift in Sources */,
 				188E190D2226DDB6006602D0 /* Jump.swift in Sources */,
 				188E1931222B9135006602D0 /* ConditionCommandTests.swift in Sources */,
