@@ -96,6 +96,7 @@
 		18F2E1D12247D057009B14BA /* GotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1D02247D057009B14BA /* GotoTests.swift */; };
 		18F2E1D32247D3C4009B14BA /* Goto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1D22247D3C4009B14BA /* Goto.swift */; };
 		18F2E1D42247D41A009B14BA /* Goto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1D22247D3C4009B14BA /* Goto.swift */; };
+		18F2E1D62247D8F3009B14BA /* IfGotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1D52247D8F3009B14BA /* IfGotoTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -170,6 +171,7 @@
 		18F2E1CB2247BED6009B14BA /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		18F2E1D02247D057009B14BA /* GotoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GotoTests.swift; sourceTree = "<group>"; };
 		18F2E1D22247D3C4009B14BA /* Goto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goto.swift; sourceTree = "<group>"; };
+		18F2E1D52247D8F3009B14BA /* IfGotoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfGotoTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 				188E18B92221748C006602D0 /* CommandFormatterTests.swift */,
 				18F2E1C92247BD0E009B14BA /* LabelTests.swift */,
 				18F2E1D02247D057009B14BA /* GotoTests.swift */,
+				18F2E1D52247D8F3009B14BA /* IfGotoTests.swift */,
 				188E18AE22216FFA006602D0 /* Info.plist */,
 			);
 			path = VMTranslatorTests;
@@ -479,6 +482,7 @@
 				188E195822392E2A006602D0 /* SegmentTests.swift in Sources */,
 				188E18E3222412CC006602D0 /* NegativeTests.swift in Sources */,
 				188E18F62226C79A006602D0 /* AndTests.swift in Sources */,
+				18F2E1D62247D8F3009B14BA /* IfGotoTests.swift in Sources */,
 				188E192A222B89B8006602D0 /* CommandBuilder.swift in Sources */,
 				188E1918222B78C7006602D0 /* PushTests.swift in Sources */,
 				188E18F92226C9E0006602D0 /* And.swift in Sources */,
