@@ -150,6 +150,9 @@ struct CodeWriter {
         assemblyCommandBuilder.add(Label(name: labelName))
     }
     
+    mutating func writeGoto(_ labelName: String) {
+        assemblyCommandBuilder.add(Goto(labelName: labelName))
+    }
     
 }
 
