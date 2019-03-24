@@ -97,6 +97,8 @@
 		18F2E1D32247D3C4009B14BA /* Goto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1D22247D3C4009B14BA /* Goto.swift */; };
 		18F2E1D42247D41A009B14BA /* Goto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1D22247D3C4009B14BA /* Goto.swift */; };
 		18F2E1D62247D8F3009B14BA /* IfGotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1D52247D8F3009B14BA /* IfGotoTests.swift */; };
+		18F2E1D82247DF89009B14BA /* IfGoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1D72247DF89009B14BA /* IfGoto.swift */; };
+		18F2E1D92247DFAE009B14BA /* IfGoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1D72247DF89009B14BA /* IfGoto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -172,6 +174,7 @@
 		18F2E1D02247D057009B14BA /* GotoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GotoTests.swift; sourceTree = "<group>"; };
 		18F2E1D22247D3C4009B14BA /* Goto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goto.swift; sourceTree = "<group>"; };
 		18F2E1D52247D8F3009B14BA /* IfGotoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfGotoTests.swift; sourceTree = "<group>"; };
+		18F2E1D72247DF89009B14BA /* IfGoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfGoto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +290,7 @@
 				188E195122391D1A006602D0 /* Segment.swift */,
 				18F2E1CB2247BED6009B14BA /* Label.swift */,
 				18F2E1D22247D3C4009B14BA /* Goto.swift */,
+				18F2E1D72247DF89009B14BA /* IfGoto.swift */,
 			);
 			path = VMCommand;
 			sourceTree = "<group>";
@@ -445,6 +449,7 @@
 				188E18CA222254C3006602D0 /* Add.swift in Sources */,
 				188E1940222BF82E006602D0 /* VMTranslator.swift in Sources */,
 				188E191F222B8055006602D0 /* ATCommand.swift in Sources */,
+				18F2E1D82247DF89009B14BA /* IfGoto.swift in Sources */,
 				188E18A022216E69006602D0 /* main.swift in Sources */,
 				18F2E1D32247D3C4009B14BA /* Goto.swift in Sources */,
 				188E18D122226A4F006602D0 /* Sub.swift in Sources */,
@@ -473,6 +478,7 @@
 				188E195022391AC1006602D0 /* Pop.swift in Sources */,
 				188E1922222B828B006602D0 /* ATCommand.swift in Sources */,
 				188E19032226D0E7006602D0 /* Not.swift in Sources */,
+				18F2E1D92247DFAE009B14BA /* IfGoto.swift in Sources */,
 				188E18C522219B63006602D0 /* CodeWriter.swift in Sources */,
 				188E1934222B953C006602D0 /* ConditionCommand.swift in Sources */,
 				188E19002226D02D006602D0 /* NotTests.swift in Sources */,
