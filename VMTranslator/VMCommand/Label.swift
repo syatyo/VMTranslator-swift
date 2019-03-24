@@ -18,3 +18,11 @@ struct Label {
     }
     
 }
+
+extension Label: AssemblyCommandGeneratable {
+    
+    func generate() -> String {
+        return execute()
+    }
+    
+}

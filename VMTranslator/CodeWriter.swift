@@ -146,6 +146,11 @@ struct CodeWriter {
         }
     }
     
+    mutating func writeLabel(_ labelName: String) {
+        assemblyCommandBuilder.add(Label(name: labelName))
+    }
+    
+    
 }
 
 // Maybe it looks good to make "struct Push" and "struct Pop"

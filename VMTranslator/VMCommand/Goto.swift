@@ -20,3 +20,10 @@ struct Goto {
     
 }
 
+extension Goto: AssemblyCommandGeneratable {
+    
+    func generate() -> String {
+        return execute()
+    }
+    
+}

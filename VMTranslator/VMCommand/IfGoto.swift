@@ -24,3 +24,11 @@ struct IfGoto {
     }
     
 }
+
+extension IfGoto: AssemblyCommandGeneratable {
+    
+    func generate() -> String {
+        return execute()
+    }
+    
+}
