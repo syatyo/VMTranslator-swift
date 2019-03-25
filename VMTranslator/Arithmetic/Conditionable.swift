@@ -72,7 +72,7 @@ extension Conditionable {
         builder.add(AInstruction(difinedSymbol: .sp))
         builder.add(CInstruction.assign(destination: .a, computation: .mMinusOne))
         builder.add(CInstruction.assign(destination: .m, computation: Computation(boolean: .true)))
-        builder.add(LabelCommand(label: conditionLabel))
+        builder.add(LabelSymbolInstruction(label: conditionLabel))
         
         repository.incrementIndex(for: String(describing: type(of: self)))
         return builder.build()
