@@ -1,5 +1,5 @@
 //
-//  ATCommandTests.swift
+//  AInstructionTests.swift
 //  VMTranslatorTests
 //
 //  Created by 山田良治 on 2019/03/03.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class ATCommandTests: XCTestCase {
+class AInstructionTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -18,25 +18,25 @@ class ATCommandTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testATCommandFromSymbol() {
-        let spCommand = ATCommand(difinedSymbol: .sp)
+    func testAInstructionFromSymbol() {
+        let spCommand = AInstruction(difinedSymbol: .sp)
         XCTAssertEqual(spCommand.generate(), "@SP")
         
-        let lclCommand = ATCommand(difinedSymbol: .lcl)
+        let lclCommand = AInstruction(difinedSymbol: .lcl)
         XCTAssertEqual(lclCommand.generate(), "@LCL")
 
-        let argCommand = ATCommand(difinedSymbol: .arg)
+        let argCommand = AInstruction(difinedSymbol: .arg)
         XCTAssertEqual(argCommand.generate(), "@ARG")
 
-        let thisCommand = ATCommand(difinedSymbol: .this)
+        let thisCommand = AInstruction(difinedSymbol: .this)
         XCTAssertEqual(thisCommand.generate(), "@THIS")
 
-        let thatCommand = ATCommand(difinedSymbol: .that)
-        XCTAssertEqual(thatCommand.generate(), "@THAT")
+        let thAInstruction = AInstruction(difinedSymbol: .that)
+        XCTAssertEqual(thAInstruction.generate(), "@THAT")
     }
     
     func testATCommantConstant() {
-        let constantCommand = ATCommand(constant: 15)
+        let constantCommand = AInstruction(constant: 15)
         XCTAssertEqual(constantCommand.generate(), "@15")
     }
     

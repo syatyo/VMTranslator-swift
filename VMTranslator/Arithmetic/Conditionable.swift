@@ -61,15 +61,15 @@ extension Conditionable {
         
         let conditionLabel = "END_\(conditionType.symbolIdentifer)\(currentIndex)"
         var builder = CommandBuilder()
-        builder.add(ATCommand(difinedSymbol: .sp))
+        builder.add(AInstruction(difinedSymbol: .sp))
         builder.add(CInstruction.assign(destination: .am, computation: .mMinusOne))
         builder.add(CInstruction.assign(destination: .d, computation: .m))
         builder.add(CInstruction.assign(destination: .a, computation: .aMinusOne))
         builder.add(CInstruction.assign(destination: .d, computation: .mMinusD))
         builder.add(CInstruction.assign(destination: .m, computation: Computation(boolean: .false)))
-        builder.add(ATCommand(label: conditionLabel))
+        builder.add(AInstruction(label: conditionLabel))
         builder.add(CInstruction.jump(operand: .d, conditionType: conditionType.complement))
-        builder.add(ATCommand(difinedSymbol: .sp))
+        builder.add(AInstruction(difinedSymbol: .sp))
         builder.add(CInstruction.assign(destination: .a, computation: .mMinusOne))
         builder.add(CInstruction.assign(destination: .m, computation: Computation(boolean: .true)))
         builder.add(LabelCommand(label: conditionLabel))

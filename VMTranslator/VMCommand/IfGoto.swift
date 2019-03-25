@@ -14,11 +14,11 @@ struct IfGoto {
     func execute() -> String {
         var builder = CommandBuilder()
         // Start pop
-        builder.add(ATCommand(difinedSymbol: .sp))
+        builder.add(AInstruction(difinedSymbol: .sp))
         builder.add(CInstruction.assign(destination: .am, computation: .mMinusOne))
         builder.add(CInstruction.assign(destination: .d, computation: .m))
         // End pop
-        builder.add(ATCommand(label: labelName))
+        builder.add(AInstruction(label: labelName))
         builder.add(CInstruction.jump(operand: .d, conditionType: .jne))
         return builder.build()
     }
