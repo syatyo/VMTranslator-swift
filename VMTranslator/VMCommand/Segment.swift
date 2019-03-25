@@ -22,10 +22,10 @@ extension Segment where Self: RegisterDefined {
     func pushCommands(index: Int) -> [AssemblyCommandGeneratable] {
         let commands: [AssemblyCommandGeneratable] = [
             ATCommand(difinedSymbol: type),
-            AssignCommand(destination: .d, computation: .m),
+            CInstruction.assign(destination: .d, computation: .m),
             ATCommand(constant: index),
-            AssignCommand(destination: .a, computation: .dPlusA),
-            AssignCommand(destination: .d, computation: .m)
+            CInstruction.assign(destination: .a, computation: .dPlusA),
+            CInstruction.assign(destination: .d, computation: .m)
         ]
         return commands
     }
@@ -33,10 +33,10 @@ extension Segment where Self: RegisterDefined {
     func popCommands(index: Int) -> [AssemblyCommandGeneratable] {
         var commands: [AssemblyCommandGeneratable] = [
             ATCommand(difinedSymbol: type),
-            AssignCommand(destination: .a, computation: .m)
+            CInstruction.assign(destination: .a, computation: .m)
         ]
         (0..<index).forEach { _ in
-            commands.append(AssignCommand(destination: .a, computation: .aPlusOne))
+            commands.append(CInstruction.assign(destination: .a, computation: .aPlusOne))
         }
 
         return commands
@@ -92,7 +92,7 @@ struct Pointer: Segment {
     func pushCommands(index: Int) -> [AssemblyCommandGeneratable] {
         return [
             ATCommand(difinedSymbol: register(from: index)),
-            AssignCommand(destination: .d, computation: .m)
+            CInstruction.assign(destination: .d, computation: .m)
         ]
     }
    
@@ -115,7 +115,7 @@ struct Temp: Segment {
     func pushCommands(index: Int) -> [AssemblyCommandGeneratable] {
         return [
             ATCommand(label: label(from: index)),
-            AssignCommand(destination: .d, computation: .m)
+            CInstruction.assign(destination: .d, computation: .m)
         ]
     }
     
@@ -133,7 +133,7 @@ struct Constant: Segment {
     func pushCommands(index: Int) -> [AssemblyCommandGeneratable] {
         return [
             ATCommand(constant: index),
-            AssignCommand(destination: .d, computation: .a)
+            CInstruction.assign(destination: .d, computation: .a)
         ]
     }
     
@@ -159,7 +159,7 @@ struct Static: Segment {
     func pushCommands(index: Int) -> [AssemblyCommandGeneratable] {
         return [
             ATCommand(label: "\(fileName).\(index)"),
-            AssignCommand(destination: .d, computation: .m)
+            CInstruction.assign(destination: .d, computation: .m)
         ]
     }
     

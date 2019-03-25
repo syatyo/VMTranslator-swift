@@ -13,8 +13,8 @@ struct Negative {
     func execute() -> String {
         var builder = CommandBuilder()
         builder.add(ATCommand(difinedSymbol: .sp))
-        builder.add(AssignCommand(destination: .a, computation: .mMinusOne))
-        builder.add(AssignCommand(destination: .m, computation: .minusM))
+        builder.add(CInstruction.assign(destination: .a, computation: .mMinusOne))
+        builder.add(CInstruction.assign(destination: .m, computation: .minusM))
         return builder.build()
     }
 

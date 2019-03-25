@@ -15,11 +15,11 @@ struct IfGoto {
         var builder = CommandBuilder()
         // Start pop
         builder.add(ATCommand(difinedSymbol: .sp))
-        builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
-        builder.add(AssignCommand(destination: .d, computation: .m))
+        builder.add(CInstruction.assign(destination: .am, computation: .mMinusOne))
+        builder.add(CInstruction.assign(destination: .d, computation: .m))
         // End pop
         builder.add(ATCommand(label: labelName))
-        builder.add(ConditionCommand(operand: .d, conditionType: .jne))
+        builder.add(CInstruction.jump(operand: .d, conditionType: .jne))
         return builder.build()
     }
     

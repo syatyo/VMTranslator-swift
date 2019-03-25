@@ -13,8 +13,8 @@ struct Not {
     func execute() -> String {
         var builder = CommandBuilder()
         builder.add(ATCommand(difinedSymbol: .sp))
-        builder.add(AssignCommand(destination: .a, computation: .mMinusOne))
-        builder.add(AssignCommand(destination: .m, computation: .notM))
+        builder.add(CInstruction.assign(destination: .a, computation: .mMinusOne))
+        builder.add(CInstruction.assign(destination: .m, computation: .notM))
         return builder.build()
     }
     
