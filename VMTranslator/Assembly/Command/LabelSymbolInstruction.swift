@@ -9,7 +9,7 @@
 import Foundation
 
 /// (Label) command in assembly.
-struct LabelCommand {
+struct LabelSymbolInstruction {
     
     private var value: String
     
@@ -19,7 +19,7 @@ struct LabelCommand {
     
 }
 
-extension LabelCommand: AssemblyCommandGeneratable {
+extension LabelSymbolInstruction: AssemblyCommandGeneratable {
     
     func generate() -> String {
         return "(\(value))"

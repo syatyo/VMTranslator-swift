@@ -13,8 +13,8 @@ struct Goto {
     
     func execute() -> String {
         var builder = CommandBuilder()
-        builder.add(ATCommand(label: labelName))
-        builder.add(ConditionCommand(operand: .zero, conditionType: .jmp))
+        builder.add(AInstruction(label: labelName))
+        builder.add(CInstruction.jump(operand: .zero, conditionType: .jmp))
         return builder.build()
     }
     

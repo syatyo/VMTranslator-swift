@@ -9,7 +9,7 @@
 import Foundation
 
 /// @value command in assembly. It assign given value to A register.
-struct ATCommand {
+struct AInstruction {
     
     private var value: String
     
@@ -35,7 +35,7 @@ struct ATCommand {
     
 }
 
-extension ATCommand: AssemblyCommandGeneratable {
+extension AInstruction: AssemblyCommandGeneratable {
     
     func generate() -> String {
         return "@\(value)"

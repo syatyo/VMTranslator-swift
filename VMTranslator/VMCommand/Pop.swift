@@ -9,7 +9,7 @@
 import Foundation
 
 private extension SegmentType {
-    var symbol: ATCommand.DefinedSymbol {
+    var symbol: AInstruction.DefinedSymbol {
         switch self {
         case .local:
             return .lcl
@@ -32,11 +32,11 @@ struct Pop {
     // Template method
     func execute() -> String {
         var builder = CommandBuilder()
-        builder.add(ATCommand(difinedSymbol: .sp))
-        builder.add(AssignCommand(destination: .am, computation: .mMinusOne))
-        builder.add(AssignCommand(destination: .d, computation: .m))
+        builder.add(AInstruction(difinedSymbol: .sp))
+        builder.add(CInstruction.assign(destination: .am, computation: .mMinusOne))
+        builder.add(CInstruction.assign(destination: .d, computation: .m))
         builder.add(contentsOf: segment.popCommands(index: index))
-        builder.add(AssignCommand(destination: .m, computation: .d))
+        builder.add(CInstruction.assign(destination: .m, computation: .d))
         return builder.build()
     }
 

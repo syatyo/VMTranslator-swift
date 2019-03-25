@@ -8,7 +8,7 @@
 
 import XCTest
 
-class LabelCommandTests: XCTestCase {
+class LabelSymbolInstructionTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -19,7 +19,7 @@ class LabelCommandTests: XCTestCase {
     }
 
     func testInitLabelCommand() {
-        let command = LabelCommand(label: "END_eq")
+        let command = LabelSymbolInstruction(label: "END_eq")
         XCTAssertEqual(command.generate(), "(END_eq)")
     }
 

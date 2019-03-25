@@ -13,7 +13,7 @@ struct Label {
     
     func execute() -> String {
         var builder = CommandBuilder()
-        builder.add(LabelCommand(label: name))
+        builder.add(LabelSymbolInstruction(label: name))
         return builder.build()
     }
     

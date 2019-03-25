@@ -16,10 +16,10 @@ struct Push {
     func execute() -> String {
         var builder = CommandBuilder()
         builder.add(contentsOf: segment.pushCommands(index: index))
-        builder.add(ATCommand(difinedSymbol: .sp))
-        builder.add(AssignCommand(destination: .am, computation: .mPlusOne))
-        builder.add(AssignCommand(destination: .a, computation: .aMinusOne))
-        builder.add(AssignCommand(destination: .m, computation: .d))
+        builder.add(AInstruction(difinedSymbol: .sp))
+        builder.add(CInstruction.assign(destination: .am, computation: .mPlusOne))
+        builder.add(CInstruction.assign(destination: .a, computation: .aMinusOne))
+        builder.add(CInstruction.assign(destination: .m, computation: .d))
         return builder.build()
     }
     
