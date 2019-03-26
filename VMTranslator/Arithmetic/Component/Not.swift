@@ -12,7 +12,7 @@ struct Not { }
 
 extension Not: VMCommand {
     
-    var assemblyTranslatedCommands: [AssemblyCommandGeneratable] {
+    var assemblyTranslatedCommands: [AssemblyCommand] {
         return [
             AInstruction(difinedSymbol: .sp),
             CInstruction.assign(destination: .a, computation: .mMinusOne),

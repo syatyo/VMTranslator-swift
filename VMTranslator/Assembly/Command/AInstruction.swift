@@ -35,7 +35,7 @@ struct AInstruction {
     
 }
 
-extension AInstruction: AssemblyCommandGeneratable {
+extension AInstruction: AssemblyCommand {
     
     func generate() -> String {
         return "@\(value)"

@@ -16,7 +16,7 @@ struct Push {
 
 extension Push: VMCommand {
     
-    var assemblyTranslatedCommands: [AssemblyCommandGeneratable] {
+    var assemblyTranslatedCommands: [AssemblyCommand] {
         return segment.pushCommands(index: index) +
         [
             AInstruction(difinedSymbol: .sp),

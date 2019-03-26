@@ -19,7 +19,7 @@ struct Less: Conditionable {
 
 extension Less: VMCommand {
     
-    var assemblyTranslatedCommands: [AssemblyCommandGeneratable] {
+    var assemblyTranslatedCommands: [AssemblyCommand] {
         return translateToAssemblyCommands()
     }
     

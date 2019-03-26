@@ -9,5 +9,5 @@
 import Foundation
 
 protocol VMCommand {
-    var assemblyTranslatedCommands: [AssemblyCommandGeneratable] { get }
+    var assemblyTranslatedCommands: [AssemblyCommand] { get }
 }

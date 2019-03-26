@@ -14,7 +14,7 @@ struct Goto {
 
 extension Goto: VMCommand {
     
-    var assemblyTranslatedCommands: [AssemblyCommandGeneratable] {
+    var assemblyTranslatedCommands: [AssemblyCommand] {
         return [
             AInstruction(label: labelName),
             CInstruction.jump(operand: .zero, conditionType: .jmp)

@@ -14,7 +14,7 @@ struct Label {
 
 extension Label: VMCommand {
     
-    var assemblyTranslatedCommands: [AssemblyCommandGeneratable] {
+    var assemblyTranslatedCommands: [AssemblyCommand] {
         return [LabelSymbolInstruction(label: name)]
     }
     

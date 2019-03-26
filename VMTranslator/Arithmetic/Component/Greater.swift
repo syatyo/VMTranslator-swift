@@ -20,7 +20,7 @@ struct Greater: Conditionable {
 
 extension Greater: VMCommand {
     
-    var assemblyTranslatedCommands: [AssemblyCommandGeneratable] {
+    var assemblyTranslatedCommands: [AssemblyCommand] {
         return translateToAssemblyCommands()
     }
     

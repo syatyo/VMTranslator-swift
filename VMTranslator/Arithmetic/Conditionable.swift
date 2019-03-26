@@ -56,11 +56,11 @@ protocol Conditionable {
 
 extension Conditionable {
     
-    func translateToAssemblyCommands() -> [AssemblyCommandGeneratable] {
+    func translateToAssemblyCommands() -> [AssemblyCommand] {
         let currentIndex = repository.getCurrentValue(for: String(describing: type(of: self)))
         let conditionLabel = "END_\(conditionType.symbolIdentifer)\(currentIndex)"
         
-        var commands: [AssemblyCommandGeneratable] = []
+        var commands: [AssemblyCommand] = []
         commands.append(AInstruction(difinedSymbol: .sp))
         commands.append(CInstruction.assign(destination: .am, computation: .mMinusOne))
         commands.append(CInstruction.assign(destination: .d, computation: .m))

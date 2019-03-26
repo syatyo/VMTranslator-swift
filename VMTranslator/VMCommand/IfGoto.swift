@@ -14,7 +14,7 @@ struct IfGoto {
 
 extension IfGoto: VMCommand {
     
-    var assemblyTranslatedCommands: [AssemblyCommandGeneratable] {
+    var assemblyTranslatedCommands: [AssemblyCommand] {
         return [
             AInstruction(difinedSymbol: .sp),
             CInstruction.assign(destination: .am, computation: .mMinusOne),

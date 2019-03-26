@@ -19,7 +19,7 @@ enum CInstruction {
     case jump(operand: JumpOperand, conditionType: ConditionType)
 }
 
-extension CInstruction: AssemblyCommandGeneratable {
+extension CInstruction: AssemblyCommand {
     
     func generate() -> String {
         switch self {

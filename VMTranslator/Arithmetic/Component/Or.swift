@@ -12,7 +12,7 @@ struct Or { }
 
 extension Or: VMCommand {
     
-    var assemblyTranslatedCommands: [AssemblyCommandGeneratable] {
+    var assemblyTranslatedCommands: [AssemblyCommand] {
         return [
             AInstruction(difinedSymbol: .sp),
             CInstruction.assign(destination: .am, computation: .mMinusOne),

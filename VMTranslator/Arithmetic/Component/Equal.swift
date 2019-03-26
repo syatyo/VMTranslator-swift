@@ -19,7 +19,7 @@ struct Equal: Conditionable {
 
 extension Equal: VMCommand {
     
-    var assemblyTranslatedCommands: [AssemblyCommandGeneratable] {
+    var assemblyTranslatedCommands: [AssemblyCommand] {
         return translateToAssemblyCommands()
     }
     

@@ -9,13 +9,13 @@
 import Foundation
 
 struct CommandBuilder {
-    private var assemblyCommands: [AssemblyCommandGeneratable] = []
+    private var assemblyCommands: [AssemblyCommand] = []
     
-    mutating func add(_ commandGeneratable: AssemblyCommandGeneratable) {
+    mutating func add(_ commandGeneratable: AssemblyCommand) {
         assemblyCommands.append(commandGeneratable)
     }
     
-    mutating func add(contentsOf commandGeneratables: [AssemblyCommandGeneratable]) {
+    mutating func add(contentsOf commandGeneratables: [AssemblyCommand]) {
         assemblyCommands.append(contentsOf: commandGeneratables)
     }
     
