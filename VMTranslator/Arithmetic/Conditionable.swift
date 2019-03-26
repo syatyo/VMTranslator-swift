@@ -56,25 +56,26 @@ protocol Conditionable {
 
 extension Conditionable {
     
-    func execute() -> String {
+    func translateToAssemblyCommands() -> [AssemblyCommandGeneratable] {
         let currentIndex = repository.getCurrentValue(for: String(describing: type(of: self)))
-        
         let conditionLabel = "END_\(conditionType.symbolIdentifer)\(currentIndex)"
-        var builder = CommandBuilder()
-        builder.add(AInstruction(difinedSymbol: .sp))
-        builder.add(CInstruction.assign(destination: .am, computation: .mMinusOne))
-        builder.add(CInstruction.assign(destination: .d, computation: .m))
-        builder.add(CInstruction.assign(destination: .a, computation: .aMinusOne))
-        builder.add(CInstruction.assign(destination: .d, computation: .mMinusD))
-        builder.add(CInstruction.assign(destination: .m, computation: Computation(boolean: .false)))
-        builder.add(AInstruction(label: conditionLabel))
-        builder.add(CInstruction.jump(operand: .d, conditionType: conditionType.complement))
-        builder.add(AInstruction(difinedSymbol: .sp))
-        builder.add(CInstruction.assign(destination: .a, computation: .mMinusOne))
-        builder.add(CInstruction.assign(destination: .m, computation: Computation(boolean: .true)))
-        builder.add(LabelSymbolInstruction(label: conditionLabel))
+        
+        var commands: [AssemblyCommandGeneratable] = []
+        commands.append(AInstruction(difinedSymbol: .sp))
+        commands.append(CInstruction.assign(destination: .am, computation: .mMinusOne))
+        commands.append(CInstruction.assign(destination: .d, computation: .m))
+        commands.append(CInstruction.assign(destination: .a, computation: .aMinusOne))
+        commands.append(CInstruction.assign(destination: .d, computation: .mMinusD))
+        commands.append(CInstruction.assign(destination: .m, computation: Computation(boolean: .false)))
+        commands.append(AInstruction(label: conditionLabel))
+        commands.append(CInstruction.jump(operand: .d, conditionType: conditionType.complement))
+        commands.append(AInstruction(difinedSymbol: .sp))
+        commands.append(CInstruction.assign(destination: .a, computation: .mMinusOne))
+        commands.append(CInstruction.assign(destination: .m, computation: Computation(boolean: .true)))
+        commands.append(LabelSymbolInstruction(label: conditionLabel))
         
         repository.incrementIndex(for: String(describing: type(of: self)))
-        return builder.build()
+        return commands
     }
+    
 }

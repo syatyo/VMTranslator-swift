@@ -21,7 +21,7 @@ class PopTests: XCTestCase {
     func testPopLocal() {
         
         let pop = Pop(segment: Local(), index: 0)
-        let result = pop.execute()
+        let result = pop.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @SP
         AM=M-1
@@ -36,7 +36,7 @@ class PopTests: XCTestCase {
     // A=M+1 is a little bit smatter than A=M, A=A+1. But I use fooler idea for simplify.
     func testPopArgument() {
         let pop = Pop(segment: Argument(), index: 5)
-        let result = pop.execute()
+        let result = pop.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @SP
         AM=M-1
@@ -55,7 +55,7 @@ class PopTests: XCTestCase {
     
     func testPopThis() {
         let pop = Pop(segment: This(), index: 2)
-        let result = pop.execute()
+        let result = pop.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @SP
         AM=M-1
@@ -71,7 +71,7 @@ class PopTests: XCTestCase {
 
     func testPopThat() {
         let pop = Pop(segment: That(), index: 1)
-        let result = pop.execute()
+        let result = pop.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         
         // @THAT is located at RAM[4].
         // @THAT represent base address of `that` segment.
@@ -89,7 +89,7 @@ class PopTests: XCTestCase {
     
     func testPopPointerIndexZero() {
         let pop = Pop(segment: Pointer(), index: 0)
-        let result = pop.execute()
+        let result = pop.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @SP
         AM=M-1
@@ -102,7 +102,7 @@ class PopTests: XCTestCase {
     
     func testPopPointerIndexOne() {
         let pop = Pop(segment: Pointer(), index: 1)
-        let result = pop.execute()
+        let result = pop.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @SP
         AM=M-1
@@ -115,7 +115,7 @@ class PopTests: XCTestCase {
 
     func testPopTempFirst() {
         let pop = Pop(segment: Temp(), index: 0)
-        let result = pop.execute()
+        let result = pop.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @SP
         AM=M-1
@@ -128,7 +128,7 @@ class PopTests: XCTestCase {
 
     func testPopTempMiddle() {
         let pop = Pop(segment: Temp(), index: 3)
-        let result = pop.execute()
+        let result = pop.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @SP
         AM=M-1
@@ -141,7 +141,7 @@ class PopTests: XCTestCase {
     
     func testPopTempLast() {
         let pop = Pop(segment: Temp(), index: 7)
-        let result = pop.execute()
+        let result = pop.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @SP
         AM=M-1
@@ -154,7 +154,7 @@ class PopTests: XCTestCase {
 
     func testStatic() {
         let pop = Pop(segment: Static(fileName: "Swift.vm"), index: 5)
-        let result = pop.execute()
+        let result = pop.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @SP
         AM=M-1

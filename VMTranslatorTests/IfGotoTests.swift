@@ -20,7 +20,7 @@ class IfGotoTests: XCTestCase {
     
     func testIfGoto() {
         let ifGoto = IfGoto(labelName: "null$LOOP_START")
-        let result = ifGoto.execute()
+        let result = ifGoto.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         
         // 1. pop stack value
         // 2. if poped value is not zero, jump to label address.

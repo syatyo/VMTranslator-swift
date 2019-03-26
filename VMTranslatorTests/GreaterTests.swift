@@ -22,7 +22,7 @@ class GreaterTests: XCTestCase {
         var greater = Greater()
         greater.inject(repository: Store())
         
-        let result1 = greater.execute()
+        let result1 = greater.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation1 = """
         @SP
         AM=M-1
@@ -38,7 +38,7 @@ class GreaterTests: XCTestCase {
         (END_GT0)
         """
         
-        let result2 = greater.execute()
+        let result2 = greater.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation2 = """
         @SP
         AM=M-1

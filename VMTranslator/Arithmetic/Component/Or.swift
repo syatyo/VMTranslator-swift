@@ -8,24 +8,18 @@
 
 import Foundation
 
-struct Or {
-    
-    func execute() -> String {
-        var builder = CommandBuilder()
-        builder.add(AInstruction(difinedSymbol: .sp))
-        builder.add(CInstruction.assign(destination: .am, computation: .mMinusOne))
-        builder.add(CInstruction.assign(destination: .d, computation: .m))
-        builder.add(CInstruction.assign(destination: .a, computation: .aMinusOne))
-        builder.add(CInstruction.assign(destination: .m, computation: .dOrM))
-        return builder.build()
-    }
+struct Or { }
 
-}
-
-extension Or: AssemblyCommandGeneratable {
+extension Or: VMCommand {
     
-    func generate() -> String {
-        return execute()
+    var assemblyTranslatedCommands: [AssemblyCommandGeneratable] {
+        return [
+            AInstruction(difinedSymbol: .sp),
+            CInstruction.assign(destination: .am, computation: .mMinusOne),
+            CInstruction.assign(destination: .d, computation: .m),
+            CInstruction.assign(destination: .a, computation: .aMinusOne),
+            CInstruction.assign(destination: .m, computation: .dOrM)
+        ]
     }
     
 }

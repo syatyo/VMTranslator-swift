@@ -26,3 +26,20 @@ struct CommandBuilder {
     }
     
 }
+
+struct VMCommandBuilder {
+    private var vmCommands: [VMCommand] = []
+
+    mutating func add(_ vmCommand: VMCommand) {
+        vmCommands.append(vmCommand)
+    }
+    
+    func build() -> String {
+        return vmCommands
+            .flatMap { $0.assemblyTranslatedCommands }
+            .map { $0.generate() }
+            .joined(separator: "\n")
+    }
+
+}
+

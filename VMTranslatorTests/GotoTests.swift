@@ -20,7 +20,7 @@ class GotoTests: XCTestCase {
     
     func testGoto() {
         let goto = Goto(labelName: "null$LOOP_START")
-        let result = goto.execute()
+        let result = goto.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @null$LOOP_START
         0;JMP

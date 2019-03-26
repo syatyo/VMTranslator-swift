@@ -8,22 +8,16 @@
 
 import Foundation
 
-struct Not {
-    
-    func execute() -> String {
-        var builder = CommandBuilder()
-        builder.add(AInstruction(difinedSymbol: .sp))
-        builder.add(CInstruction.assign(destination: .a, computation: .mMinusOne))
-        builder.add(CInstruction.assign(destination: .m, computation: .notM))
-        return builder.build()
-    }
-    
-}
+struct Not { }
 
-extension Not: AssemblyCommandGeneratable {
+extension Not: VMCommand {
     
-    func generate() -> String {
-        return execute()
+    var assemblyTranslatedCommands: [AssemblyCommandGeneratable] {
+        return [
+            AInstruction(difinedSymbol: .sp),
+            CInstruction.assign(destination: .a, computation: .mMinusOne),
+            CInstruction.assign(destination: .m, computation: .notM)
+        ]
     }
     
 }

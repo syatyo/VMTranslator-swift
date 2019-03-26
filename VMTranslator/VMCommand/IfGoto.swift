@@ -10,25 +10,19 @@ import Foundation
 
 struct IfGoto {
     let labelName: String
+}
+
+extension IfGoto: VMCommand {
     
-    func execute() -> String {
-        var builder = CommandBuilder()
-        // Start pop
-        builder.add(AInstruction(difinedSymbol: .sp))
-        builder.add(CInstruction.assign(destination: .am, computation: .mMinusOne))
-        builder.add(CInstruction.assign(destination: .d, computation: .m))
-        // End pop
-        builder.add(AInstruction(label: labelName))
-        builder.add(CInstruction.jump(operand: .d, conditionType: .jne))
-        return builder.build()
+    var assemblyTranslatedCommands: [AssemblyCommandGeneratable] {
+        return [
+            AInstruction(difinedSymbol: .sp),
+            CInstruction.assign(destination: .am, computation: .mMinusOne),
+            CInstruction.assign(destination: .d, computation: .m),
+            AInstruction(label: labelName),
+            CInstruction.jump(operand: .d, conditionType: .jne)
+        ]
     }
     
 }
 
-extension IfGoto: AssemblyCommandGeneratable {
-    
-    func generate() -> String {
-        return execute()
-    }
-    
-}

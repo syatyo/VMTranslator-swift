@@ -8,22 +8,16 @@
 
 import Foundation
 
-struct Negative {
-    
-    func execute() -> String {
-        var builder = CommandBuilder()
-        builder.add(AInstruction(difinedSymbol: .sp))
-        builder.add(CInstruction.assign(destination: .a, computation: .mMinusOne))
-        builder.add(CInstruction.assign(destination: .m, computation: .minusM))
-        return builder.build()
-    }
+struct Negative { }
 
-}
-
-extension Negative: AssemblyCommandGeneratable {
+extension Negative: VMCommand {
     
-    func generate() -> String {
-        return execute()
+    var assemblyTranslatedCommands: [AssemblyCommandGeneratable] {
+        return [
+            AInstruction(difinedSymbol: .sp),
+            CInstruction.assign(destination: .a, computation: .mMinusOne),
+            CInstruction.assign(destination: .m, computation: .minusM)
+        ]
     }
     
 }

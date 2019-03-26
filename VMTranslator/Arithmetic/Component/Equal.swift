@@ -17,10 +17,10 @@ struct Equal: Conditionable {
 
 }
 
-extension Equal: AssemblyCommandGeneratable {
+extension Equal: VMCommand {
     
-    func generate() -> String {
-        return execute()
+    var assemblyTranslatedCommands: [AssemblyCommandGeneratable] {
+        return translateToAssemblyCommands()
     }
     
 }

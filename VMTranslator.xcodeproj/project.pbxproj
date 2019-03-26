@@ -96,6 +96,8 @@
 		18F2E1D62247D8F3009B14BA /* IfGotoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1D52247D8F3009B14BA /* IfGotoTests.swift */; };
 		18F2E1D82247DF89009B14BA /* IfGoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1D72247DF89009B14BA /* IfGoto.swift */; };
 		18F2E1D92247DFAE009B14BA /* IfGoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1D72247DF89009B14BA /* IfGoto.swift */; };
+		18F2E1DF2249B25B009B14BA /* VMCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1DE2249B25B009B14BA /* VMCommand.swift */; };
+		18F2E1E02249B3B8009B14BA /* VMCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1DE2249B25B009B14BA /* VMCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -170,6 +172,7 @@
 		18F2E1D22247D3C4009B14BA /* Goto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goto.swift; sourceTree = "<group>"; };
 		18F2E1D52247D8F3009B14BA /* IfGotoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfGotoTests.swift; sourceTree = "<group>"; };
 		18F2E1D72247DF89009B14BA /* IfGoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfGoto.swift; sourceTree = "<group>"; };
+		18F2E1DE2249B25B009B14BA /* VMCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +282,7 @@
 		188E1916222B75B7006602D0 /* VMCommand */ = {
 			isa = PBXGroup;
 			children = (
+				18F2E1DE2249B25B009B14BA /* VMCommand.swift */,
 				188E19432238E766006602D0 /* Push.swift */,
 				188E194E22391A58006602D0 /* Pop.swift */,
 				188E195122391D1A006602D0 /* Segment.swift */,
@@ -447,6 +451,7 @@
 				18F2E1D32247D3C4009B14BA /* Goto.swift in Sources */,
 				188E18D122226A4F006602D0 /* Sub.swift in Sources */,
 				188E18F32226BEE5006602D0 /* Less.swift in Sources */,
+				18F2E1DF2249B25B009B14BA /* VMCommand.swift in Sources */,
 				188E194F22391A58006602D0 /* Pop.swift in Sources */,
 				188E190A2226D7D0006602D0 /* Computation.swift in Sources */,
 				188E19462238E800006602D0 /* CInstruction.swift in Sources */,
@@ -494,6 +499,7 @@
 				188E18CF22226A2C006602D0 /* SubTests.swift in Sources */,
 				188E18E92226B3C0006602D0 /* GreaterTests.swift in Sources */,
 				18F2E1D42247D41A009B14BA /* Goto.swift in Sources */,
+				18F2E1E02249B3B8009B14BA /* VMCommand.swift in Sources */,
 				188E19422237F683006602D0 /* main.swift in Sources */,
 				188E1939222BAD74006602D0 /* ConditionIndexRepository.swift in Sources */,
 				188E18FE2226CF23006602D0 /* Or.swift in Sources */,
