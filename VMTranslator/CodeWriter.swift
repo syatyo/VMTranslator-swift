@@ -31,7 +31,7 @@ struct CodeWriter {
     }
     
     private(set) var fileName: String?
-    private var vmCommandBuilder = VMCommandBuilder()
+    private var vmCommandBuilder = CommandBuilder<VMCommand>()
     var assembly: String {
         return vmCommandBuilder.build()
     }

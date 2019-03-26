@@ -8,34 +8,24 @@
 
 import Foundation
 
-struct CommandBuilder {
-    private var assemblyCommands: [AssemblyCommand] = []
+struct CommandBuilder<T> {
+    typealias Element = T
+    private var commands: [T] = []
     
-    mutating func add(_ commandGeneratable: AssemblyCommand) {
-        assemblyCommands.append(commandGeneratable)
+    mutating func add(_ element: Element) {
+        commands.append(element)
     }
     
-    mutating func add(contentsOf commandGeneratables: [AssemblyCommand]) {
-        assemblyCommands.append(contentsOf: commandGeneratables)
+    mutating func add(contentsOf sequence: [Element]) {
+        commands.append(contentsOf: sequence)
     }
-    
-    func build() -> String {
-        return assemblyCommands
-            .map { $0.generate() }
-            .joined(separator: "\n")
-    }
-    
+
 }
 
-struct VMCommandBuilder {
-    private var vmCommands: [VMCommand] = []
-
-    mutating func add(_ vmCommand: VMCommand) {
-        vmCommands.append(vmCommand)
-    }
+extension CommandBuilder where T == VMCommand {
     
     func build() -> String {
-        return vmCommands
+        return commands
             .flatMap { $0.assemblyTranslatedCommands }
             .map { $0.generate() }
             .joined(separator: "\n")
@@ -43,3 +33,12 @@ struct VMCommandBuilder {
 
 }
 
+extension CommandBuilder where T == AssemblyCommand {
+    
+    func build() -> String {
+        return commands
+            .map { $0.generate() }
+            .joined(separator: "\n")
+    }
+
+}
