@@ -17,10 +17,10 @@ struct Less: Conditionable {
     
 }
 
-extension Less: AssemblyCommandGeneratable {
+extension Less: VMCommand {
     
-    func generate() -> String {
-        return execute()
+    var assemblyTranslatedCommands: [AssemblyCommand] {
+        return translateToAssemblyCommands()
     }
     
 }

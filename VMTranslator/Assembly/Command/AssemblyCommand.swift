@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol AssemblyCommandGeneratable {
+protocol AssemblyCommand {
     func generate() -> String
 }

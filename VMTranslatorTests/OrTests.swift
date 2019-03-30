@@ -19,7 +19,7 @@ class OrTests: XCTestCase {
     }
 
     func testExecute() {
-        let result = Or().execute()
+        let result = Or().assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @SP
         AM=M-1

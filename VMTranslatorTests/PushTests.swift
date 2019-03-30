@@ -20,7 +20,7 @@ class PushTests: XCTestCase {
     
     func testPushConstant() {
         let push = Push(segment: Constant(), index: 5)
-        let result = push.execute()
+        let result = push.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @5
         D=A
@@ -35,7 +35,7 @@ class PushTests: XCTestCase {
     
     func testPushLocalZero() {
         let push = Push(segment: Local(), index: 0)
-        let result = push.execute()
+        let result = push.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @LCL
         D=M
@@ -52,7 +52,7 @@ class PushTests: XCTestCase {
     
     func testPushLocalOne() {
         let push = Push(segment: Local(), index: 1)
-        let result = push.execute()
+        let result = push.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @LCL
         D=M
@@ -69,7 +69,7 @@ class PushTests: XCTestCase {
     
     func testPushArgumentOne() {
         let push = Push(segment: Argument(), index: 1)
-        let result = push.execute()
+        let result = push.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @ARG
         D=M
@@ -86,7 +86,7 @@ class PushTests: XCTestCase {
     
     func testThatTwo() {
         let push = Push(segment: That(), index: 2)
-        let result = push.execute()
+        let result = push.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @THAT
         D=M
@@ -103,7 +103,7 @@ class PushTests: XCTestCase {
     
     func testThisTwo() {
         let push = Push(segment: This(), index: 2)
-        let result = push.execute()
+        let result = push.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @THIS
         D=M
@@ -120,7 +120,7 @@ class PushTests: XCTestCase {
     
     func testPointerIndexZero() {
         let push = Push(segment: Pointer(), index: 0)
-        let result = push.execute()
+        let result = push.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @THIS
         D=M
@@ -134,7 +134,7 @@ class PushTests: XCTestCase {
 
     func testPointerIndexOne() {
         let push = Push(segment: Pointer(), index: 1)
-        let result = push.execute()
+        let result = push.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @THAT
         D=M
@@ -148,7 +148,7 @@ class PushTests: XCTestCase {
     
     func testTempFirst() {
         let push = Push(segment: Temp(), index: 0)
-        let result = push.execute()
+        let result = push.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @R5
         D=M
@@ -162,7 +162,7 @@ class PushTests: XCTestCase {
     
     func testTempMiddle() {
         let push = Push(segment: Temp(), index: 4)
-        let result = push.execute()
+        let result = push.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @R9
         D=M
@@ -176,7 +176,7 @@ class PushTests: XCTestCase {
     
     func testTempLast() {
         let push = Push(segment: Temp(), index: 7)
-        let result = push.execute()
+        let result = push.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @R12
         D=M
@@ -190,7 +190,7 @@ class PushTests: XCTestCase {
     
     func testStatic() {
         let push = Push(segment: Static(fileName: "ABC.vm"), index: 7)
-        let result = push.execute()
+        let result = push.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @ABC.7
         D=M

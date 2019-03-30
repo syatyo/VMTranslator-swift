@@ -28,24 +28,19 @@ private extension SegmentType {
 struct Pop {
     let segment: Segment
     let index: Int
-    
-    // Template method
-    func execute() -> String {
-        var builder = CommandBuilder()
-        builder.add(AInstruction(difinedSymbol: .sp))
-        builder.add(CInstruction.assign(destination: .am, computation: .mMinusOne))
-        builder.add(CInstruction.assign(destination: .d, computation: .m))
-        builder.add(contentsOf: segment.popCommands(index: index))
-        builder.add(CInstruction.assign(destination: .m, computation: .d))
-        return builder.build()
-    }
-
 }
 
-extension Pop: AssemblyCommandGeneratable {
+extension Pop: VMCommand {
     
-    func generate() -> String {
-        return execute()
+    var assemblyTranslatedCommands: [AssemblyCommand] {
+        return [
+            AInstruction(difinedSymbol: .sp),
+            CInstruction.assign(destination: .am, computation: .mMinusOne),
+            CInstruction.assign(destination: .d, computation: .m)
+        ]
+        + segment.popCommands(index: index)
+        + [CInstruction.assign(destination: .m, computation: .d)]
+
     }
-    
+
 }

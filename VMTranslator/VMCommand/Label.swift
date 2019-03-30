@@ -10,19 +10,12 @@ import Foundation
 
 struct Label {
     let name: String
-    
-    func execute() -> String {
-        var builder = CommandBuilder()
-        builder.add(LabelSymbolInstruction(label: name))
-        return builder.build()
-    }
-    
 }
 
-extension Label: AssemblyCommandGeneratable {
+extension Label: VMCommand {
     
-    func generate() -> String {
-        return execute()
+    var assemblyTranslatedCommands: [AssemblyCommand] {
+        return [LabelSymbolInstruction(label: name)]
     }
     
 }

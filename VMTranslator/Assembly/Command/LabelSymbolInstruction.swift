@@ -19,7 +19,7 @@ struct LabelSymbolInstruction {
     
 }
 
-extension LabelSymbolInstruction: AssemblyCommandGeneratable {
+extension LabelSymbolInstruction: AssemblyCommand {
     
     func generate() -> String {
         return "(\(value))"

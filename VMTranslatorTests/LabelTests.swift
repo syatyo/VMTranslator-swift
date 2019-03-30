@@ -20,7 +20,7 @@ class LabelTests: XCTestCase {
     
     func testLabel() {
         let label = Label(name: "null$LOOP_START")
-        let result = label.execute()
+        let result = label.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         (null$LOOP_START)
         """

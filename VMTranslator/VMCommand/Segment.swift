@@ -9,8 +9,8 @@
 import Foundation
 
 protocol Segment {
-    func pushCommands(index: Int) -> [AssemblyCommandGeneratable]
-    func popCommands(index: Int) -> [AssemblyCommandGeneratable]
+    func pushCommands(index: Int) -> [AssemblyCommand]
+    func popCommands(index: Int) -> [AssemblyCommand]
 }
 
 protocol RegisterDefined {
@@ -19,8 +19,8 @@ protocol RegisterDefined {
 
 extension Segment where Self: RegisterDefined {
     
-    func pushCommands(index: Int) -> [AssemblyCommandGeneratable] {
-        let commands: [AssemblyCommandGeneratable] = [
+    func pushCommands(index: Int) -> [AssemblyCommand] {
+        let commands: [AssemblyCommand] = [
             AInstruction(difinedSymbol: type),
             CInstruction.assign(destination: .d, computation: .m),
             AInstruction(constant: index),
@@ -30,8 +30,8 @@ extension Segment where Self: RegisterDefined {
         return commands
     }
     
-    func popCommands(index: Int) -> [AssemblyCommandGeneratable] {
-        var commands: [AssemblyCommandGeneratable] = [
+    func popCommands(index: Int) -> [AssemblyCommand] {
+        var commands: [AssemblyCommand] = [
             AInstruction(difinedSymbol: type),
             CInstruction.assign(destination: .a, computation: .m)
         ]
@@ -89,14 +89,14 @@ struct Pointer: Segment {
         }
     }
     
-    func pushCommands(index: Int) -> [AssemblyCommandGeneratable] {
+    func pushCommands(index: Int) -> [AssemblyCommand] {
         return [
             AInstruction(difinedSymbol: register(from: index)),
             CInstruction.assign(destination: .d, computation: .m)
         ]
     }
    
-    func popCommands(index: Int) -> [AssemblyCommandGeneratable] {
+    func popCommands(index: Int) -> [AssemblyCommand] {
         return [AInstruction(difinedSymbol: register(from: index))]
     }
     
@@ -112,14 +112,14 @@ struct Temp: Segment {
         return "R\(registerStartingIndex + index)"
     }
     
-    func pushCommands(index: Int) -> [AssemblyCommandGeneratable] {
+    func pushCommands(index: Int) -> [AssemblyCommand] {
         return [
             AInstruction(label: label(from: index)),
             CInstruction.assign(destination: .d, computation: .m)
         ]
     }
     
-    func popCommands(index: Int) -> [AssemblyCommandGeneratable] {
+    func popCommands(index: Int) -> [AssemblyCommand] {
         return [AInstruction(label: label(from: index))]
     }
         
@@ -130,14 +130,14 @@ struct Temp: Segment {
 /// VM実装によってエミュレートされる。プログラムのすべての関数から見える。
 struct Constant: Segment {
     
-    func pushCommands(index: Int) -> [AssemblyCommandGeneratable] {
+    func pushCommands(index: Int) -> [AssemblyCommand] {
         return [
             AInstruction(constant: index),
             CInstruction.assign(destination: .d, computation: .a)
         ]
     }
     
-    func popCommands(index: Int) -> [AssemblyCommandGeneratable] {
+    func popCommands(index: Int) -> [AssemblyCommand] {
         fatalError("Constant segment cannot execute pop.")
     }
     
@@ -156,14 +156,14 @@ struct Static: Segment {
             .first!
     }
     
-    func pushCommands(index: Int) -> [AssemblyCommandGeneratable] {
+    func pushCommands(index: Int) -> [AssemblyCommand] {
         return [
             AInstruction(label: "\(fileName).\(index)"),
             CInstruction.assign(destination: .d, computation: .m)
         ]
     }
     
-    func popCommands(index: Int) -> [AssemblyCommandGeneratable] {
+    func popCommands(index: Int) -> [AssemblyCommand] {
         return [AInstruction(label: "\(fileName).\(index)")]
     }
     

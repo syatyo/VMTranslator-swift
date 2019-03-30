@@ -19,7 +19,7 @@ class NegativeTests: XCTestCase {
     }
 
     func testExecute() {
-        let result = Negative().execute()
+        let result = Negative().assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
         let expectation = """
         @SP
         A=M-1

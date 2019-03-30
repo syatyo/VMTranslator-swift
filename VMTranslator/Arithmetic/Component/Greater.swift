@@ -18,10 +18,10 @@ struct Greater: Conditionable {
 
 }
 
-extension Greater: AssemblyCommandGeneratable {
+extension Greater: VMCommand {
     
-    func generate() -> String {
-        return execute()
+    var assemblyTranslatedCommands: [AssemblyCommand] {
+        return translateToAssemblyCommands()
     }
     
 }

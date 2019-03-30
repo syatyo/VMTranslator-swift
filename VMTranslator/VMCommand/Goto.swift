@@ -10,20 +10,15 @@ import Foundation
 
 struct Goto {
     let labelName: String
-    
-    func execute() -> String {
-        var builder = CommandBuilder()
-        builder.add(AInstruction(label: labelName))
-        builder.add(CInstruction.jump(operand: .zero, conditionType: .jmp))
-        return builder.build()
-    }
-    
 }
 
-extension Goto: AssemblyCommandGeneratable {
+extension Goto: VMCommand {
     
-    func generate() -> String {
-        return execute()
+    var assemblyTranslatedCommands: [AssemblyCommand] {
+        return [
+            AInstruction(label: labelName),
+            CInstruction.jump(operand: .zero, conditionType: .jmp)
+        ]
     }
     
 }

@@ -12,24 +12,18 @@ struct Push {
     let segment: Segment
     let index: Int
     
-    // Template method
-    func execute() -> String {
-        var builder = CommandBuilder()
-        builder.add(contentsOf: segment.pushCommands(index: index))
-        builder.add(AInstruction(difinedSymbol: .sp))
-        builder.add(CInstruction.assign(destination: .am, computation: .mPlusOne))
-        builder.add(CInstruction.assign(destination: .a, computation: .aMinusOne))
-        builder.add(CInstruction.assign(destination: .m, computation: .d))
-        return builder.build()
-    }
-    
-    
 }
 
-extension Push: AssemblyCommandGeneratable {
+extension Push: VMCommand {
     
-    func generate() -> String {
-        return execute()
+    var assemblyTranslatedCommands: [AssemblyCommand] {
+        return segment.pushCommands(index: index) +
+        [
+            AInstruction(difinedSymbol: .sp),
+            CInstruction.assign(destination: .am, computation: .mPlusOne),
+            CInstruction.assign(destination: .a, computation: .aMinusOne),
+            CInstruction.assign(destination: .m, computation: .d)
+        ]
     }
     
 }
