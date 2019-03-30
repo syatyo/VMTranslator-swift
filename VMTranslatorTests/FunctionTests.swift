@@ -33,5 +33,36 @@ class FunctionTests: XCTestCase {
         XCTAssertNil(Function(name: "FunctionTest.aaa", numberOfLocalVariables: -1))
     }
     
+    func testPushLocalVariables() {
+        var function = Function(name: "FunctionTest.aaa", numberOfLocalVariables: 2)!
+        let expectation = """
+        @LCL
+        D=M
+        @0
+        A=D+A
+        D=M
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        @LCL
+        D=M
+        @1
+        A=D+A
+        D=M
+        @SP
+        AM=M+1
+        A=A-1
+        M=D
+        """
+        
+        function.pushLocalVariable()
+        XCTAssertEqual(build(assemblyCommands: function.assemblyTranslatedCommands),
+                       expectation)
+    }
     
+}
+
+func build(assemblyCommands: [AssemblyCommand]) -> String {
+    return assemblyCommands.map { $0.generate() }.joined(separator: "\n")
 }

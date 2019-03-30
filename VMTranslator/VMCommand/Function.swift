@@ -12,6 +12,8 @@ struct Function {
     let name: String
     let numberOfLocalVariables: Int
     
+    var assemblyTranslatedCommands: [AssemblyCommand] = []
+    
     /// Initializer of function command.
     ///
     /// - Parameters:
@@ -35,4 +37,15 @@ struct Function {
         self.numberOfLocalVariables = numberOfLocalVariables
     }
     
+    // MARK: - House keeping functions
+    mutating func pushLocalVariable() {
+        
+        for i in 0..<numberOfLocalVariables {
+            assemblyTranslatedCommands.append(contentsOf: Push(segment: Local(),
+                                                               index: i).assemblyTranslatedCommands)
+        }
+    }
+    
 }
+
+extension Function: VMCommand { }
