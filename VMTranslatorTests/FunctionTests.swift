@@ -36,24 +36,14 @@ class FunctionTests: XCTestCase {
     func testPushLocalVariables() {
         var function = Function(name: "FunctionTest.aaa", numberOfLocalVariables: 2)!
         let expectation = """
-        @LCL
-        D=M
-        @0
-        A=D+A
-        D=M
         @SP
         AM=M+1
         A=A-1
-        M=D
-        @LCL
-        D=M
-        @1
-        A=D+A
-        D=M
+        M=0
         @SP
         AM=M+1
         A=A-1
-        M=D
+        M=0
         """
         
         function.pushLocalVariable()

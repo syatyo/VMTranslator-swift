@@ -40,9 +40,11 @@ struct Function {
     // MARK: - House keeping functions
     mutating func pushLocalVariable() {
         
-        for i in 0..<numberOfLocalVariables {
-            assemblyTranslatedCommands.append(contentsOf: Push(segment: Local(),
-                                                               index: i).assemblyTranslatedCommands)
+        (0..<numberOfLocalVariables).forEach { _ in 
+            assemblyTranslatedCommands.append(AInstruction(difinedSymbol: .sp))
+            assemblyTranslatedCommands.append(CInstruction.assign(destination: .am, computation: .mPlusOne))
+            assemblyTranslatedCommands.append(CInstruction.assign(destination: .a, computation: .aMinusOne))
+            assemblyTranslatedCommands.append(CInstruction.assign(destination: .m, computation: .zero))
         }
     }
     
