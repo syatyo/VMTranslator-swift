@@ -18,9 +18,20 @@ class FunctionTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    func testInitSuccess() {
+        let function = Function(name: "FunctionTest.aaa", numberOfLocalVariables: 1)!
+        XCTAssertEqual(function.name, "FunctionTest.aaa")
+        XCTAssertEqual(function.numberOfLocalVariables, 1)
+    }
+    
     /// 関数定義の仕様として、唯一数字から始まる定義だけは認めていないため、数字の場合はエラーを返す
-    func testFailureIfFunctionNameStartsFromNumber() {
-        XCTAssertThrowsError(try Function(name: "2FunctionTest.aaa", numberOfLocalVariables: 1))
+    func testInitFailureIfFunctionNameStartsFromNumber() {
+        XCTAssertNil(Function(name: "2FunctionTest.aaa", numberOfLocalVariables: 1))
     }
 
+    func testInitFailureIfNumberOfLocalVarialbesIsUnderZero() {
+        XCTAssertNil(Function(name: "FunctionTest.aaa", numberOfLocalVariables: -1))
+    }
+    
+    
 }
