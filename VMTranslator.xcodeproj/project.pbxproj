@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18385199224F2A23006532AE /* FunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18385198224F2A23006532AE /* FunctionTests.swift */; };
 		188E18A022216E69006602D0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E189F22216E69006602D0 /* main.swift */; };
 		188E18AD22216FFA006602D0 /* VMTranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18AC22216FFA006602D0 /* VMTranslatorTests.swift */; };
 		188E18B32221705D006602D0 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18B22221705D006602D0 /* Parser.swift */; };
@@ -113,6 +114,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18385198224F2A23006532AE /* FunctionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionTests.swift; sourceTree = "<group>"; };
 		188E189C22216E69006602D0 /* VMTranslator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VMTranslator; sourceTree = BUILT_PRODUCTS_DIR; };
 		188E189F22216E69006602D0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		188E18AA22216FFA006602D0 /* VMTranslatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VMTranslatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,6 +256,7 @@
 				18F2E1C92247BD0E009B14BA /* LabelTests.swift */,
 				18F2E1D02247D057009B14BA /* GotoTests.swift */,
 				18F2E1D52247D8F3009B14BA /* IfGotoTests.swift */,
+				18385198224F2A23006532AE /* FunctionTests.swift */,
 				188E18AE22216FFA006602D0 /* Info.plist */,
 			);
 			path = VMTranslatorTests;
@@ -513,6 +516,7 @@
 				188E18E72226B10A006602D0 /* Equal.swift in Sources */,
 				188E192F222B905F006602D0 /* LabelSymbolInstruction.swift in Sources */,
 				188E1923222B83E6006602D0 /* AssemblyCommand.swift in Sources */,
+				18385199224F2A23006532AE /* FunctionTests.swift in Sources */,
 				188E19452238E7C3006602D0 /* Push.swift in Sources */,
 				188E18CC222254D7006602D0 /* AddTests.swift in Sources */,
 				188E18C722219B68006602D0 /* Parser.swift in Sources */,
