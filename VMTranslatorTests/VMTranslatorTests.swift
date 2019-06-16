@@ -57,5 +57,5 @@ class VMTranslatorTests: XCTestCase {
         
         XCTAssertEqual(asmText, expectation)
     }
-    
+        
 }

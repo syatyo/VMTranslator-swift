@@ -13,6 +13,7 @@
 		1838519E224F4BCB006532AE /* CallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1838519D224F4BCB006532AE /* CallTests.swift */; };
 		183851A0224F4C49006532AE /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1838519F224F4C49006532AE /* Call.swift */; };
 		183851A1224F4C4B006532AE /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1838519F224F4C49006532AE /* Call.swift */; };
+		18813A7122B6BF4D00ACDDDB /* NewCommandBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18813A7022B6BF4D00ACDDDB /* NewCommandBuilder.swift */; };
 		188E18A022216E69006602D0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E189F22216E69006602D0 /* main.swift */; };
 		188E18AD22216FFA006602D0 /* VMTranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18AC22216FFA006602D0 /* VMTranslatorTests.swift */; };
 		188E18B32221705D006602D0 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18B22221705D006602D0 /* Parser.swift */; };
@@ -93,6 +94,9 @@
 		188E195222391D1A006602D0 /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E195122391D1A006602D0 /* Segment.swift */; };
 		188E195322391E24006602D0 /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E195122391D1A006602D0 /* Segment.swift */; };
 		188E195822392E2A006602D0 /* SegmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E195722392E2A006602D0 /* SegmentTests.swift */; };
+		18E0E28622B791C30089F908 /* NewCommandBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18813A7022B6BF4D00ACDDDB /* NewCommandBuilder.swift */; };
+		18E0E28822B7A2610089F908 /* CPUInstructionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E0E28722B7A2610089F908 /* CPUInstructionTests.swift */; };
+		18E0E28A22B7A42E0089F908 /* NewAssemblyCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E0E28922B7A42E0089F908 /* NewAssemblyCommandTests.swift */; };
 		18F2E1CA2247BD0E009B14BA /* LabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1C92247BD0E009B14BA /* LabelTests.swift */; };
 		18F2E1CC2247BED6009B14BA /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1CB2247BED6009B14BA /* Label.swift */; };
 		18F2E1CD2247BF24009B14BA /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2E1CB2247BED6009B14BA /* Label.swift */; };
@@ -123,6 +127,7 @@
 		1838519A224F34CA006532AE /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		1838519D224F4BCB006532AE /* CallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTests.swift; sourceTree = "<group>"; };
 		1838519F224F4C49006532AE /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
+		18813A7022B6BF4D00ACDDDB /* NewCommandBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommandBuilder.swift; sourceTree = "<group>"; };
 		188E189C22216E69006602D0 /* VMTranslator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VMTranslator; sourceTree = BUILT_PRODUCTS_DIR; };
 		188E189F22216E69006602D0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		188E18AA22216FFA006602D0 /* VMTranslatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VMTranslatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +181,8 @@
 		188E194E22391A58006602D0 /* Pop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pop.swift; sourceTree = "<group>"; };
 		188E195122391D1A006602D0 /* Segment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
 		188E195722392E2A006602D0 /* SegmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentTests.swift; sourceTree = "<group>"; };
+		18E0E28722B7A2610089F908 /* CPUInstructionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUInstructionTests.swift; sourceTree = "<group>"; };
+		18E0E28922B7A42E0089F908 /* NewAssemblyCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAssemblyCommandTests.swift; sourceTree = "<group>"; };
 		18F2E1C92247BD0E009B14BA /* LabelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTests.swift; sourceTree = "<group>"; };
 		18F2E1CB2247BED6009B14BA /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		18F2E1D02247D057009B14BA /* GotoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GotoTests.swift; sourceTree = "<group>"; };
@@ -231,6 +238,7 @@
 				188E18B722217453006602D0 /* CommandFormatter.swift */,
 				188E18C122219786006602D0 /* CodeWriter.swift */,
 				188E1928222B88ED006602D0 /* CommandBuilder.swift */,
+				18813A7022B6BF4D00ACDDDB /* NewCommandBuilder.swift */,
 				188E1916222B75B7006602D0 /* VMCommand */,
 				188E18C822225464006602D0 /* Arithmetic */,
 				188E19042226D2BA006602D0 /* Assembly */,
@@ -266,6 +274,8 @@
 				18F2E1D52247D8F3009B14BA /* IfGotoTests.swift */,
 				18385198224F2A23006532AE /* FunctionTests.swift */,
 				1838519D224F4BCB006532AE /* CallTests.swift */,
+				18E0E28722B7A2610089F908 /* CPUInstructionTests.swift */,
+				18E0E28922B7A42E0089F908 /* NewAssemblyCommandTests.swift */,
 				188E18AE22216FFA006602D0 /* Info.plist */,
 			);
 			path = VMTranslatorTests;
@@ -455,6 +465,7 @@
 				188E1936222BA79B006602D0 /* ConditionIndexRepository.swift in Sources */,
 				1838519B224F34CA006532AE /* Function.swift in Sources */,
 				188E18BD2221790E006602D0 /* Secret.swift in Sources */,
+				18813A7122B6BF4D00ACDDDB /* NewCommandBuilder.swift in Sources */,
 				188E191D222B7F77006602D0 /* AssemblyCommand.swift in Sources */,
 				188E19082226D325006602D0 /* Destination.swift in Sources */,
 				188E18B32221705D006602D0 /* Parser.swift in Sources */,
@@ -512,6 +523,7 @@
 				18F2E1D12247D057009B14BA /* GotoTests.swift in Sources */,
 				188E18C422219B60006602D0 /* Secret.swift in Sources */,
 				188E190D2226DDB6006602D0 /* Jump.swift in Sources */,
+				18E0E28A22B7A42E0089F908 /* NewAssemblyCommandTests.swift in Sources */,
 				188E18CF22226A2C006602D0 /* SubTests.swift in Sources */,
 				188E18E92226B3C0006602D0 /* GreaterTests.swift in Sources */,
 				18F2E1D42247D41A009B14BA /* Goto.swift in Sources */,
@@ -532,8 +544,10 @@
 				188E1923222B83E6006602D0 /* AssemblyCommand.swift in Sources */,
 				18385199224F2A23006532AE /* FunctionTests.swift in Sources */,
 				188E19452238E7C3006602D0 /* Push.swift in Sources */,
+				18E0E28622B791C30089F908 /* NewCommandBuilder.swift in Sources */,
 				183851A1224F4C4B006532AE /* Call.swift in Sources */,
 				188E18CC222254D7006602D0 /* AddTests.swift in Sources */,
+				18E0E28822B7A2610089F908 /* CPUInstructionTests.swift in Sources */,
 				188E18C722219B68006602D0 /* Parser.swift in Sources */,
 				188E18E622241604006602D0 /* EqualTests.swift in Sources */,
 				188E18F42226BF2F006602D0 /* Less.swift in Sources */,
