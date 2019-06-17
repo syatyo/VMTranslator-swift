@@ -66,16 +66,11 @@
 		188E190D2226DDB6006602D0 /* Jump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E190B2226DD24006602D0 /* Jump.swift */; };
 		188E190E2226DDB9006602D0 /* Computation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19092226D7D0006602D0 /* Computation.swift */; };
 		188E190F2226DDBB006602D0 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19072226D325006602D0 /* Destination.swift */; };
-		188E19102226DDBF006602D0 /* CInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19052226D2DC006602D0 /* CInstruction.swift */; };
 		188E19122226E441006602D0 /* Boolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19112226E441006602D0 /* Boolean.swift */; };
 		188E19132226E48E006602D0 /* Boolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19112226E441006602D0 /* Boolean.swift */; };
 		188E1918222B78C7006602D0 /* PushTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1917222B78C7006602D0 /* PushTests.swift */; };
 		188E191D222B7F77006602D0 /* AssemblyCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E191C222B7F77006602D0 /* AssemblyCommand.swift */; };
-		188E191F222B8055006602D0 /* AInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E191E222B8055006602D0 /* AInstruction.swift */; };
-		188E1921222B8287006602D0 /* AInstructionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1920222B8287006602D0 /* AInstructionTests.swift */; };
-		188E1922222B828B006602D0 /* AInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E191E222B8055006602D0 /* AInstruction.swift */; };
 		188E1923222B83E6006602D0 /* AssemblyCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E191C222B7F77006602D0 /* AssemblyCommand.swift */; };
-		188E1925222B8537006602D0 /* CInstructionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1924222B8537006602D0 /* CInstructionTests.swift */; };
 		188E1927222B8711006602D0 /* CommandBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1926222B8711006602D0 /* CommandBuilderTests.swift */; };
 		188E1929222B88ED006602D0 /* CommandBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1928222B88ED006602D0 /* CommandBuilder.swift */; };
 		188E192A222B89B8006602D0 /* CommandBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E1928222B88ED006602D0 /* CommandBuilder.swift */; };
@@ -91,7 +86,6 @@
 		188E19422237F683006602D0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E189F22216E69006602D0 /* main.swift */; };
 		188E19442238E766006602D0 /* Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19432238E766006602D0 /* Push.swift */; };
 		188E19452238E7C3006602D0 /* Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19432238E766006602D0 /* Push.swift */; };
-		188E19462238E800006602D0 /* CInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E19052226D2DC006602D0 /* CInstruction.swift */; };
 		188E194D2239098F006602D0 /* PopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E194C2239098F006602D0 /* PopTests.swift */; };
 		188E194F22391A58006602D0 /* Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E194E22391A58006602D0 /* Pop.swift */; };
 		188E195022391AC1006602D0 /* Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E194E22391A58006602D0 /* Pop.swift */; };
@@ -165,16 +159,12 @@
 		188E18FC2226CED9006602D0 /* Or.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Or.swift; sourceTree = "<group>"; };
 		188E18FF2226D02D006602D0 /* NotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotTests.swift; sourceTree = "<group>"; };
 		188E19012226D0C5006602D0 /* Not.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Not.swift; sourceTree = "<group>"; };
-		188E19052226D2DC006602D0 /* CInstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CInstruction.swift; sourceTree = "<group>"; };
 		188E19072226D325006602D0 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		188E19092226D7D0006602D0 /* Computation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Computation.swift; sourceTree = "<group>"; };
 		188E190B2226DD24006602D0 /* Jump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jump.swift; sourceTree = "<group>"; };
 		188E19112226E441006602D0 /* Boolean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boolean.swift; sourceTree = "<group>"; };
 		188E1917222B78C7006602D0 /* PushTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTests.swift; sourceTree = "<group>"; };
 		188E191C222B7F77006602D0 /* AssemblyCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyCommand.swift; sourceTree = "<group>"; };
-		188E191E222B8055006602D0 /* AInstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AInstruction.swift; sourceTree = "<group>"; };
-		188E1920222B8287006602D0 /* AInstructionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AInstructionTests.swift; sourceTree = "<group>"; };
-		188E1924222B8537006602D0 /* CInstructionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CInstructionTests.swift; sourceTree = "<group>"; };
 		188E1926222B8711006602D0 /* CommandBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandBuilderTests.swift; sourceTree = "<group>"; };
 		188E1928222B88ED006602D0 /* CommandBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandBuilder.swift; sourceTree = "<group>"; };
 		188E192B222B8D18006602D0 /* LabelSymbolInstructionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSymbolInstructionTests.swift; sourceTree = "<group>"; };
@@ -270,8 +260,6 @@
 				188E1917222B78C7006602D0 /* PushTests.swift */,
 				188E194C2239098F006602D0 /* PopTests.swift */,
 				188E195722392E2A006602D0 /* SegmentTests.swift */,
-				188E1920222B8287006602D0 /* AInstructionTests.swift */,
-				188E1924222B8537006602D0 /* CInstructionTests.swift */,
 				188E192B222B8D18006602D0 /* LabelSymbolInstructionTests.swift */,
 				188E1926222B8711006602D0 /* CommandBuilderTests.swift */,
 				188E18B92221748C006602D0 /* CommandFormatterTests.swift */,
@@ -347,9 +335,7 @@
 			children = (
 				1871794822B7B5BB00E4A367 /* A.swift */,
 				1871794A22B7B5CE00E4A367 /* C.swift */,
-				188E191E222B8055006602D0 /* AInstruction.swift */,
 				188E191C222B7F77006602D0 /* AssemblyCommand.swift */,
-				188E19052226D2DC006602D0 /* CInstruction.swift */,
 				188E192D222B8FA1006602D0 /* LabelSymbolInstruction.swift */,
 			);
 			path = Command;
@@ -481,7 +467,6 @@
 				188E1938222BA848006602D0 /* ConditionIndexStore.swift in Sources */,
 				188E18CA222254C3006602D0 /* Add.swift in Sources */,
 				188E1940222BF82E006602D0 /* VMTranslator.swift in Sources */,
-				188E191F222B8055006602D0 /* AInstruction.swift in Sources */,
 				18F2E1D82247DF89009B14BA /* IfGoto.swift in Sources */,
 				188E18A022216E69006602D0 /* main.swift in Sources */,
 				18F2E1D32247D3C4009B14BA /* Goto.swift in Sources */,
@@ -490,7 +475,6 @@
 				18F2E1DF2249B25B009B14BA /* VMCommand.swift in Sources */,
 				188E194F22391A58006602D0 /* Pop.swift in Sources */,
 				188E190A2226D7D0006602D0 /* Computation.swift in Sources */,
-				188E19462238E800006602D0 /* CInstruction.swift in Sources */,
 				188E18EB2226B495006602D0 /* Greater.swift in Sources */,
 				188E1929222B88ED006602D0 /* CommandBuilder.swift in Sources */,
 				188E190C2226DD24006602D0 /* Jump.swift in Sources */,
@@ -506,12 +490,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				188E1927222B8711006602D0 /* CommandBuilderTests.swift in Sources */,
-				188E19102226DDBF006602D0 /* CInstruction.swift in Sources */,
 				188E18C02221976C006602D0 /* CodeWriterTests.swift in Sources */,
 				1871794D22B7B5FE00E4A367 /* C.swift in Sources */,
 				188E195322391E24006602D0 /* Segment.swift in Sources */,
 				188E195022391AC1006602D0 /* Pop.swift in Sources */,
-				188E1922222B828B006602D0 /* AInstruction.swift in Sources */,
 				188E19032226D0E7006602D0 /* Not.swift in Sources */,
 				18F2E1D92247DFAE009B14BA /* IfGoto.swift in Sources */,
 				188E18C522219B63006602D0 /* CodeWriter.swift in Sources */,
@@ -548,8 +530,6 @@
 				188E18BA2221748C006602D0 /* CommandFormatterTests.swift in Sources */,
 				18F2E1CA2247BD0E009B14BA /* LabelTests.swift in Sources */,
 				1871794C22B7B5FC00E4A367 /* A.swift in Sources */,
-				188E1925222B8537006602D0 /* CInstructionTests.swift in Sources */,
-				188E1921222B8287006602D0 /* AInstructionTests.swift in Sources */,
 				188E18E72226B10A006602D0 /* Equal.swift in Sources */,
 				1838519C224F3BA9006532AE /* Function.swift in Sources */,
 				188E192F222B905F006602D0 /* LabelSymbolInstruction.swift in Sources */,

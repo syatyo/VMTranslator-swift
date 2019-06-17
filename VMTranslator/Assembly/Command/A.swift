@@ -46,3 +46,11 @@ enum A: Command {
     case label(String)
     
 }
+
+extension A: AssemblyCommand {
+    
+    func generate() -> String {
+        body
+    }
+    
+}

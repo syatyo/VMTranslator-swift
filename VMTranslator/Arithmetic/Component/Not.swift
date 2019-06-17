@@ -14,9 +14,9 @@ extension Not: VMCommand {
     
     var assemblyTranslatedCommands: [AssemblyCommand] {
         return [
-            AInstruction(difinedSymbol: .sp),
-            CInstruction.assign(destination: .a, computation: .mMinusOne),
-            CInstruction.assign(destination: .m, computation: .notM)
+            A.symbol(.sp),
+            C.assign(destination: .a, computation: .mMinusOne),
+            C.assign(destination: .m, computation: .notM)
         ]
     }
     

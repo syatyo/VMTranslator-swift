@@ -19,10 +19,10 @@ extension Push: VMCommand {
     var assemblyTranslatedCommands: [AssemblyCommand] {
         return segment.pushCommands(index: index) +
         [
-            AInstruction(difinedSymbol: .sp),
-            CInstruction.assign(destination: .am, computation: .mPlusOne),
-            CInstruction.assign(destination: .a, computation: .aMinusOne),
-            CInstruction.assign(destination: .m, computation: .d)
+            A.symbol(.sp),
+            C.assign(destination: .am, computation: .mPlusOne),
+            C.assign(destination: .a, computation: .aMinusOne),
+            C.assign(destination: .m, computation: .d)
         ]
     }
     

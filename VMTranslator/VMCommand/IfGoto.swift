@@ -16,11 +16,11 @@ extension IfGoto: VMCommand {
     
     var assemblyTranslatedCommands: [AssemblyCommand] {
         return [
-            AInstruction(difinedSymbol: .sp),
-            CInstruction.assign(destination: .am, computation: .mMinusOne),
-            CInstruction.assign(destination: .d, computation: .m),
-            AInstruction(label: labelName),
-            CInstruction.jump(operand: .d, conditionType: .jne)
+            A.symbol(.sp),
+            C.assign(destination: .am, computation: .mMinusOne),
+            C.assign(destination: .d, computation: .m),
+            A.label(labelName),
+            C.jump(operand: .d, conditionType: .jne)
         ]
     }
     

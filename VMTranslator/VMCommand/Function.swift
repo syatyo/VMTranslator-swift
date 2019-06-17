@@ -41,10 +41,10 @@ struct Function {
     mutating func pushLocalVariable() {
         
         (0..<numberOfLocalVariables).forEach { _ in 
-            assemblyTranslatedCommands.append(AInstruction(difinedSymbol: .sp))
-            assemblyTranslatedCommands.append(CInstruction.assign(destination: .am, computation: .mPlusOne))
-            assemblyTranslatedCommands.append(CInstruction.assign(destination: .a, computation: .aMinusOne))
-            assemblyTranslatedCommands.append(CInstruction.assign(destination: .m, computation: .zero))
+            assemblyTranslatedCommands.append(A.symbol(.sp))
+            assemblyTranslatedCommands.append(C.assign(destination: .am, computation: .mPlusOne))
+            assemblyTranslatedCommands.append(C.assign(destination: .a, computation: .aMinusOne))
+            assemblyTranslatedCommands.append(C.assign(destination: .m, computation: .zero))
         }
     }
     

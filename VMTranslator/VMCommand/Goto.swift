@@ -16,8 +16,8 @@ extension Goto: VMCommand {
     
     var assemblyTranslatedCommands: [AssemblyCommand] {
         return [
-            AInstruction(label: labelName),
-            CInstruction.jump(operand: .zero, conditionType: .jmp)
+            A.label(labelName),
+            C.jump(operand: .zero, conditionType: .jmp)
         ]
     }
     

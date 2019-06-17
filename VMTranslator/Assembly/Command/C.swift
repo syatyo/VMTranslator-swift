@@ -28,3 +28,11 @@ enum C: Command {
     case assign(destination: Destination, computation: Computation)
     case jump(operand: JumpOperand, conditionType: ConditionType)
 }
+
+extension C: AssemblyCommand {
+    
+    func generate() -> String {
+        body
+    }
+    
+}
