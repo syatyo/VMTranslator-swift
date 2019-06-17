@@ -9,12 +9,11 @@
 import Foundation
 
 /// (Label) command in assembly.
-struct LabelSymbol {
-    
-    private var value: String
+struct LabelSymbol: Command {
+    var body: String
     
     init(label: String) {
-        self.value = label
+        self.body = label
     }
     
 }
@@ -22,7 +21,7 @@ struct LabelSymbol {
 extension LabelSymbol: AssemblyCommand {
     
     func generate() -> String {
-        return "(\(value))"
+        return "(\(body))"
     }
         
 }

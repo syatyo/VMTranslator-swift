@@ -72,7 +72,7 @@ extension Conditionable {
         commands.append(A.symbol(.sp))
         commands.append(C.assign(destination: .a, computation: .mMinusOne))
         commands.append(C.assign(destination: .m, computation: Computation(boolean: .true)))
-        commands.append(LabelSymbolInstruction(label: conditionLabel))
+        commands.append(LabelSymbol(label: conditionLabel))
         
         repository.incrementIndex(for: String(describing: type(of: self)))
         return commands

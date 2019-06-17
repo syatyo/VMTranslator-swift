@@ -19,7 +19,7 @@ class LabelSymbolInstructionTests: XCTestCase {
     }
 
     func testInitLabelCommand() {
-        let command = LabelSymbolInstruction(label: "END_eq")
+        let command = LabelSymbol(label: "END_eq")
         XCTAssertEqual(command.generate(), "(END_eq)")
     }
 
