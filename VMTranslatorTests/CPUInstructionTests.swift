@@ -19,24 +19,24 @@ class CPUInstructionTests: XCTestCase {
     }
 
     func testAInstructionFromSymbol() {
-        let spCommand = A(difinedSymbol: .sp)
+        let spCommand = A.symbol(.sp)
         XCTAssertEqual(spCommand.body, "@SP")
         
-        let lclCommand = A(difinedSymbol: .lcl)
+        let lclCommand = A.symbol(.lcl)
         XCTAssertEqual(lclCommand.body, "@LCL")
         
-        let argCommand = A(difinedSymbol: .arg)
+        let argCommand = A.symbol(.arg)
         XCTAssertEqual(argCommand.body, "@ARG")
         
-        let thisCommand = A(difinedSymbol: .this)
+        let thisCommand = A.symbol(.this)
         XCTAssertEqual(thisCommand.body, "@THIS")
         
-        let thAInstruction = A(difinedSymbol: .that)
+        let thAInstruction = A.symbol(.that)
         XCTAssertEqual(thAInstruction.body, "@THAT")
     }
     
     func testATCommantConstant() {
-        let constantCommand = A(constant: 15)
+        let constantCommand = A.constant(15)
         XCTAssertEqual(constantCommand.body, "@15")
     }
 

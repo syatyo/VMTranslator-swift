@@ -9,9 +9,21 @@
 import Foundation
 
 /// @value command in assembly. It assign given value to A register.
-struct A: Command {
+enum A: Command {
+    
     typealias Body = String
-    var body: String
+    var body: String {
+        switch self {
+        case .symbol(let symbol):
+            return "@\(symbol.rawValue.uppercased())"
+            
+        case .constant(let constant):
+            return "@\(constant.description)"
+            
+        case .label(let label):
+            return "@\(label)"
+        }
+    }
     
     enum DefinedSymbol: String {
         case sp
@@ -21,16 +33,16 @@ struct A: Command {
         case that
     }
     
-    init(difinedSymbol: DefinedSymbol) {
-        self.body = "@\(difinedSymbol.rawValue.uppercased())"
-    }
+    /// A symbol is defined in Hack platform
+    /// - Example: @SP
+    case symbol(DefinedSymbol)
     
-    init(constant: Int) {
-        self.body = "@\(constant.description)"
-    }
+    /// Constant value
+    /// - Example: @10
+    case constant(Int)
     
-    init(label: String) {
-        self.body = "@\(label)"
-    }
+    /// Label for conditions or stack methods.
+    /// - Example: @LOOP_START
+    case label(String)
     
 }

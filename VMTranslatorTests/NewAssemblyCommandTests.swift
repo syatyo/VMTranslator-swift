@@ -21,9 +21,9 @@ class NewAssemblyCommandTests: XCTestCase {
     func testCommandBuilder() {
         
         let assemblyCommand = NewAssemblyCommand {
-            A(difinedSymbol: .sp)
+            A.symbol(.sp)
             C.assign(destination: .d, computation: .m)
-            A(constant: 10)
+            A.constant(10)
         }
         
         let expectation = """
