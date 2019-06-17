@@ -31,9 +31,11 @@ struct CodeWriter {
     }
     
     private(set) var fileName: String?
-    private var vmCommandBuilder = CommandBuilder<VMCommand>()
+    private var vmCommandBuilder: [Command] = []
     var assembly: String {
-        return vmCommandBuilder.build()
+        return vmCommandBuilder
+            .map({ $0.body })
+            .joined(separator: "\n")
     }
     
     private enum Symbol: String {
@@ -106,11 +108,11 @@ struct CodeWriter {
         switch commandType {
         case .push:
             let push = Push(segment: segmentValue, index: index)
-            vmCommandBuilder.add(push)
+            vmCommandBuilder.append(push)
         case .pop:
             
             let pop = Pop(segment: segmentValue, index: index)
-            vmCommandBuilder.add(pop)
+            vmCommandBuilder.append(pop)
         }
         
     }
@@ -118,44 +120,44 @@ struct CodeWriter {
     mutating func writeArithmetic(command: String) {
         switch command {
         case "add":
-            vmCommandBuilder.add(Add())
+            vmCommandBuilder.append(Add())
         case "sub":
-            vmCommandBuilder.add(Sub())
+            vmCommandBuilder.append(Sub())
         case "neg":
-            vmCommandBuilder.add(Negative())
+            vmCommandBuilder.append(Negative())
         case "eq":
             var equal = Equal()
             equal.inject(repository: ConditionIndexStore.shared)
-            vmCommandBuilder.add(equal)
+            vmCommandBuilder.append(equal)
         case "gt":
             var greater = Greater()
             greater.inject(repository: ConditionIndexStore.shared)
-            vmCommandBuilder.add(greater)
+            vmCommandBuilder.append(greater)
         case "lt":
             var less = Less()
             less.inject(repository: ConditionIndexStore.shared)
-            vmCommandBuilder.add(less)
+            vmCommandBuilder.append(less)
         case "and":
-            vmCommandBuilder.add(And())
+            vmCommandBuilder.append(And())
         case "or":
-            vmCommandBuilder.add(Or())
+            vmCommandBuilder.append(Or())
         case "not":
-            vmCommandBuilder.add(Not())
+            vmCommandBuilder.append(Not())
         default:
             fatalError("Unexpected command.")
         }
     }
     
     mutating func writeLabel(_ labelName: String) {
-        vmCommandBuilder.add(Label(name: labelName))
+        vmCommandBuilder.append(Label(name: labelName))
     }
     
     mutating func writeGoto(_ labelName: String) {
-        vmCommandBuilder.add(Goto(labelName: labelName))
+        vmCommandBuilder.append(Goto(labelName: labelName))
     }
     
     mutating func writeIf(_ labelName: String) {
-        vmCommandBuilder.add(IfGoto(labelName: labelName))
+        vmCommandBuilder.append(IfGoto(labelName: labelName))
     }
     
 }

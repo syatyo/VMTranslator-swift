@@ -19,15 +19,3 @@ struct Not: Command {
     }
     
 }
-
-extension Not: VMCommand {
-    
-    var assemblyTranslatedCommands: [AssemblyCommand] {
-        return [
-            A.symbol(.sp),
-            C.assign(destination: .a, computation: .mMinusOne),
-            C.assign(destination: .m, computation: .notM)
-        ]
-    }
-    
-}

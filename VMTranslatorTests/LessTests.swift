@@ -22,7 +22,7 @@ class LessTests: XCTestCase {
         var less = Less()
         less.inject(repository: Store())
         
-        let result1 = less.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
+        let result1 = less.body
         let expectation1 = """
         @SP
         AM=M-1
@@ -38,7 +38,7 @@ class LessTests: XCTestCase {
         (END_LT1)
         """
         
-        let result2 = less.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
+        let result2 = less.body
         let expectation2 = """
         @SP
         AM=M-1

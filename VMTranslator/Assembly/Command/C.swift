@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum C: Command {
     typealias Body = String

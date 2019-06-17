@@ -8,8 +8,15 @@
 
 import Foundation
 
-struct Goto {
+struct Goto: Command {
     let labelName: String
+    
+    var body: String {
+        NewAssemblyCommand {
+            A.label(labelName)
+            C.jump(operand: .zero, conditionType: .jmp)
+        }.body
+    }
 }
 
 extension Goto: VMCommand {

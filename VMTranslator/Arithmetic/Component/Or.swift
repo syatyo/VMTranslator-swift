@@ -21,17 +21,3 @@ struct Or: Command {
     }
     
 }
-
-extension Or: VMCommand {
-    
-    var assemblyTranslatedCommands: [AssemblyCommand] {
-        return [
-            A.symbol(.sp),
-            C.assign(destination: .am, computation: .mMinusOne),
-            C.assign(destination: .d, computation: .m),
-            C.assign(destination: .a, computation: .aMinusOne),
-            C.assign(destination: .m, computation: .dOrM)
-        ]
-    }
-    
-}

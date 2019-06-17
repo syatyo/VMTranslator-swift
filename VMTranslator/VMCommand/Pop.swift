@@ -26,9 +26,20 @@ private extension SegmentType {
     }
 }
 
-struct Pop {
+struct Pop: Command {
     let segment: Segment
     let index: Int
+    
+    var body: String {
+        NewAssemblyCommand { () -> String in
+            A.symbol(.sp)
+            C.assign(destination: .am, computation: .mMinusOne)
+            C.assign(destination: .d, computation: .m)
+            SegmentCommand(type: .pop, segment: segment, index: index)
+            C.assign(destination: .m, computation: .d)
+        }.body
+    }
+    
 }
 
 extension Pop: VMCommand {

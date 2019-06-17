@@ -37,11 +37,3 @@ struct Greater: Conditionable, Command {
     }
 
 }
-
-extension Greater: VMCommand {
-    
-    var assemblyTranslatedCommands: [AssemblyCommand] {
-        return translateToAssemblyCommands()
-    }
-    
-}

@@ -37,11 +37,3 @@ struct Less: Conditionable, Command {
     }
 
 }
-
-extension Less: VMCommand {
-    
-    var assemblyTranslatedCommands: [AssemblyCommand] {
-        return translateToAssemblyCommands()
-    }
-    
-}

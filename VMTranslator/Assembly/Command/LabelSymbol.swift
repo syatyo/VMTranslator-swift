@@ -13,7 +13,7 @@ struct LabelSymbol: Command {
     var body: String
     
     init(label: String) {
-        self.body = label
+        self.body = "(\(label))"
     }
     
 }
@@ -21,7 +21,7 @@ struct LabelSymbol: Command {
 extension LabelSymbol: AssemblyCommand {
     
     func generate() -> String {
-        return "(\(body))"
+        return body
     }
         
 }

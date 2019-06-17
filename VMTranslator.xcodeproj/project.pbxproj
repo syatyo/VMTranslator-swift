@@ -17,6 +17,8 @@
 		1871794B22B7B5CE00E4A367 /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871794A22B7B5CE00E4A367 /* C.swift */; };
 		1871794C22B7B5FC00E4A367 /* A.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871794822B7B5BB00E4A367 /* A.swift */; };
 		1871794D22B7B5FE00E4A367 /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871794A22B7B5CE00E4A367 /* C.swift */; };
+		1871795322B7F22200E4A367 /* SegmentCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871795222B7F22200E4A367 /* SegmentCommand.swift */; };
+		1871795422B7F39B00E4A367 /* SegmentCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871795222B7F22200E4A367 /* SegmentCommand.swift */; };
 		18813A7122B6BF4D00ACDDDB /* NewCommandBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18813A7022B6BF4D00ACDDDB /* NewCommandBuilder.swift */; };
 		188E18A022216E69006602D0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E189F22216E69006602D0 /* main.swift */; };
 		188E18AD22216FFA006602D0 /* VMTranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18AC22216FFA006602D0 /* VMTranslatorTests.swift */; };
@@ -127,6 +129,7 @@
 		1838519F224F4C49006532AE /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
 		1871794822B7B5BB00E4A367 /* A.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A.swift; sourceTree = "<group>"; };
 		1871794A22B7B5CE00E4A367 /* C.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C.swift; sourceTree = "<group>"; };
+		1871795222B7F22200E4A367 /* SegmentCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentCommand.swift; sourceTree = "<group>"; };
 		18813A7022B6BF4D00ACDDDB /* NewCommandBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommandBuilder.swift; sourceTree = "<group>"; };
 		188E189C22216E69006602D0 /* VMTranslator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VMTranslator; sourceTree = BUILT_PRODUCTS_DIR; };
 		188E189F22216E69006602D0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -301,6 +304,7 @@
 				18F2E1DE2249B25B009B14BA /* VMCommand.swift */,
 				188E19432238E766006602D0 /* Push.swift */,
 				188E194E22391A58006602D0 /* Pop.swift */,
+				1871795222B7F22200E4A367 /* SegmentCommand.swift */,
 				188E195122391D1A006602D0 /* Segment.swift */,
 				18F2E1CB2247BED6009B14BA /* Label.swift */,
 				18F2E1D22247D3C4009B14BA /* Goto.swift */,
@@ -448,6 +452,7 @@
 				1871794B22B7B5CE00E4A367 /* C.swift in Sources */,
 				188E18B822217453006602D0 /* CommandFormatter.swift in Sources */,
 				183851A0224F4C49006532AE /* Call.swift in Sources */,
+				1871795322B7F22200E4A367 /* SegmentCommand.swift in Sources */,
 				188E19442238E766006602D0 /* Push.swift in Sources */,
 				188E19122226E441006602D0 /* Boolean.swift in Sources */,
 				188E18EE2226B532006602D0 /* Conditionable.swift in Sources */,
@@ -490,6 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				188E1927222B8711006602D0 /* CommandBuilderTests.swift in Sources */,
+				1871795422B7F39B00E4A367 /* SegmentCommand.swift in Sources */,
 				188E18C02221976C006602D0 /* CodeWriterTests.swift in Sources */,
 				1871794D22B7B5FE00E4A367 /* C.swift in Sources */,
 				188E195322391E24006602D0 /* Segment.swift in Sources */,

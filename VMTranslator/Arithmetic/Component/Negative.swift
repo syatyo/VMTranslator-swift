@@ -19,15 +19,3 @@ struct Negative: Command {
     }
     
 }
-
-extension Negative: VMCommand {
-    
-    var assemblyTranslatedCommands: [AssemblyCommand] {
-        return [
-            A.symbol(.sp),
-            C.assign(destination: .a, computation: .mMinusOne),
-            C.assign(destination: .m, computation: .minusM)
-        ]
-    }
-    
-}

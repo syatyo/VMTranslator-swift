@@ -22,7 +22,7 @@ class EqualTests: XCTestCase {
         var equal = Equal()
         equal.inject(repository: Store())
         
-        let result1 = equal.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
+        let result1 = equal.body
         let expectation1 = """
         @SP
         AM=M-1
@@ -38,7 +38,7 @@ class EqualTests: XCTestCase {
         (END_EQ1)
         """
         
-        let result2 = equal.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
+        let result2 = equal.body
         let expectation2 = """
         @SP
         AM=M-1

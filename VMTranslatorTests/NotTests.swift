@@ -19,7 +19,7 @@ class NotTests: XCTestCase {
     }
 
     func testExecute() {
-        let result = Not().assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
+        let result = Not().body
         let expectation = """
         @SP
         A=M-1

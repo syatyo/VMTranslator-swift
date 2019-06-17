@@ -38,11 +38,3 @@ struct Equal: Conditionable, Command {
     }
     
 }
-
-extension Equal: VMCommand {
-    
-    var assemblyTranslatedCommands: [AssemblyCommand] {
-        return translateToAssemblyCommands()
-    }
-    
-}

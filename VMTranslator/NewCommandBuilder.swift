@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 /// Command is supertype of any command that have string body. It may be asm or vm command.
 protocol Command {
@@ -127,22 +128,21 @@ struct NewAssemblyCommand: Command {
     
 }
 
-struct NewPush: Command {
-    var index: Int
-    var `type`: A.DefinedSymbol
+struct ForEach<Data, Content> : Command where Data : RandomAccessCollection, Content : Command, Data.Element : Identifiable {
     
     var body: String {
-        NewAssemblyCommand {
-            A.symbol(type)
-            C.assign(destination: .d, computation: .m)
-            A.constant(index)
-            C.assign(destination: .a, computation: .dPlusA)
-            C.assign(destination: .d, computation: .m)
-            A.symbol(.sp)
-            C.assign(destination: .am, computation: .mPlusOne)
-            C.assign(destination: .a, computation: .aMinusOne)
-            C.assign(destination: .m, computation: .d)
-        }.body
+        data
+            .map({ content($0.identifiedValue) })
+            .map({ $0.body })
+            .joined(separator: "\n")
+    }
+    
+    var data: Data
+    var content: (Data.Element.IdentifiedValue) -> Content
+    
+    init(_ data: Data, @NewCommandBuilder content: @escaping (Data.Element.IdentifiedValue) -> Content) {
+        self.data = data
+        self.content = content
     }
     
 }

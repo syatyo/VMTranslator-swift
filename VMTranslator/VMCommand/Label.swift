@@ -8,8 +8,13 @@
 
 import Foundation
 
-struct Label {
+struct Label: Command {
     let name: String
+    
+    var body: String {
+        LabelSymbol(label: name).body
+    }
+    
 }
 
 extension Label: VMCommand {

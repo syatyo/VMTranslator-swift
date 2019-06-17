@@ -53,28 +53,3 @@ protocol Conditionable {
     
     mutating func inject(repository: ConditionIndexRepository)
 }
-
-extension Conditionable {
-    
-    func translateToAssemblyCommands() -> [AssemblyCommand] {
-        let incrementedValue = repository.incrementIndex(for: String(describing: type(of: self)))
-        let conditionLabel = "END_\(conditionType.symbolIdentifer)\(incrementedValue)"
-
-        var commands: [AssemblyCommand] = []
-        commands.append(A.symbol(.sp))
-        commands.append(C.assign(destination: .am, computation: .mMinusOne))
-        commands.append(C.assign(destination: .d, computation: .m))
-        commands.append(C.assign(destination: .a, computation: .aMinusOne))
-        commands.append(C.assign(destination: .d, computation: .mMinusD))
-        commands.append(C.assign(destination: .m, computation: Computation(boolean: .false)))
-        commands.append(A.label(conditionLabel))
-        commands.append(C.jump(operand: .d, conditionType: conditionType.complement))
-        commands.append(A.symbol(.sp))
-        commands.append(C.assign(destination: .a, computation: .mMinusOne))
-        commands.append(C.assign(destination: .m, computation: Computation(boolean: .true)))
-        commands.append(LabelSymbol(label: conditionLabel))
-        
-        return commands
-    }
-    
-}
