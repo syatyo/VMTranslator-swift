@@ -8,14 +8,29 @@
 
 import Foundation
 
+/// Command is supertype of any command that have string body. It may be asm or vm command.
 protocol Command {
     
+    /// body of command. It can be single line and multiple line.
     var body: String { get }
     
 }
 
-@_functionBuilder
-struct NewCommandBuilder {
+/// FunctionBuilder to build commands in closure
+/// - Example: Decrered like this
+///
+/// ```
+/// init(@NewCommandBuilder builder: () -> String) { }
+/// ```
+///
+/// Use like this:
+/// ```
+/// AssemblyCommand {
+///     A.symbol(type)
+///     C.assign(destination: .d, computation: .m)
+/// }
+/// ```
+@_functionBuilder struct NewCommandBuilder {
     
     public static func buildBlock<Content>(_ content: Content) -> String where Content: Command {
         content.body
