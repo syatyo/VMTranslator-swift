@@ -8,7 +8,17 @@
 
 import Foundation
 
-struct Negative { }
+struct Negative: Command {
+    
+    var body: String {
+        NewAssemblyCommand {
+            A.symbol(.sp)
+            C.assign(destination: .a, computation: .mMinusOne)
+            C.assign(destination: .m, computation: .minusM)
+        }.body
+    }
+    
+}
 
 extension Negative: VMCommand {
     

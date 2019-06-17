@@ -112,12 +112,12 @@ class CodeWriterTests: XCTestCase {
         A=A-1
         D=M-D
         M=0
-        @END_EQ0
+        @END_EQ1
         D;JNE
         @SP
         A=M-1
         M=-1
-        (END_EQ0)
+        (END_EQ1)
         """
         
         XCTAssertEqual(codeWriter.assembly, expectation)
@@ -135,12 +135,12 @@ class CodeWriterTests: XCTestCase {
         A=A-1
         D=M-D
         M=0
-        @END_GT0
+        @END_GT1
         D;JLE
         @SP
         A=M-1
         M=-1
-        (END_GT0)
+        (END_GT1)
         """
         
         XCTAssertEqual(codeWriter.assembly, expectation)
@@ -158,12 +158,12 @@ class CodeWriterTests: XCTestCase {
         A=A-1
         D=M-D
         M=0
-        @END_LT0
+        @END_LT1
         D;JGE
         @SP
         A=M-1
         M=-1
-        (END_LT0)
+        (END_LT1)
         """
         
         XCTAssertEqual(codeWriter.assembly, expectation)

@@ -76,36 +76,6 @@ protocol Command {
             .joined(separator: "\n")
     }
     
-    public static func buildBlock<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(_ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4, _ t5: T5, _ t6: T6, _ t7: T7, _ t8: T8, _ t9: T9, _ t10: T10) -> String where T1: Command, T2: Command, T3: Command, T4: Command, T5: Command, T6: Command, T7: Command, T8: Command, T9: Command, T10: Command {
-        [t1.body, t2.body, t3.body, t4.body, t5.body, t6.body, t7.body, t8.body, t9.body, t10.body]
-            .joined(separator: "\n")
-    }
-    
-    public static func buildBlock<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(_ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4, _ t5: T5, _ t6: T6, _ t7: T7, _ t8: T8, _ t9: T9, _ t10: T10, _ t11: T11) -> String where T1: Command, T2: Command, T3: Command, T4: Command, T5: Command, T6: Command, T7: Command, T8: Command, T9: Command, T10: Command, T11: Command {
-        [t1.body, t2.body, t3.body, t4.body, t5.body, t6.body, t7.body, t8.body, t9.body, t10.body, t11.body]
-            .joined(separator: "\n")
-    }
-
-    public static func buildBlock<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(_ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4, _ t5: T5, _ t6: T6, _ t7: T7, _ t8: T8, _ t9: T9, _ t10: T10, _ t11: T11, _ t12: T12) -> String where T1: Command, T2: Command, T3: Command, T4: Command, T5: Command, T6: Command, T7: Command, T8: Command, T9: Command, T10: Command, T11: Command, T12: Command {
-        [t1.body, t2.body, t3.body, t4.body, t5.body, t6.body, t7.body, t8.body, t9.body, t10.body, t11.body, t12.body]
-            .joined(separator: "\n")
-    }
-
-    public static func buildBlock<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(_ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4, _ t5: T5, _ t6: T6, _ t7: T7, _ t8: T8, _ t9: T9, _ t10: T10, _ t11: T11, _ t12: T12, _ t13: T13) -> String where T1: Command, T2: Command, T3: Command, T4: Command, T5: Command, T6: Command, T7: Command, T8: Command, T9: Command, T10: Command, T11: Command, T12: Command, T13: Command {
-        [t1.body, t2.body, t3.body, t4.body, t5.body, t6.body, t7.body, t8.body, t9.body, t10.body, t11.body, t12.body, t13.body]
-            .joined(separator: "\n")
-    }
-
-    public static func buildBlock<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(_ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4, _ t5: T5, _ t6: T6, _ t7: T7, _ t8: T8, _ t9: T9, _ t10: T10, _ t11: T11, _ t12: T12, _ t13: T13, _ t14: T14) -> String where T1: Command, T2: Command, T3: Command, T4: Command, T5: Command, T6: Command, T7: Command, T8: Command, T9: Command, T10: Command, T11: Command, T12: Command, T13: Command, T14: Command {
-        [t1.body, t2.body, t3.body, t4.body, t5.body, t6.body, t7.body, t8.body, t9.body, t10.body, t11.body, t12.body, t13.body, t14.body]
-            .joined(separator: "\n")
-    }
-
-    public static func buildBlock<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(_ t1: T1, _ t2: T2, _ t3: T3, _ t4: T4, _ t5: T5, _ t6: T6, _ t7: T7, _ t8: T8, _ t9: T9, _ t10: T10, _ t11: T11, _ t12: T12, _ t13: T13, _ t14: T14, _ t15: T15) -> String where T1: Command, T2: Command, T3: Command, T4: Command, T5: Command, T6: Command, T7: Command, T8: Command, T9: Command, T10: Command, T11: Command, T12: Command, T13: Command, T14: Command, T15: Command {
-        [t1.body, t2.body, t3.body, t4.body, t5.body, t6.body, t7.body, t8.body, t9.body, t10.body, t11.body, t12.body, t13.body, t14.body, t15.body]
-            .joined(separator: "\n")
-    }
-
 }
 
 private extension Collection where Self.Element: Command {

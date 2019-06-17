@@ -30,12 +30,12 @@ class EqualTests: XCTestCase {
         A=A-1
         D=M-D
         M=0
-        @END_EQ0
+        @END_EQ1
         D;JNE
         @SP
         A=M-1
         M=-1
-        (END_EQ0)
+        (END_EQ1)
         """
         
         let result2 = equal.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
@@ -46,12 +46,12 @@ class EqualTests: XCTestCase {
         A=A-1
         D=M-D
         M=0
-        @END_EQ1
+        @END_EQ2
         D;JNE
         @SP
         A=M-1
         M=-1
-        (END_EQ1)
+        (END_EQ2)
         """
         
         XCTAssertEqual(result1, expectation1)
@@ -63,12 +63,9 @@ class EqualTests: XCTestCase {
 private final class Store: ConditionIndexRepository {
     private var counter: Int = 0
     
-    func getCurrentValue(for type: String) -> Int {
-        return counter
-    }
-    
-    func incrementIndex(for type: String) {
+    func incrementIndex(for type: String) -> Int {
         counter += 1
+        return counter
     }
     
 }

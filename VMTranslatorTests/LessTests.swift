@@ -30,12 +30,12 @@ class LessTests: XCTestCase {
         A=A-1
         D=M-D
         M=0
-        @END_LT0
+        @END_LT1
         D;JGE
         @SP
         A=M-1
         M=-1
-        (END_LT0)
+        (END_LT1)
         """
         
         let result2 = less.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
@@ -46,12 +46,12 @@ class LessTests: XCTestCase {
         A=A-1
         D=M-D
         M=0
-        @END_LT1
+        @END_LT2
         D;JGE
         @SP
         A=M-1
         M=-1
-        (END_LT1)
+        (END_LT2)
         """
         
         XCTAssertEqual(result1, expectation1)
@@ -61,14 +61,12 @@ class LessTests: XCTestCase {
 }
 
 private final class Store: ConditionIndexRepository {
+    
     private var counter: Int = 0
     
-    func getCurrentValue(for type: String) -> Int {
-        return counter
-    }
-    
-    func incrementIndex(for type: String) {
+    func incrementIndex(for type: String) -> Int {
         counter += 1
+        return counter
     }
     
 }

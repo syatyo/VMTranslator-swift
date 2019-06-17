@@ -57,9 +57,9 @@ protocol Conditionable {
 extension Conditionable {
     
     func translateToAssemblyCommands() -> [AssemblyCommand] {
-        let currentIndex = repository.getCurrentValue(for: String(describing: type(of: self)))
-        let conditionLabel = "END_\(conditionType.symbolIdentifer)\(currentIndex)"
-        
+        let incrementedValue = repository.incrementIndex(for: String(describing: type(of: self)))
+        let conditionLabel = "END_\(conditionType.symbolIdentifer)\(incrementedValue)"
+
         var commands: [AssemblyCommand] = []
         commands.append(A.symbol(.sp))
         commands.append(C.assign(destination: .am, computation: .mMinusOne))
@@ -74,7 +74,6 @@ extension Conditionable {
         commands.append(C.assign(destination: .m, computation: Computation(boolean: .true)))
         commands.append(LabelSymbol(label: conditionLabel))
         
-        repository.incrementIndex(for: String(describing: type(of: self)))
         return commands
     }
     

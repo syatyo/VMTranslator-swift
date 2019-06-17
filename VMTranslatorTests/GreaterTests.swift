@@ -30,12 +30,12 @@ class GreaterTests: XCTestCase {
         A=A-1
         D=M-D
         M=0
-        @END_GT0
+        @END_GT1
         D;JLE
         @SP
         A=M-1
         M=-1
-        (END_GT0)
+        (END_GT1)
         """
         
         let result2 = greater.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
@@ -46,12 +46,12 @@ class GreaterTests: XCTestCase {
         A=A-1
         D=M-D
         M=0
-        @END_GT1
+        @END_GT2
         D;JLE
         @SP
         A=M-1
         M=-1
-        (END_GT1)
+        (END_GT2)
         """
         
         XCTAssertEqual(result1, expectation1)
@@ -63,12 +63,9 @@ class GreaterTests: XCTestCase {
 private final class Store: ConditionIndexRepository {
     private var counter: Int = 0
     
-    func getCurrentValue(for type: String) -> Int {
-        return counter
-    }
-    
-    func incrementIndex(for type: String) {
+    func incrementIndex(for type: String) -> Int {
         counter += 1
+        return counter
     }
     
 }

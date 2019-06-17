@@ -8,7 +8,19 @@
 
 import Foundation
 
-struct And { }
+struct And: Command {
+    
+    var body: String {
+        NewAssemblyCommand {
+            A.symbol(.sp)
+            C.assign(destination: .am, computation: .mMinusOne)
+            C.assign(destination: .d, computation: .m)
+            C.assign(destination: .a, computation: .aMinusOne)
+            C.assign(destination: .m, computation: .dAndM)
+        }.body
+    }
+    
+}
 
 extension And: VMCommand {
     

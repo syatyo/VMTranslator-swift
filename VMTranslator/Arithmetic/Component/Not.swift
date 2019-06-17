@@ -8,7 +8,17 @@
 
 import Foundation
 
-struct Not { }
+struct Not: Command {
+    
+    var body: String {
+        NewAssemblyCommand {
+            A.symbol(.sp)
+            C.assign(destination: .a, computation: .mMinusOne)
+            C.assign(destination: .m, computation: .notM)
+        }.body
+    }
+    
+}
 
 extension Not: VMCommand {
     
