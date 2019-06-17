@@ -13,6 +13,10 @@
 		1838519E224F4BCB006532AE /* CallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1838519D224F4BCB006532AE /* CallTests.swift */; };
 		183851A0224F4C49006532AE /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1838519F224F4C49006532AE /* Call.swift */; };
 		183851A1224F4C4B006532AE /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1838519F224F4C49006532AE /* Call.swift */; };
+		1871794922B7B5BB00E4A367 /* A.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871794822B7B5BB00E4A367 /* A.swift */; };
+		1871794B22B7B5CE00E4A367 /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871794A22B7B5CE00E4A367 /* C.swift */; };
+		1871794C22B7B5FC00E4A367 /* A.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871794822B7B5BB00E4A367 /* A.swift */; };
+		1871794D22B7B5FE00E4A367 /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871794A22B7B5CE00E4A367 /* C.swift */; };
 		18813A7122B6BF4D00ACDDDB /* NewCommandBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18813A7022B6BF4D00ACDDDB /* NewCommandBuilder.swift */; };
 		188E18A022216E69006602D0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E189F22216E69006602D0 /* main.swift */; };
 		188E18AD22216FFA006602D0 /* VMTranslatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E18AC22216FFA006602D0 /* VMTranslatorTests.swift */; };
@@ -127,6 +131,8 @@
 		1838519A224F34CA006532AE /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		1838519D224F4BCB006532AE /* CallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTests.swift; sourceTree = "<group>"; };
 		1838519F224F4C49006532AE /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
+		1871794822B7B5BB00E4A367 /* A.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A.swift; sourceTree = "<group>"; };
+		1871794A22B7B5CE00E4A367 /* C.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C.swift; sourceTree = "<group>"; };
 		18813A7022B6BF4D00ACDDDB /* NewCommandBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommandBuilder.swift; sourceTree = "<group>"; };
 		188E189C22216E69006602D0 /* VMTranslator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VMTranslator; sourceTree = BUILT_PRODUCTS_DIR; };
 		188E189F22216E69006602D0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -339,8 +345,10 @@
 		188E193D222BB9D8006602D0 /* Command */ = {
 			isa = PBXGroup;
 			children = (
-				188E191C222B7F77006602D0 /* AssemblyCommand.swift */,
+				1871794822B7B5BB00E4A367 /* A.swift */,
+				1871794A22B7B5CE00E4A367 /* C.swift */,
 				188E191E222B8055006602D0 /* AInstruction.swift */,
+				188E191C222B7F77006602D0 /* AssemblyCommand.swift */,
 				188E19052226D2DC006602D0 /* CInstruction.swift */,
 				188E192D222B8FA1006602D0 /* LabelSymbolInstruction.swift */,
 			);
@@ -451,6 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1871794B22B7B5CE00E4A367 /* C.swift in Sources */,
 				188E18B822217453006602D0 /* CommandFormatter.swift in Sources */,
 				183851A0224F4C49006532AE /* Call.swift in Sources */,
 				188E19442238E766006602D0 /* Push.swift in Sources */,
@@ -486,6 +495,7 @@
 				188E1929222B88ED006602D0 /* CommandBuilder.swift in Sources */,
 				188E190C2226DD24006602D0 /* Jump.swift in Sources */,
 				188E195222391D1A006602D0 /* Segment.swift in Sources */,
+				1871794922B7B5BB00E4A367 /* A.swift in Sources */,
 				188E19022226D0C5006602D0 /* Not.swift in Sources */,
 				188E18C222219786006602D0 /* CodeWriter.swift in Sources */,
 			);
@@ -498,6 +508,7 @@
 				188E1927222B8711006602D0 /* CommandBuilderTests.swift in Sources */,
 				188E19102226DDBF006602D0 /* CInstruction.swift in Sources */,
 				188E18C02221976C006602D0 /* CodeWriterTests.swift in Sources */,
+				1871794D22B7B5FE00E4A367 /* C.swift in Sources */,
 				188E195322391E24006602D0 /* Segment.swift in Sources */,
 				188E195022391AC1006602D0 /* Pop.swift in Sources */,
 				188E1922222B828B006602D0 /* AInstruction.swift in Sources */,
@@ -536,6 +547,7 @@
 				188E19412237E4B0006602D0 /* VMTranslator.swift in Sources */,
 				188E18BA2221748C006602D0 /* CommandFormatterTests.swift in Sources */,
 				18F2E1CA2247BD0E009B14BA /* LabelTests.swift in Sources */,
+				1871794C22B7B5FC00E4A367 /* A.swift in Sources */,
 				188E1925222B8537006602D0 /* CInstructionTests.swift in Sources */,
 				188E1921222B8287006602D0 /* AInstructionTests.swift in Sources */,
 				188E18E72226B10A006602D0 /* Equal.swift in Sources */,

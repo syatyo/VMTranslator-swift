@@ -82,54 +82,6 @@ struct NewAssemblyCommand: Command {
     
 }
 
-/// @value command in assembly. It assign given value to A register.
-struct A: Command {
-    typealias Body = String
-    var body: String
-    
-    enum DefinedSymbol: String {
-        case sp
-        case lcl
-        case arg
-        case this
-        case that
-    }
-    
-    init(difinedSymbol: DefinedSymbol) {
-        self.body = "@\(difinedSymbol.rawValue.uppercased())"
-    }
-    
-    init(constant: Int) {
-        self.body = "@\(constant.description)"
-    }
-    
-    init(label: String) {
-        self.body = "@\(label)"
-    }
-    
-}
-
-enum C: Command {
-    typealias Body = String
-    var body: String {
-        switch self {
-        case .assign(destination: let dest, computation: let comp):
-            return "\(dest.value)=\(comp.value)"
-            
-        case .jump(operand: let operand, conditionType: let cond):
-            return "\(operand.rawValue);\(cond.rawValue.uppercased())"
-        }
-    }
-    
-    enum JumpOperand: String {
-        case d = "D"
-        case zero = "0"
-    }
-    
-    case assign(destination: Destination, computation: Computation)
-    case jump(operand: JumpOperand, conditionType: ConditionType)
-}
-
 struct NewPush: Command {
     var index: Int
     var `type`: A.DefinedSymbol
