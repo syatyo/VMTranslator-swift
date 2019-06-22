@@ -24,6 +24,7 @@ enum SegmentType: String {
     case temp
 }
 
+
 struct CodeWriter {
     private let outputDirURL: URL
     var outputFilePath: String {
@@ -77,6 +78,7 @@ struct CodeWriter {
         
         let outputFilePath = outputDirURL.appendingPathComponent(fileName).path
         try assembly.write(toFile: outputFilePath, atomically: false, encoding: .utf8)
+        assert(FileManager.default.fileExists(atPath: outputFilePath), "Failed to write file.")
     }
     
     mutating func writePushPop(_ commandType: MemoryAccessCommandType,
