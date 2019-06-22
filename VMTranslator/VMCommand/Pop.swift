@@ -8,23 +8,6 @@
 
 import Foundation
 
-private extension SegmentType {
-    
-    var symbol: A.DefinedSymbol {
-        switch self {
-        case .local:
-            return .lcl
-        case .argument:
-            return .arg
-        case .this:
-            return .this
-        case .that:
-            return .that
-        default:
-            fatalError()
-        }
-    }
-}
 
 struct Pop: Command {
     let segment: Segment
