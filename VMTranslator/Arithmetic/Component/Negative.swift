@@ -8,16 +8,14 @@
 
 import Foundation
 
-struct Negative { }
-
-extension Negative: VMCommand {
+struct Negative: Command {
     
-    var assemblyTranslatedCommands: [AssemblyCommand] {
-        return [
-            AInstruction(difinedSymbol: .sp),
-            CInstruction.assign(destination: .a, computation: .mMinusOne),
-            CInstruction.assign(destination: .m, computation: .minusM)
-        ]
+    var body: String {
+        NewAssemblyCommand {
+            A.symbol(.sp)
+            C.assign(destination: .a, computation: .mMinusOne)
+            C.assign(destination: .m, computation: .minusM)
+        }.body
     }
     
 }

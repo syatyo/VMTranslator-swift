@@ -19,7 +19,7 @@ class SubTests: XCTestCase {
     }
 
     func testSub() {
-        let result = Sub().assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
+        let result = Sub().body
         let expectation = """
         @SP
         AM=M-1

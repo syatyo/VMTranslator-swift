@@ -9,7 +9,8 @@
 import Foundation
 
 private extension SegmentType {
-    var symbol: AInstruction.DefinedSymbol {
+    
+    var symbol: A.DefinedSymbol {
         switch self {
         case .local:
             return .lcl
@@ -25,21 +26,32 @@ private extension SegmentType {
     }
 }
 
-struct Pop {
+struct Pop: Command {
     let segment: Segment
     let index: Int
+    
+    var body: String {
+        NewAssemblyCommand { () -> String in
+            A.symbol(.sp)
+            C.assign(destination: .am, computation: .mMinusOne)
+            C.assign(destination: .d, computation: .m)
+            SegmentCommand(type: .pop, segment: segment, index: index)
+            C.assign(destination: .m, computation: .d)
+        }.body
+    }
+    
 }
 
 extension Pop: VMCommand {
     
     var assemblyTranslatedCommands: [AssemblyCommand] {
         return [
-            AInstruction(difinedSymbol: .sp),
-            CInstruction.assign(destination: .am, computation: .mMinusOne),
-            CInstruction.assign(destination: .d, computation: .m)
+            A.symbol(.sp),
+            C.assign(destination: .am, computation: .mMinusOne),
+            C.assign(destination: .d, computation: .m)
         ]
         + segment.popCommands(index: index)
-        + [CInstruction.assign(destination: .m, computation: .d)]
+        + [C.assign(destination: .m, computation: .d)]
 
     }
 

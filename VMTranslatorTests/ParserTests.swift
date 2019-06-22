@@ -19,7 +19,7 @@ class ParserTests: XCTestCase {
     }
 
     func testParserInit() {
-        let path = testOutputDirPath + "SimpleAdd.vm"
+        let path = inputDirPath + "SimpleAdd.vm"
         let parser = Parser(vmFilePath: path)
         XCTAssertEqual(parser.commands[0], "push constant 7")
         XCTAssertEqual(parser.commands[1], "push constant 8")
@@ -27,7 +27,7 @@ class ParserTests: XCTestCase {
     }
     
     func testCommandTypes() {
-        let path = testOutputDirPath + "TestCommands.vm"
+        let path = inputDirPath + "TestCommands.vm"
         var parser = Parser(vmFilePath: path)
         
         XCTAssertEqual(parser.commandType, .arithmetic)
@@ -69,7 +69,7 @@ class ParserTests: XCTestCase {
     }
     
     func testArg1() {
-        let path = testOutputDirPath + "TestCommands.vm"
+        let path = inputDirPath + "TestCommands.vm"
         var parser = Parser(vmFilePath: path)
         
         XCTAssertEqual(parser.arg1, "add")
@@ -110,7 +110,7 @@ class ParserTests: XCTestCase {
     }
     
     func testArg2() {
-        let path = testOutputDirPath + "TestCommands.vm"
+        let path = inputDirPath + "TestCommands.vm"
         var parser = Parser(vmFilePath: path)
         
         // no second argment.

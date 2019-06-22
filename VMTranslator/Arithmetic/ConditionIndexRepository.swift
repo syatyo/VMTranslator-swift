@@ -9,20 +9,16 @@
 import Foundation
 
 protocol ConditionIndexRepository {
-    func getCurrentValue(for type: String) -> Int
-    func incrementIndex(for type: String)
+    func incrementIndex(for type: String) -> Int
 }
 
 extension ConditionIndexStore: ConditionIndexRepository {
     
-    func getCurrentValue(for type: String) -> Int {
-        return value(for: type) ?? 0
-    }
-    
-    func incrementIndex(for type: String) {
-        var currentValue = getCurrentValue(for: type)
-        currentValue += 1
-        setValue(currentValue, for: type)
+    func incrementIndex(for type: String) -> Int {
+        let currentValue = value(for: type) ?? 0
+        let incrementedValue = currentValue + 1
+        setValue(incrementedValue, for: type)
+        return incrementedValue
     }
     
 }

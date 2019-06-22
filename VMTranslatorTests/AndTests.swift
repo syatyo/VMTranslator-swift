@@ -19,7 +19,7 @@ class AndTests: XCTestCase {
     }
     
     func testExecute() {
-        let result = And().assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
+        let result = And().body
         let expectation = """
         @SP
         AM=M-1

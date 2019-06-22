@@ -22,24 +22,8 @@ class LessTests: XCTestCase {
         var less = Less()
         less.inject(repository: Store())
         
-        let result1 = less.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
+        let result1 = less.body
         let expectation1 = """
-        @SP
-        AM=M-1
-        D=M
-        A=A-1
-        D=M-D
-        M=0
-        @END_LT0
-        D;JGE
-        @SP
-        A=M-1
-        M=-1
-        (END_LT0)
-        """
-        
-        let result2 = less.assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
-        let expectation2 = """
         @SP
         AM=M-1
         D=M
@@ -54,6 +38,22 @@ class LessTests: XCTestCase {
         (END_LT1)
         """
         
+        let result2 = less.body
+        let expectation2 = """
+        @SP
+        AM=M-1
+        D=M
+        A=A-1
+        D=M-D
+        M=0
+        @END_LT2
+        D;JGE
+        @SP
+        A=M-1
+        M=-1
+        (END_LT2)
+        """
+        
         XCTAssertEqual(result1, expectation1)
         XCTAssertEqual(result2, expectation2)
     }
@@ -61,14 +61,12 @@ class LessTests: XCTestCase {
 }
 
 private final class Store: ConditionIndexRepository {
+    
     private var counter: Int = 0
     
-    func getCurrentValue(for type: String) -> Int {
-        return counter
-    }
-    
-    func incrementIndex(for type: String) {
+    func incrementIndex(for type: String) -> Int {
         counter += 1
+        return counter
     }
     
 }

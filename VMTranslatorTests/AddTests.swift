@@ -19,7 +19,7 @@ class AddTests: XCTestCase {
     }
     
     func testAdd() {
-        let result = Add().assemblyTranslatedCommands.map { $0.generate() }.joined(separator: "\n")
+        let result = Add().body
         let expectation = """
         @SP
         AM=M-1

@@ -8,19 +8,33 @@
 
 import Foundation
 
-struct Equal: Conditionable {
+struct Equal: Conditionable, Command {
     var conditionType: ConditionType { return .jeq }
     private(set) var repository: ConditionIndexRepository!
+    
     mutating func inject(repository: ConditionIndexRepository) {
         self.repository = repository
     }
 
-}
+    var body: String {
+        let incrementedValue = repository.incrementIndex(for: String(describing: type(of: self)))
+        let conditionLabel = "END_\(conditionType.symbolIdentifer)\(incrementedValue)"
 
-extension Equal: VMCommand {
-    
-    var assemblyTranslatedCommands: [AssemblyCommand] {
-        return translateToAssemblyCommands()
+        return NewAssemblyCommand {
+            A.symbol(.sp)
+            C.assign(destination: .am, computation: .mMinusOne)
+            C.assign(destination: .d, computation: .m)
+            C.assign(destination: .a, computation: .aMinusOne)
+            C.assign(destination: .d, computation: .mMinusD)
+            C.assign(destination: .m, computation: Computation(boolean: .false))
+            A.label(conditionLabel)
+            C.jump(operand: .d, conditionType: conditionType.complement)
+            A.symbol(.sp)
+            C.assign(destination: .a, computation: .mMinusOne)
+            C.assign(destination: .m, computation: Computation(boolean: .true))
+            LabelSymbol(label: conditionLabel)
+        }.body
+        
     }
     
 }

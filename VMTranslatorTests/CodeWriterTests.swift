@@ -26,18 +26,18 @@ class CodeWriterTests: XCTestCase {
     }
     
     func testClose() {
-        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        var codeWriter = CodeWriter(outputDirPath: outputDirPath)
         codeWriter.setFileName("testClose.asm")
         try! codeWriter.close()
         
-        let isFileSaved = FileManager.default.fileExists(atPath: testOutputDirPath + "testClose.asm")
+        let isFileSaved = FileManager.default.fileExists(atPath: outputDirPath + "testClose.asm")
         XCTAssertTrue(isFileSaved)
-        try! FileManager.default.removeItem(atPath: testOutputDirPath + "testClose.asm")
+        try! FileManager.default.removeItem(atPath: outputDirPath + "testClose.asm")
     }
     
     func testWritePush() {
         
-        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        var codeWriter = CodeWriter(outputDirPath: outputDirPath)
         codeWriter.setFileName("test.asm")
         codeWriter.writePushPop(.push, segment: "constant", index: 8)
         
@@ -55,7 +55,7 @@ class CodeWriterTests: XCTestCase {
     }
     
     func testWriteAdd() {
-        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        var codeWriter = CodeWriter(outputDirPath: outputDirPath)
         codeWriter.setFileName("testAdd.asm")
         codeWriter.writeArithmetic(command: "add")
         
@@ -71,7 +71,7 @@ class CodeWriterTests: XCTestCase {
     }
     
     func testWriteSub() {
-        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        var codeWriter = CodeWriter(outputDirPath: outputDirPath)
         codeWriter.setFileName("testSub.asm")
         codeWriter.writeArithmetic(command: "sub")
         
@@ -87,7 +87,7 @@ class CodeWriterTests: XCTestCase {
     }
     
     func testWriteNeg() {
-        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        var codeWriter = CodeWriter(outputDirPath: outputDirPath)
         codeWriter.setFileName("testNeg.asm")
         codeWriter.writeArithmetic(command: "neg")
         
@@ -101,7 +101,7 @@ class CodeWriterTests: XCTestCase {
     }
     
     func testWriteEq() {
-        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        var codeWriter = CodeWriter(outputDirPath: outputDirPath)
         codeWriter.setFileName("testEq.asm")
         codeWriter.writeArithmetic(command: "eq")
         
@@ -112,19 +112,19 @@ class CodeWriterTests: XCTestCase {
         A=A-1
         D=M-D
         M=0
-        @END_EQ0
+        @END_EQ1
         D;JNE
         @SP
         A=M-1
         M=-1
-        (END_EQ0)
+        (END_EQ1)
         """
         
         XCTAssertEqual(codeWriter.assembly, expectation)
     }
     
     func testWriteGt() {
-        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        var codeWriter = CodeWriter(outputDirPath: outputDirPath)
         codeWriter.setFileName("testGt.asm")
         codeWriter.writeArithmetic(command: "gt")
         
@@ -135,19 +135,19 @@ class CodeWriterTests: XCTestCase {
         A=A-1
         D=M-D
         M=0
-        @END_GT0
+        @END_GT1
         D;JLE
         @SP
         A=M-1
         M=-1
-        (END_GT0)
+        (END_GT1)
         """
         
         XCTAssertEqual(codeWriter.assembly, expectation)
     }
     
     func testWriteLt() {
-        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        var codeWriter = CodeWriter(outputDirPath: outputDirPath)
         codeWriter.setFileName("testLt.asm")
         codeWriter.writeArithmetic(command: "lt")
         
@@ -158,19 +158,19 @@ class CodeWriterTests: XCTestCase {
         A=A-1
         D=M-D
         M=0
-        @END_LT0
+        @END_LT1
         D;JGE
         @SP
         A=M-1
         M=-1
-        (END_LT0)
+        (END_LT1)
         """
         
         XCTAssertEqual(codeWriter.assembly, expectation)
     }
     
     func testWriteAnd() {
-        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        var codeWriter = CodeWriter(outputDirPath: outputDirPath)
         codeWriter.setFileName("testAnd.asm")
         codeWriter.writeArithmetic(command: "and")
         
@@ -186,7 +186,7 @@ class CodeWriterTests: XCTestCase {
     }
     
     func testWriteOr() {
-        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        var codeWriter = CodeWriter(outputDirPath: outputDirPath)
         codeWriter.setFileName("testOr.asm")
         codeWriter.writeArithmetic(command: "or")
         
@@ -202,7 +202,7 @@ class CodeWriterTests: XCTestCase {
     }
     
     func testWriteNot() {
-        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        var codeWriter = CodeWriter(outputDirPath: outputDirPath)
         codeWriter.setFileName("testNot.asm")
         codeWriter.writeArithmetic(command: "not")
         
@@ -216,7 +216,7 @@ class CodeWriterTests: XCTestCase {
     }
     
     func testSimpleAdd() {
-        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        var codeWriter = CodeWriter(outputDirPath: outputDirPath)
         codeWriter.setFileName("testSimpleAdd.asm")
         codeWriter.writePushPop(.push, segment: "constant", index: 7)
         codeWriter.writePushPop(.push, segment: "constant", index: 8)
@@ -245,7 +245,7 @@ class CodeWriterTests: XCTestCase {
     }
     
     func testWriteLabel() {
-        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        var codeWriter = CodeWriter(outputDirPath: outputDirPath)
         codeWriter.setFileName("testLabel.asm")
         codeWriter.writeLabel("label-func$label")
         
@@ -256,7 +256,7 @@ class CodeWriterTests: XCTestCase {
     }
     
     func testWriteGoto() {
-        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        var codeWriter = CodeWriter(outputDirPath: outputDirPath)
         codeWriter.setFileName("testGoto.asm")
         codeWriter.writeGoto("goto-func$label")
         
@@ -268,7 +268,7 @@ class CodeWriterTests: XCTestCase {
     }
     
     func testWriteIf() {
-        var codeWriter = CodeWriter(outputDirPath: testOutputDirPath)
+        var codeWriter = CodeWriter(outputDirPath: outputDirPath)
         codeWriter.setFileName("testIf.asm")
         codeWriter.writeIf("if-func$label")
         

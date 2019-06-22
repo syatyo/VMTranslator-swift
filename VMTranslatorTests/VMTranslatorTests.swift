@@ -9,7 +9,7 @@
 import XCTest
 
 class VMTranslatorTests: XCTestCase {
-    let outputFilePath = testOutputDirPath + "SimpleAdd.asm"
+    let outputFilePath = outputDirPath + "SimpleAdd.asm"
 
     override func setUp() {
 
@@ -22,12 +22,11 @@ class VMTranslatorTests: XCTestCase {
     
     func testVMTranslateSimpleAdd() {
         // Precondition
-        let outputFilePath = testOutputDirPath + "SimpleAdd.asm"
         let isFileExisted = FileManager.default.fileExists(atPath: outputFilePath)
         XCTAssertFalse(isFileExisted)
         
-        let path = testOutputDirPath + "SimpleAdd.vm"
-        let vmTranslator = try! VMTranslator(path: path)
+        let path = inputDirPath + "SimpleAdd.vm"
+        let vmTranslator = try! VMTranslator(inputPath: path, outputDirectoryPath: outputDirPath)
         try! vmTranslator.startTranslating()
         
         let isFileExistedAfterClose = FileManager.default.fileExists(atPath: outputFilePath)
@@ -57,5 +56,5 @@ class VMTranslatorTests: XCTestCase {
         
         XCTAssertEqual(asmText, expectation)
     }
-    
+        
 }

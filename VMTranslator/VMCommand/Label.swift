@@ -8,14 +8,19 @@
 
 import Foundation
 
-struct Label {
+struct Label: Command {
     let name: String
+    
+    var body: String {
+        LabelSymbol(label: name).body
+    }
+    
 }
 
 extension Label: VMCommand {
     
     var assemblyTranslatedCommands: [AssemblyCommand] {
-        return [LabelSymbolInstruction(label: name)]
+        return [LabelSymbol(label: name)]
     }
     
 }

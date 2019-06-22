@@ -8,18 +8,16 @@
 
 import Foundation
 
-struct Or { }
-
-extension Or: VMCommand {
+struct Or: Command {
     
-    var assemblyTranslatedCommands: [AssemblyCommand] {
-        return [
-            AInstruction(difinedSymbol: .sp),
-            CInstruction.assign(destination: .am, computation: .mMinusOne),
-            CInstruction.assign(destination: .d, computation: .m),
-            CInstruction.assign(destination: .a, computation: .aMinusOne),
-            CInstruction.assign(destination: .m, computation: .dOrM)
-        ]
+    var body: String {
+        NewAssemblyCommand {
+            A.symbol(.sp)
+            C.assign(destination: .am, computation: .mMinusOne)
+            C.assign(destination: .d, computation: .m)
+            C.assign(destination: .a, computation: .aMinusOne)
+            C.assign(destination: .m, computation: .dOrM)
+        }.body
     }
     
 }
